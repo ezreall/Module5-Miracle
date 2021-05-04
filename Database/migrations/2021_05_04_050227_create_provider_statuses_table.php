@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRenterStatusTable extends Migration
+class CreateProviderStatusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateRenterStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('renter_status', function (Blueprint $table) {
+        Schema::create('provider_statuses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateRenterStatusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('renter_status');
+        Schema::dropIfExists('provider_statuses');
     }
 }

@@ -7,6 +7,7 @@ import { MenuComponent } from './font-end/menu/menu.component';
 import { LoginPageComponent } from './Login/components/login-page/login-page.component';
 import { ShowListComponent } from './Login/components/show-list/show-list.component';
 import { MenuLoginComponent } from './Login/components/menu-login/menu-login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { MenuLoginComponent } from './Login/components/menu-login/menu-login.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
