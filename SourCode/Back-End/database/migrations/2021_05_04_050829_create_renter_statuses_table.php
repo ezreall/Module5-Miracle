@@ -13,7 +13,7 @@ class CreateRenterStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('renter_status', function (Blueprint $table) {
+        Schema::create('renter_statuses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateRenterStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('renter_status');
+        Schema::dropIfExists('renter_statuses');
     }
 }

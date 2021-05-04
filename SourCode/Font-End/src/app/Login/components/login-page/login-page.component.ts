@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -7,6 +8,7 @@ import { AuthService } from 'src/app/Service/auth.service';
 
 const user_key = 'token';
 
+
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -14,6 +16,7 @@ const user_key = 'token';
 })
 
 export class LoginPageComponent implements OnInit {
+
 
   loginForm!: FormGroup;
   message = '';
@@ -26,8 +29,12 @@ export class LoginPageComponent implements OnInit {
 
   ) { }
 
+
   ngOnInit(): void {
+  
   }
+
+ 
   checkLogin() {
     console.log(this.loginForm?.value);
     let data = this.loginForm?.value;

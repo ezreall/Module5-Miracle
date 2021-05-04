@@ -27,6 +27,6 @@ class CreateProviderStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('provider_status');
+        Schema::dropIfExists('provider_statuses');
     }
 }
