@@ -4,9 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { ShowListComponent } from './components/show-list/show-list.component';
 import { DetailPlayerComponent } from './components/detail-player/detail-player.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
-const routes: Routes = [{
+const routes: Routes = [
+ 
+  {
   path: 'login',
   component: LoginPageComponent,
 },{
@@ -23,6 +27,8 @@ const routes: Routes = [{
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
+    
     RouterModule.forChild(routes)
   ]
 })

@@ -11,5 +11,5 @@ export class MenuLoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
 }

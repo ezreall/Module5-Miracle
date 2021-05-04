@@ -21,7 +21,9 @@ const routes: Routes = [
   ]},{
     path:'admin',
     component:NavbarComponent
-  },{
+  },
+  
+  {
     path:'',
     component:MenuLoginComponent,
     children:[{
