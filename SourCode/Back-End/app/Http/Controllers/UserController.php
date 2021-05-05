@@ -18,6 +18,8 @@ class UserController extends Controller
         $user->email = $params['email'];
         $user->name = $params['name'];
         $user->phone = $params['phone'];
+//        $user->status_id = 2;
+//        $user->role_id = 3;
         $user->password = bcrypt($params['password']);
         $user->save();
 
@@ -49,13 +51,7 @@ class UserController extends Controller
         return response(null, Response::HTTP_BAD_REQUEST);
     }
 
-    /**
-     * Log out
-     * Invalidate the token, so user cannot use it anymore
-     * They have to relogin to get a new token
-     *
-     * @param Request $request
-     */
+
     public function logout(Request $request) {
         $this->validate($request, ['token' => 'required']);
 
