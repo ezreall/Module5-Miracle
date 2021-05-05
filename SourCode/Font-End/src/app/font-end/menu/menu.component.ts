@@ -28,7 +28,6 @@ export class MenuComponent implements OnInit {
         console.log(res);
         console.log(res.status === 'success')
         if(res.status === 'success'){
-         
           sessionStorage.clear();
           this.router.navigate(['login']);
           alert(res.message);

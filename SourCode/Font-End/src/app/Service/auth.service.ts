@@ -4,16 +4,6 @@ import { Observable } from 'rxjs';
 
 
 
-
-let headers_object = new HttpHeaders({
-
-  'Access-Control-Allow-Origin': '*',
-  'Content-Type': 'application/json',
-  'Authorization': "Bearer " + sessionStorage.getItem('token')
-})
-const httpOptions = {
-  headers: headers_object
-}
 @Injectable({
   providedIn: 'root'
 })
@@ -31,7 +21,17 @@ export class AuthService {
   logout(): Observable<any> {
     console.log("Bearer " + sessionStorage.getItem('token'));
    
-    return this.http.post(this.api_url + '/logout','', httpOptions);
+    return this.http.post(this.api_url + '/logout','', this.getHeader());
 
+  }
+  getHeader() {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+        'Authorization': "Bearer " + sessionStorage.getItem('token')
+      })
+    }
+    return httpOptions;
   }
 }

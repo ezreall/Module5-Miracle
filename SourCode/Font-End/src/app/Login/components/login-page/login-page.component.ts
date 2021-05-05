@@ -16,12 +16,12 @@ const user_key = 'token';
 })
 
 export class LoginPageComponent implements OnInit {
-
-
+  login:boolean=true;
+  register :boolean=false;
   loginForm!: FormGroup;
   message = '';
 
-  isRegister: boolean = false;
+
   constructor(
     private formbd: FormBuilder,
     private router: Router,
@@ -36,6 +36,10 @@ export class LoginPageComponent implements OnInit {
    }
   ngOnInit(): void {
   
+  }
+  button(){
+    this.register=true;
+    this.login=false;
   }
   checkLogin() {
     console.log(this.loginForm?.value);
