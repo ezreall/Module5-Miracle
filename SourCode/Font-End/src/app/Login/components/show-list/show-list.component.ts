@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show-list.component.css']
 })
 export class ShowListComponent implements OnInit {
+ 
+  totalLength: any;
 
+  page:number=1;
+  showpost:any=[];
+  
   constructor() { }
+
   isDropdown: boolean = false;
+
   ngOnInit(): void {
+    
   }
   click() {
     this.isDropdown = true;
