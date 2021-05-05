@@ -30,37 +30,37 @@
                             <div class="box"><input class="input-file-1" name="newImage" type="file" accept="image/png, image/jpeg, image/jpg"></div><br><input name="scale" type="range" min="1" max="3" step="0.01" value="1" style="width: 15%; margin: 0px auto;"><br><button value="Save">Lưu</button><button value="Cancel">Huỷ bỏ</button>
                         </div> -->
 
-                        <form class="from-userinfo" (ngSubmit)="onSubmit()">
+                        <form class="from-userinfo" [formGroup]="createForm"  (ngSubmit)="onSubmit()">
                             <div class="fieldGroup ">
-                                <p class="control-label">Họ và tên</p><input type="text" name="name" placeholder="" maxlength="5000" autocomplete="false" >
+                                <p class="control-label">Họ và tên</p><input type="text" formControlName="name" name="name" placeholder="" maxlength="5000" autocomplete="false" >
                             </div>
                             
                             <div class="fieldGroup ">
-                                <p class="control-label">Cân nặng</p><input type="text" name="weight" placeholder="" maxlength="5000" autocomplete="false" >
+                                <p class="control-label">Cân nặng</p><input type="text" name="weight" formControlName="weight" placeholder="" maxlength="5000" autocomplete="false" >
                             </div>
                             <div class="fieldGroup ">
-                                <p class="control-label">Chiều cao</p><input type="text" name="height" placeholder="" maxlength="5000" autocomplete="false" >
+                                <p class="control-label">Chiều cao</p><input type="text" name="height" formControlName="height" placeholder="" maxlength="5000" autocomplete="false" >
                             </div>
                             <div class="fieldGroup ">
-                                <p class="control-label">Yêu cầu</p><input type="text" name="required" placeholder="" maxlength="5000" autocomplete="false">
+                                <p class="control-label">Yêu cầu</p><input type="text" name="required" placeholder="" formControlName="required" maxlength="5000" autocomplete="false">
                             </div>
                             <div class="fieldGroup ">
-                                <p class="control-label">Sở thích</p><input type="text" name="hobby" placeholder="" maxlength="5000" autocomplete="false" >
+                                <p class="control-label">Sở thích</p><input type="text" name="hobby" placeholder="" formControlName="hobby" maxlength="5000" autocomplete="false" >
                             </div>
                             <div class="fieldGroup ">
-                                <p class="control-label">Mô tả</p><textarea name="description" id="" cols="30" rows="10" style="width:400px"></textarea>
+                                <p class="control-label">Mô tả</p><textarea name="description" id="" cols="30" rows="10" formControlName="description" style="width:400px"></textarea>
 
                             </div>
                             <div class="fieldGroup ">
-                                <p class="control-label">Ngày sinh</p><input type="date" name="date_of_birth" placeholder="" maxlength="5000" autocomplete="false">
+                                <p class="control-label">Ngày sinh</p><input type="date" formControlName="date_of_birth" name="date_of_birth" placeholder="" maxlength="5000" autocomplete="false">
                             </div>
-                            <p class="control-label">Giọng</p><select name="voice">
+                            <p class="control-label">Giọng</p><select formControlName="voice" name="voice">
                                 <option disabled="">--- Chọn vùng ---</option>
                                 <option value="Miền Bắc">Miền Bắc</option>
                                 <option value="Miền Trung">Miền Trung</option>
                                 <option value="Miền Nam">Miền Nam</option>
                             </select>
-                            <p class="control-label">Quốc gia</p><select name="country">
+                            <p class="control-label">Quốc gia</p><select formControlName="country" name="country">
                                 <option value="5b99f97c978dff3d115260e3">Afghanistan</option>
                                 <option value="5b99f97c978dff3d115260e4">Albania</option>
                                 <option value="5b99f97c978dff3d115260e5">Algeria</option>
@@ -297,7 +297,7 @@
                                 <option value="5b99f97c978dff3d115261cc">Zimbabwe</option>
                                 <option value="5b99f97c978dff3d115261cd">Åland Islands</option>
                             </select>
-                            <p class="control-label">Thành phố</p><select name="city">
+                            <p class="control-label">Thành phố</p><select formControlName="city" name="city">
                                 <option value="5b99f9e35180d13ea22a97fc">An Giang</option>
                                 <option value="5b99f9e35180d13ea22a97fd"> Bà Rịa Vũng Tàu</option>
                                 <option value="5b99f9e35180d13ea22a97fe"> Bình Dương</option>
@@ -365,9 +365,12 @@
                                 <option value="5b99f9e35180d13ea22a983c">Khác</option>
                             </select>
                             <p class="control-label">Giới tính</p>
-                            <div class="d-flex"><label class="gender--radio"><input name="gender" type="radio" value="male">Nam<span></span></label><label class="gender--radio"><input name="gender" type="radio" value="female">Nữ<span></span></label></div>
+                            <div class="d-flex"><label class="gender--radio"><input formControlName="gender" name="gender" type="radio" value="male">Nam<span></span></label><label class="gender--radio"><input name="gender" type="radio" value="female">Nữ<span></span></label></div>
                             <div class="fieldGroup ">
-                                <p class="control-label">Ảnh đại diện</p><input type="file" name="avatar" placeholder="" maxlength="5000" autocomplete="false">
+                                <p class="control-label">Ảnh đại diện</p><input type="file"  formControlName="avatar" name="avatar" placeholder="" maxlength="5000" autocomplete="false">
+                            </div>
+                            <div class="fieldGroup ">
+                                <p class="control-label">Ảnh chi tiết</p><input type="file"  formControlName="image" name="image" placeholder="" maxlength="5000" autocomplete="false">
                             </div>
                             <hr><button type="submit" class="btn-update">Cập nhật</button>
                         </form>
