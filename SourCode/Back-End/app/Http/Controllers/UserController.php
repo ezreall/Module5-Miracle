@@ -60,13 +60,7 @@ class UserController extends Controller
 
 
     public function logout(Request $request) {
-//        $this->validate($request, ['token' => 'required']);
-//        try {
-//            JWTAuth::invalidate($request->bearerToken());
-//            return response()->json(['status' => 'success', 'message'=>'You have successfully logged out.'], Response::HTTP_OK);
-//        } catch (JWTException $e) {
-//            return response()->json(['status' => 'error', 'message'=>'Failed to logout, please try again.'], Response::HTTP_BAD_REQUEST);
-//        }
+
         try {
             JWTAuth::invalidate($request->bearerToken());
             return response()->json(['status' => 'success', 'message' => 'logout successfully']);
