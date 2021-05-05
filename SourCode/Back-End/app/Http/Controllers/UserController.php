@@ -22,6 +22,7 @@ class UserController extends Controller
 //        $user->role_id = 3;
         $user->password = bcrypt($params['password']);
         $user->save();
+        MailController::sendSignupEmail($user->name,$user->email);
 
         return response()->json($user, Response::HTTP_OK);
     }
