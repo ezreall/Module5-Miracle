@@ -6,15 +6,13 @@ import { ShowListComponent } from './components/show-list/show-list.component';
 import { DetailPlayerComponent } from './components/detail-player/detail-player.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from '../auth/auth.guard';
 
 
 const routes: Routes = [
 
-  {
-    path: 'login',
-    component: LoginPageComponent,
-  }, {
-    path: 'players',
+ {
+    path: '',
     component: ShowListComponent
   }, {
     path: 'detail',

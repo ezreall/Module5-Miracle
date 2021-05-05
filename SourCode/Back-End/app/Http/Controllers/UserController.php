@@ -34,8 +34,15 @@ class UserController extends Controller
                 'msg' => 'Invalid Credentials.'
             ], Response::HTTP_BAD_REQUEST);
         }
+        $user = Auth::user();
 
-        return response()->json(['token' => $token], Response::HTTP_OK);
+        return response()->json([
+            'status' => 'successfully',
+            'user' => $user,
+            'token' => $token
+        ], Response::HTTP_OK);
+
+//        return response()->json(['token' => $token], Response::HTTP_OK);
     }
 
     public function user(Request $request)
@@ -46,7 +53,7 @@ class UserController extends Controller
             return response($user, Response::HTTP_OK);
         }
 
-        return response(null, Response::HTTP_BAD_REQUEST);
+        return response()->json(['user' => $user], Response::HTTP_BAD_REQUEST );
     }
 
     /**
@@ -57,13 +64,18 @@ class UserController extends Controller
      * @param Request $request
      */
     public function logout(Request $request) {
-        $this->validate($request, ['token' => 'required']);
-
+//        $this->validate($request, ['token' => 'required']);
+//        try {
+//            JWTAuth::invalidate($request->bearerToken());
+//            return response()->json(['status' => 'success', 'message'=>'You have successfully logged out.'], Response::HTTP_OK);
+//        } catch (JWTException $e) {
+//            return response()->json(['status' => 'error', 'message'=>'Failed to logout, please try again.'], Response::HTTP_BAD_REQUEST);
+//        }
         try {
-            JWTAuth::invalidate($request->input('token'));
-            return response()->json('You have successfully logged out.', Response::HTTP_OK);
-        } catch (JWTException $e) {
-            return response()->json('Failed to logout, please try again.', Response::HTTP_BAD_REQUEST);
+            JWTAuth::invalidate($request->bearerToken());
+            return response()->json(['status' => 'success', 'message' => 'logout successfully']);
+        }catch (JWTException $e){
+            return response()->json(['status' => 'error', 'message' => 'Sorry, the user cannot be logout'], 500);
         }
     }
 

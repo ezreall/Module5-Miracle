@@ -27,14 +27,16 @@ export class LoginPageComponent implements OnInit {
     private router: Router,
     private authServices: AuthService
 
-  ) { }
-
-
+  )
+   { 
+    this.loginForm = this.formbd.group({
+      email: [''],
+      password: ['']})
+      
+   }
   ngOnInit(): void {
   
   }
-
- 
   checkLogin() {
     console.log(this.loginForm?.value);
     let data = this.loginForm?.value;
@@ -42,8 +44,9 @@ export class LoginPageComponent implements OnInit {
       console.log(res);
       if (res.status === 'successfully') {
         sessionStorage.setItem('token', res.token);
-        sessionStorage.setItem('user_name', res.user.name);
-        this.router.navigate(['home']);
+        console.log(res.user.name)
+        sessionStorage.setItem('user', res.user.name);
+        this.router.navigate(['users']);
       } else {
         this.message = res.message;
       }
