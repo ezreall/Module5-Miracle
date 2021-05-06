@@ -32,7 +32,7 @@ class ProviderController extends Controller
 
     public function store(Request $request){
 
-//        return response(1231231);
+//        return response()->json(1231231);
 
         DB::beginTransaction();
         try {
