@@ -16,16 +16,15 @@ class RequestStatusesSeeder extends Seeder
     public function run()
     {
         $status = new RequestStatus();
-        $status->name = "processing";
+        $status->name="Processing";
         $status->save();
 
         $status = new RequestStatus();
-        $status->name = "approve";
+        $status->name="Acceptance";
         $status->save();
 
         $status = new RequestStatus();
-        $status->name = "cancle";
+        $status->name="Cancel";
         $status->save();
-
     }
 }
