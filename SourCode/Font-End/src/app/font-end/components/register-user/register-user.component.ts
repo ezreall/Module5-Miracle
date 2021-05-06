@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Profile } from './profile';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { RegisterServiceService } from 'src/app/Service/register-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -65,7 +65,7 @@ export class RegisterUserComponent implements OnInit {
   }
   
 
-
+ 
  
 
 
