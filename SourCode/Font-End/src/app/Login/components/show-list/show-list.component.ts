@@ -10,18 +10,16 @@ import { ShowListService } from 'src/app/Service/show-list.service';
 })
 export class ShowListComponent implements OnInit {
   showlists: any=[];
-  count = 0;
   constructor(
     private showlistService: ShowListService,
-    private router: Router,
-    private formbd: FormBuilder
+    
   ) { }
 
   isDropdown: boolean = false;
 
   ngOnInit(): void {
       
-    this.ShowList()
+    this.ShowList();
     
 
   }
@@ -36,6 +34,7 @@ export class ShowListComponent implements OnInit {
     this.showlistService.showlist().subscribe(
       (res)=>{
         this.showlists=res[0];
+        
         console.log(this.showlists[0].name)
       })
      

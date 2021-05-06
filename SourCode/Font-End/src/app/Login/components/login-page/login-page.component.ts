@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, RequiredValidator, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Service/auth.service';
 
@@ -19,7 +19,7 @@ export class LoginPageComponent implements OnInit {
   login:boolean=true;
   register :boolean=false;
   loginForm!: FormGroup;
-  message = '';
+  msg = '';
 
 
   constructor(
@@ -30,8 +30,8 @@ export class LoginPageComponent implements OnInit {
   )
    { 
     this.loginForm = this.formbd.group({
-      email: [''],
-      password: ['']})
+      email: ['',Validators.required],
+      password: ['',Validators.required]})
       
    }
   ngOnInit(): void {
@@ -45,14 +45,16 @@ export class LoginPageComponent implements OnInit {
     console.log(this.loginForm?.value);
     let data = this.loginForm?.value;
     this.authServices.login(data).subscribe((res) => {
-      console.log(res);
+      console.log(res.msg[0]);
       if (res.status === 'successfully') {
         sessionStorage.setItem('token', res.token);
         console.log(res.user.name)
         sessionStorage.setItem('user', res.user.name);
+        
         this.router.navigate(['users']);
       } else {
-        this.message = res.message;
+    
+        this.msg = res.msg;
       }
     })
   }

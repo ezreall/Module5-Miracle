@@ -16,7 +16,7 @@ const routes: Routes = [
     path: '',
     component: ShowListComponent
   }, {
-    path: 'detail',
+    path: 'detail/:id',
     component: DetailPlayerComponent
   }
 ]

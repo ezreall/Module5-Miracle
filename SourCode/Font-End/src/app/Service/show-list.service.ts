@@ -7,11 +7,14 @@ import { Observable } from 'rxjs';
 export class ShowListService {
 
   
-  private api_Url = 'http://localhost:8000/api/profile';
+  private api_Url = 'http://localhost:8000/api/';
 
   constructor(private http: HttpClient) { }
 
   showlist(): Observable<any>{
-    return this.http.get(`${this.api_Url}/`);
+    return this.http.get(this.api_Url + 'profiles',);
+  }
+  detailList(): Observable<any>{
+    return this.http.get(this.api_Url + 'profile/{id}',);
   }
 }

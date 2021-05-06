@@ -34,15 +34,14 @@ class UserController extends Controller
                 'status' => 'error',
                 'error' => 'invalid.credentials',
                 'msg' => 'Invalid Credentials.'
-            ], Response::HTTP_BAD_REQUEST);
+            ]);
         }
         $user = Auth::user();
-
         return response()->json([
             'status' => 'successfully',
             'user' => $user,
             'token' => $token
-        ], Response::HTTP_OK);
+        ]);
 
 //        return response()->json(['token' => $token], Response::HTTP_OK);
     }
@@ -52,7 +51,7 @@ class UserController extends Controller
         $user = Auth::user();
 
         if ($user) {
-            return response($user, Response::HTTP_OK);
+            return response()->json($user);
         }
 
         return response()->json(['user' => $user], Response::HTTP_BAD_REQUEST );
@@ -60,7 +59,7 @@ class UserController extends Controller
 
 
     public function logout(Request $request) {
-        
+
         try {
             JWTAuth::invalidate($request->bearerToken());
             return response()->json(['status' => 'success', 'message' => 'logout successfully']);

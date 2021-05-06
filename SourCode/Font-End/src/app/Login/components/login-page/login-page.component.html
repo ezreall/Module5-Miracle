@@ -78,9 +78,15 @@
                     <div class="col-md-5  col-xs-12 form-content" >
                         <div class="content-main">
                             <form [formGroup]="loginForm"  (ngSubmit) = "checkLogin()">
-                                <div class="fieldGroup "><input type="email" formControlName = "email" placeholder="Tên đăng nhập hoặc email" maxlength="5000" autocomplete="false" ></div>
+                                <div *ngIf = "msg" class="danger text-danger">{{msg}}</div>
+
+                                <div class="fieldGroup ">
+                                    <input type="email" formControlName = "email" placeholder="Email đăng nhập " maxlength="5000" autocomplete="false" >
+                                    
+                                </div>
         
-                                <div class="fieldGroup "><input type="password" formControlName = "password" placeholder="Mật khẩu" maxlength="5000" autocomplete="false" ></div>
+                                <div class="fieldGroup ">
+                                    <input type="password" formControlName = "password" placeholder="Mật khẩu" maxlength="5000" autocomplete="false" ></div>
                                 <button type="submit" ><span >Đăng nhập</span></button>
                               
                             </form>

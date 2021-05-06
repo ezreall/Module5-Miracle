@@ -14,8 +14,14 @@ class ProfileController extends Controller
 
     public function getAll(){
 
-        $profile=Profile::all();
-        return response()->json([$profile]);
+        $profiles=Profile::skip(0)->take(12)->get();
+
+        return response()->json([$profiles]);
+    }
+    function getById($id){
+         $profile=Profile::findOrFail($id);
+      return response()->json($profile);
+
     }
 
 }

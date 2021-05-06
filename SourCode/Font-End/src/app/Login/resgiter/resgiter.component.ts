@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup ,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { ToastrService } from 'ngx-toastr';
@@ -12,13 +13,21 @@ import { User } from 'src/app/User/user';
 })
 export class ResgiterComponent implements OnInit {
   user: User = new User();
+  createResgiter!:FormGroup;
   constructor(
     private UserService: ResgiterService,
     private router: Router,
     private toastr: ToastrService,
+    private formbd:FormBuilder
 
 
-  ) { }
+  ) { 
+    // this.createResgiter = this.formbd.group({
+    //   name: ['', Validators.required],
+    //   image: ['', Validators.required],
+    //   country: ['', Validators.required]
+    // })
+  }
 
   ngOnInit(): void {
   }

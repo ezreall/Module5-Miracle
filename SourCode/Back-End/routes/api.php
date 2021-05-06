@@ -23,7 +23,8 @@ Route::post('signup', [UserController::class,'register']);
 Route::post('login', [UserController::class,'login']);
 
 
-Route::get('profile',[ProfileController::class,'getAll']);
+Route::get('profiles',[ProfileController::class,'getAll']);
+Route::get('profile/{id}',[ProfileController::class,'getById']);
 
 Route::group(['middleware' => 'jwt.auth'], function () {
     Route::get('auth', [UserController::class,'user']);
