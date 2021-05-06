@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\RenterStatus;
+use App\Models\RequestStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
-class RenterStatusSeederTable extends Seeder
+class RequestStatusesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,16 +15,17 @@ class RenterStatusSeederTable extends Seeder
      */
     public function run()
     {
-        $status = new RenterStatus();
-        $status->name="Processing";
+        $status = new RequestStatus();
+        $status->name = "processing";
         $status->save();
 
-        $status = new RenterStatus();
-        $status->name="Cancel";
+        $status = new RequestStatus();
+        $status->name = "approve";
         $status->save();
 
-        $status = new RenterStatus();
-        $status->name="Approved";
+        $status = new RequestStatus();
+        $status->name = "cancle";
         $status->save();
+
     }
 }
