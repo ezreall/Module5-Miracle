@@ -5,8 +5,8 @@ import { MenuSettingComponent } from './menu-setting/menu-setting.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DetailAccountComponent } from '../detail-account/detail-account.component';
 import { RegisterServiceComponent } from '../register-service/register-service.component';
-import { RegisterUserComponent } from '../register-user/register-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterUserComponent } from '../register-user/register-user.component';
 
 
 const routes: Routes = [{
@@ -18,11 +18,11 @@ const routes: Routes = [{
 },{
   path:'player',
   component:RegisterServiceComponent,
-},
-{
-  path: 'register',
-  component: RegisterUserComponent,
+},{
+  path:'register',
+  component:RegisterUserComponent
 }
+
 
 
 ]

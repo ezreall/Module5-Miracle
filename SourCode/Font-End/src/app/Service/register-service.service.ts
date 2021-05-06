@@ -1,29 +1,23 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterServiceService {
-  api_url = 'http://localhost:8000/api';
-
   constructor(private http: HttpClient,
               private authService: AuthService
     ) { }
 
-  getUserInfo(data: any): Observable<any> {
-
-
-    return this.http.get<any>(this.api_url + '/provider/list', data);
+  getService(): Observable<any> {
+    return this.http.get<any>(environment.url_api + '/providers', this.authService.getHeader());
   }
 
-  registerUserService(data: any): Observable<any> {
-    console.log(data);
-    
-    return this.http.post<any>(this.api_url + '/provider/create', data , this.authService.getHeader());
-
+  registerUser(data: any): Observable<any> {    
+    return this.http.post<any>(environment.url_api + '/providers/store', data, this.authService.getHeader());
   }
 
 }

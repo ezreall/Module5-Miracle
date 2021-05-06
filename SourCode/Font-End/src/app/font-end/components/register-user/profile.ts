@@ -9,7 +9,10 @@ export class Profile {
     voice?:string;
     country?:string;
     city?:string;
+    face_book?:string
     gender?:string;
+    price_per_hour?:number;
     avatar?:string;
     image?:string;
+    service_id?:number
 }

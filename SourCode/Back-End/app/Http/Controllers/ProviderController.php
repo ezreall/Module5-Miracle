@@ -19,55 +19,42 @@ class ProviderController extends Controller
 
     }
 
-    public function getAll(){
-        $provider = Provider::all();
-        $profile = Profile::all();
-        $image = ProfileImage::all();
+    public function getAll(): \Illuminate\Http\JsonResponse
+    {
         $service = Service::all();
 
-        return response()->json([$provider,$profile,$image,$service]);
+        return response()->json($service);
     }
 
 
 
-    public function store(Request $request){
-
-//        return response()->json(1231231);
-
+    public function store(Request $request): \Illuminate\Http\JsonResponse
+    {
         DB::beginTransaction();
         try {
             $provider = new Provider();
-            $provider->user_id = auth()->user()['id'];
+            $provider->user_id = Auth::id();
             $provider->price_per_hour = $request->price_per_hour;
             $services = $request->service_id;
-
             $provider->save();
             $provider->services()->sync($services);
-
             $profile = new Profile();
             $profile->fill($request->all());
             $profile->provider_id =  $provider->id;
-            $profile->date_join = auth()->user()['created_at'];
-//            dd($profile->date_join);
+            $profile->date_join = Auth::user()->created_at;
             $profile->save();
-
             $image = new ProfileImage();
             $image->profile_id = $profile->id;
             $image->name = $request->name;
             $image->save();
-
             DB::commit();
-            return response()->json();
+            return response()->json('oke');
 
         }catch (\Exception $e){
-            dd($e->getMessage());
             DB::rollBack();
+            return response()->json($e->getMessage());
+
         }
-
-
-
-
-
 
     }
 

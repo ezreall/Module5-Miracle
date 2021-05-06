@@ -11,16 +11,16 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./register-user.component.css']
 })
 export class RegisterUserComponent implements OnInit {
-  profile: Profile = new Profile();
   createForm!: FormGroup;
+  showService: any;
 
 
 
 
-  submitted = false;
+
   constructor(private registerService: RegisterServiceService,
-    private route: Router,
-    private formBuilder: FormBuilder,
+              private route: Router,
+              private formBuilder: FormBuilder,
 
   ) { }
 
@@ -33,37 +33,41 @@ export class RegisterUserComponent implements OnInit {
       hobby: ['', [Validators.required]],
       description: ['', [Validators.required]],
       date_of_birth: ['', [Validators.required]],
+      face_book: ['', [Validators.required]],
       voice: ['', [Validators.required]],
       country: ['', [Validators.required]],
+      price_per_hour: ['', [Validators.required]],
       city: ['', [Validators.required]],
       gender: ['', [Validators.required]],
       avatar: ['', [Validators.required]],
       image: ['', [Validators.required]],
+      service_id: ['', [Validators.required]],
     });
-
-    // console.log(12312);
-
-    // console.log(sessionStorage.getItem('token'));
-
-    this.profile = new Profile();
-    this.submitted = false;
+    this.showServices();
   }
 
-  onSubmit() {
-    // console.log(this.createForm.value)
-    this.submitted = true;
-    this.store();
-  }
+  onSubmit() {  
+    let data =this.createForm.value;
+    console.log(data)
+    this.registerService.registerUser(data).subscribe((res: any) => {
 
-  store() {
-     this.registerService.registerUserService(this.profile).subscribe((data: any) => {
-      // console.log(data)
-      this.profile = new Profile();
-      // console.log(this.profile.name);
-
-      // this.route.navigate(['list'])
+      console.log(res)
     });
-    // console.log(test);
   }
 
+
+  showServices(){
+    this.registerService.getService().subscribe((res)=>{
+      this.showService = res;
+      // console.log(123);
+      console.log(this.showService);
+    })
+  }
+  
+
+
+ 
+
+
+  
 }

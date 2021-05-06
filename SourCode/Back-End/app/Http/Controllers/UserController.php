@@ -35,17 +35,14 @@ class UserController extends Controller
                 'status' => 'error',
                 'error' => 'invalid.credentials',
                 'msg' => 'Invalid Credentials.'
-            ], Response::HTTP_BAD_REQUEST);
+            ]);
         }
         $user = Auth::user();
-
         return response()->json([
             'status' => 'successfully',
             'user' => $user,
             'token' => $token
-        ], Response::HTTP_OK);
-
-//        return response()->json(['token' => $token], Response::HTTP_OK);
+        ]);
     }
 
     public function user(Request $request)

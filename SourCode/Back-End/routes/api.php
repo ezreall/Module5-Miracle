@@ -15,19 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 Route::post('signup', [UserController::class,'register']);
 Route::post('login', [UserController::class,'login']);
 
 Route::group(['middleware' => 'jwt.auth'], function () {
     Route::get('auth', [UserController::class,'user']);
     Route::post('logout', [UserController::class,'logout']);
-
-    Route::prefix('provider')->group(function () {
-        Route::get('list', [\App\Http\Controllers\ProviderController::class, 'getAll']);
-        Route::post('create',[\App\Http\Controllers\ProviderController::class,'store']);
+    Route::prefix('providers')->group(function () {
+        Route::get('/', [\App\Http\Controllers\ProviderController::class, 'getAll']);
+        Route::post('/store',[\App\Http\Controllers\ProviderController::class,'store']);
     });
 });
 

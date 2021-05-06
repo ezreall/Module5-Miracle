@@ -23,15 +23,10 @@ export class MenuComponent implements OnInit {
   }
   logout(){
     if(confirm('Are you sure want to logout?')){
-      
       this.authService.logout().subscribe((res) => {
-        console.log(res);
-        console.log(res.status === 'success')
-        if(res.status === 'success'){
-         
-          sessionStorage.clear();
+        if(res.status === "success"){
+          sessionStorage.removeItem('token');
           this.router.navigate(['login']);
-          alert(res.message);
         }
       })
     }

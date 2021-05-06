@@ -10,31 +10,23 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(data: any): Observable<any> {
-
-    // console.log("Bearer " + sessionStorage.getItem('token'));
-
     return this.http.post<any>(this.api_url + '/login', data);
   }
 
-  logout(): Observable<any> {
-    // console.log("Bearer " + sessionStorage.getItem('token'));
-   
+  logout(): Observable<any> {  
     return this.http.post(this.api_url + '/logout','', this.getHeader());
-
   }
 
-  getHeader(){
-    let httpOptions={
-      headers :new HttpHeaders({
-
+  getHeader() {
+    let httpOptions = {
+      headers: new HttpHeaders({
         // 'Access-Control-Allow-Origin': '*',
-        // 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
-        // 'Content-Type': 'application/json',
+        // 'Content-Type' : 'multipart/form-data',
+        // 'Accept': "application/json",
         'Authorization': "Bearer " + sessionStorage.getItem('token')
       })
     }
     return httpOptions;
-     
   }
   
 }
