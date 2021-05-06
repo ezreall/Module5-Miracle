@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   logout(): Observable<any> {
-    console.log("Bearer " + sessionStorage.getItem('token'));
+    // console.log("Bearer " + sessionStorage.getItem('token'));
    
     return this.http.post(this.api_url + '/logout','', this.getHeader());
 
@@ -27,8 +27,9 @@ export class AuthService {
     let httpOptions={
       headers :new HttpHeaders({
 
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
+        // 'Access-Control-Allow-Origin': '*',
+        // 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+        // 'Content-Type': 'application/json',
         'Authorization': "Bearer " + sessionStorage.getItem('token')
       })
     }

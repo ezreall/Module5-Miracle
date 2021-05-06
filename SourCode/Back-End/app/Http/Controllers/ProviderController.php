@@ -31,6 +31,9 @@ class ProviderController extends Controller
 
 
     public function store(Request $request){
+
+//        return response(1231231);
+
         DB::beginTransaction();
         try {
             $provider = new Provider();
@@ -54,7 +57,7 @@ class ProviderController extends Controller
             $image->save();
 
             DB::commit();
-            return response()->json([$provider,$profile,$image]);
+            return response()->json();
 
         }catch (\Exception $e){
             dd($e->getMessage());

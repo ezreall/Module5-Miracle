@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
@@ -20,7 +20,8 @@ export class RegisterServiceService {
   }
 
   registerUserService(data: any): Observable<any> {
-
+    console.log(data);
+    
     return this.http.post<any>(this.api_url + '/provider/create', data , this.authService.getHeader());
 
   }

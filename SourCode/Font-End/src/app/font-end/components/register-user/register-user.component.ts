@@ -11,10 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./register-user.component.css']
 })
 export class RegisterUserComponent implements OnInit {
-  // profile: Profile = new Profile();
+  profile: Profile = new Profile();
   createForm!: FormGroup;
-  profile: any;
-  id:any;
 
 
 
@@ -28,37 +26,44 @@ export class RegisterUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm = this.formBuilder.group({
-      name: ['',[Validators.required]],
-      weight: ['',[Validators.required]],
-      height: ['',[Validators.required]],
-      required: ['',[Validators.required]],
-      hobby: ['',[Validators.required]],
-      description: ['',[Validators.required]],
-      date_of_birth: ['',[Validators.required]],
-      voice: ['',[Validators.required]],
-      country: ['',[Validators.required]],
-      city: ['',[Validators.required]],
-      gender: ['',[Validators.required]],
-      avatar: ['',[Validators.required]],
-      image: ['',[Validators.required]],
+      name: ['', [Validators.required]],
+      weight: ['', [Validators.required]],
+      height: ['', [Validators.required]],
+      required: ['', [Validators.required]],
+      hobby: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      date_of_birth: ['', [Validators.required]],
+      voice: ['', [Validators.required]],
+      country: ['', [Validators.required]],
+      city: ['', [Validators.required]],
+      gender: ['', [Validators.required]],
+      avatar: ['', [Validators.required]],
+      image: ['', [Validators.required]],
     });
 
-    this.profile = new Profile();
+    // console.log(12312);
 
-    this.id = localStorage.getItem('id');
+    // console.log(sessionStorage.getItem('token'));
+
+    this.profile = new Profile();
+    this.submitted = false;
   }
 
   onSubmit() {
+    // console.log(this.createForm.value)
+    this.submitted = true;
     this.store();
   }
 
   store() {
-    this.profile.user_id = this.id;
-    this.registerService.registerUserService(this.profile).subscribe((data:any)=> {
+     this.registerService.registerUserService(this.profile).subscribe((data: any) => {
+      // console.log(data)
       this.profile = new Profile();
+      // console.log(this.profile.name);
+
       // this.route.navigate(['list'])
     });
-
+    // console.log(test);
   }
 
 }
