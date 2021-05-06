@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,8 +22,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('signup', [UserController::class,'register']);
 Route::post('login', [UserController::class,'login']);
 
+
+Route::get('profile',[ProfileController::class,'getAll']);
+
 Route::group(['middleware' => 'jwt.auth'], function () {
     Route::get('auth', [UserController::class,'user']);
-    Route::post('logout', [UserController::class,'logout']); });
+    Route::post('logout', [UserController::class,'logout']);
+
+    Route::prefix('provider')->group(function () {
+        Route::get('list', [\App\Http\Controllers\ProviderController::class, 'getAll']);
+        Route::post('create',[\App\Http\Controllers\ProviderController::class,'store']);
+    });
+});
 
 Route::middleware('jwt.refresh')->get('/token/refresh', [UserController::class,'refresh']);
+
+

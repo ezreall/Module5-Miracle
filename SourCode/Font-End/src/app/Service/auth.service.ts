@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -20,9 +19,8 @@ export class AuthService {
 
   logout(): Observable<any> {
     console.log("Bearer " + sessionStorage.getItem('token'));
-   
-    return this.http.post(this.api_url + '/logout','', this.getHeader());
 
+    return this.http.post(this.api_url + '/logout', '', this.getHeader());
   }
   getHeader() {
     let httpOptions = {

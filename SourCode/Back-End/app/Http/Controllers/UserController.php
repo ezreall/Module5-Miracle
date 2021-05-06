@@ -18,6 +18,8 @@ class UserController extends Controller
         $user->email = $params['email'];
         $user->name = $params['name'];
         $user->phone = $params['phone'];
+//        $user->status_id = 2;
+//        $user->role_id = 3;
         $user->password = bcrypt($params['password']);
         $user->save();
 
@@ -56,22 +58,9 @@ class UserController extends Controller
         return response()->json(['user' => $user], Response::HTTP_BAD_REQUEST );
     }
 
-    /**
-     * Log out
-     * Invalidate the token, so user cannot use it anymore
-     * They have to relogin to get a new token
-     *
-     * @param Request $request
-     */
+
     public function logout(Request $request) {
-//        $this->validate($request, ['token' => 'required']);
-//
-//        try {
-//            JWTAuth::invalidate($request->input('token'));
-//            return response()->json(['status' => 'success', 'message'=>'You have successfully logged out.'], Response::HTTP_OK);
-//        } catch (JWTException $e) {
-//            return response()->json(['status' => 'success', 'message'=>'Failed to logout, please try again.'], Response::HTTP_BAD_REQUEST);
-//        }
+        
         try {
             JWTAuth::invalidate($request->bearerToken());
             return response()->json(['status' => 'success', 'message' => 'logout successfully']);
