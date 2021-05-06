@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
 //        $this->call(ProfileSeeder::class);
 //        $this->call(ProviderSeeder::class);
         $this->call(ProviderStatusSeederTable::class);
-        $this->call(RenterStatusSeederTable::class);
         $this->call(RolesSeederTable::class);
         $this->call(ServiceSeeder::class);
         $this->call(StatusesSeederTable::class);
+        $this->call(RequestStatusesSeeder::class);
     }
 }

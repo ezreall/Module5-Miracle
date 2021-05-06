@@ -12,7 +12,7 @@ export class AuthService {
 
   login(data: any): Observable<any> {
 
-    // console.log("Bearer " + sessionStorage.getItem('token'));
+    console.log("Bearer " + sessionStorage.getItem('token'));
 
     return this.http.post<any>(this.api_url + '/login', data);
   }

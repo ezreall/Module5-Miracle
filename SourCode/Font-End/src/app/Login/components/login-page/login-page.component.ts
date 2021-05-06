@@ -45,7 +45,7 @@ export class LoginPageComponent implements OnInit {
     console.log(this.loginForm?.value);
     let data = this.loginForm?.value;
     this.authServices.login(data).subscribe((res) => {
-      console.log(res.msg[0]);
+      console.log(res);
       if (res.status === 'successfully') {
         sessionStorage.setItem('token', res.token);
         console.log(res.user.name)
