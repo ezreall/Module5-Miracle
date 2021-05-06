@@ -43,6 +43,7 @@ class UserController extends Controller
             'user' => $user,
             'token' => $token
         ]);
+
     }
 
     public function user(Request $request)
@@ -50,7 +51,7 @@ class UserController extends Controller
         $user = Auth::user();
 
         if ($user) {
-            return response($user, Response::HTTP_OK);
+            return response()->json($user);
         }
 
         return response()->json(['user' => $user], Response::HTTP_BAD_REQUEST );

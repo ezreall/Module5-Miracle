@@ -24,8 +24,9 @@ export class MenuComponent implements OnInit {
   logout(){
     if(confirm('Are you sure want to logout?')){
       this.authService.logout().subscribe((res) => {
-        if(res.status === "success"){
-          sessionStorage.removeItem('token');
+
+        if(res.status === 'success'){
+          sessionStorage.clear();
           this.router.navigate(['login']);
         }
       })

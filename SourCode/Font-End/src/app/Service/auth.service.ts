@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,10 +24,10 @@ export class AuthService {
         // 'Access-Control-Allow-Origin': '*',
         // 'Content-Type' : 'multipart/form-data',
         // 'Accept': "application/json",
+
         'Authorization': "Bearer " + sessionStorage.getItem('token')
       })
     }
     return httpOptions;
   }
-  
 }

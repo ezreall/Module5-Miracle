@@ -6,6 +6,7 @@ import { MenuSettingComponent } from './font-end/components/setting-account/menu
 import { MenuComponent } from './font-end/menu/menu.component';
 import { LoginPageComponent } from './Login/components/login-page/login-page.component';
 import { MenuLoginComponent } from './Login/components/menu-login/menu-login.component';
+import { ResgiterComponent } from './Login/resgiter/resgiter.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -37,7 +38,11 @@ const routes: Routes = [
     }]
   }, {
     path: 'login',
-    component: LoginPageComponent
+    component: LoginPageComponent,
+  },{
+    path:'resgiter',
+    component:ResgiterComponent
+
   }
 ];
 
