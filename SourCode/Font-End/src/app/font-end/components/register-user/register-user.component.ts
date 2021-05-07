@@ -60,7 +60,7 @@ export class RegisterUserComponent implements OnInit {
     this.registerService.getService().subscribe((res) => {
       this.showService = res;
       // console.log(123);
-      console.log(this.showService);
+      // console.log(this.showService);
     })
   }
 
