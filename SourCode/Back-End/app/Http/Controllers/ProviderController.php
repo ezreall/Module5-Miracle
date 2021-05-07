@@ -45,7 +45,7 @@ class ProviderController extends Controller
             $profile->save();
             $image = new ProfileImage();
             $image->profile_id = $profile->id;
-            $image->name = $request->name;
+            $image->image = $request->image;
             $image->save();
             DB::commit();
             return response()->json('oke');

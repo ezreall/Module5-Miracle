@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Profile } from './profile';
 import { FormArray, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { RegisterServiceService } from 'src/app/Service/register-service.service';
@@ -12,15 +12,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class RegisterUserComponent implements OnInit {
   createForm!: FormGroup;
-  showService: any = [];
+  showService: Array<any> = [];
 
   // @ViewChild('myCheckbox') myCheckbox: any;
 
 
 
   constructor(private registerService: RegisterServiceService,
-              private route: Router,
-              private formBuilder: FormBuilder,
+    private route: Router,
+    private formBuilder: FormBuilder,
 
   ) { }
 
@@ -46,8 +46,8 @@ export class RegisterUserComponent implements OnInit {
     this.showServices();
   }
 
-  onSubmit() {  
-    let data =this.createForm.value;
+  onSubmit() {
+    let data = this.createForm.value;
     console.log(data)
     this.registerService.registerUser(data).subscribe((res: any) => {
 
@@ -56,29 +56,64 @@ export class RegisterUserComponent implements OnInit {
   }
 
 
-  showServices(){
-    this.registerService.getService().subscribe((res)=>{
+  showServices() {
+    this.registerService.getService().subscribe((res) => {
       this.showService = res;
       // console.log(123);
       console.log(this.showService);
     })
   }
 
-  onChange(service_id:any,isChecked:boolean){
-    const serviceFormArray = <FormArray>this.createForm.controls.service_id;
-    if(isChecked){
-      serviceFormArray.push(new FormControl(service_id));
+  setValueCheckbox(e: any) {
+    console.log(e.target.value);
+    let value = e.target.value
+    if (e.target.checked) {
+      this.showService.push(value);
+    } else {
+      let index = this.showService.indexOf(value);
+      console.log('idx: ' + index);
+      this.showService.splice(index, 1)
     }
-
+    console.log(this.showService)
   }
-  
+
+
+
+
+  // getServiceId(e:any,id:string){
+  //   if(e.target.checked){
+  //     console.log(id + 'Checked');
+  //       this.selectItem.push(id);
+  //   }else{
+  //     console.log(id + 'UNChecked');
+
+  //     this.selectItem = this.selectItem.filter(m=>m! = id);
+  //   }
+  //   console.log(this.selectItem);
+  // }
+
+
+
+
+  // onChange(service_id:any,isChecked:boolean){
+  //   const serviceFormArray = <FormArray>this.createForm.controls.service_id;
+  //   if(isChecked){
+  //     serviceFormArray.push(new FormControl(service_id));
+  //   }else{
+  //     let index = serviceFormArray.controls.findIndex(x => x.value == service_id);
+  //     serviceFormArray.removeAt(index);
+
+  //   }
+
+  // }
+
   // this.user.isTCAccepted = form.controls['tc'].value;
 //   GetStats(event: Event) {
 //     // console.log(event.target.name, event.target.value, event.target.checked);
 //     console.log(event.target?.removeEventListener.name)
 // }
 
- 
+  
  
 
 
