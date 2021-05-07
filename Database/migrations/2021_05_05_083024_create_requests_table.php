@@ -24,7 +24,7 @@ class CreateRequestsTable extends Migration
             $table->integer('time');
             $table->date('date');
             $table->integer('money_amount');
-            $table->foreign('provider_id')->references('id')->on('profiles');
+            $table->foreign('provider_id')->references('id')->on('providers');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('status_id')->references('id')->on('request_statuses');
             $table->timestamps();

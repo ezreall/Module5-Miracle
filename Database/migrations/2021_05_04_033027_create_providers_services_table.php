@@ -14,6 +14,7 @@ class CreateProvidersServicesTable extends Migration
     public function up()
     {
         Schema::create('providers_services', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('provider_id');
             $table->unsignedBigInteger('service_id');
             $table->foreign('provider_id')->references('id')->on('providers');
