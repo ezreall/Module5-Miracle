@@ -9,7 +9,7 @@ const routes: Routes = [{
   path: '',
   component: ShowlistComponent,
 }, {
-  path: 'detail',
+  path: 'detail/:id',
   component: DetailComponent,
 }, {
   path: 'account',

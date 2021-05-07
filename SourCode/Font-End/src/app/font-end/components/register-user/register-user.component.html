@@ -1,27 +1,10 @@
 <div>
     <div class="aside">
-        <div class="row flowaccount">
-            <div class="col-sm-4 col-xs-12">
-                <div class="border">
-                    <p>TỔNG TIỀN ĐÃ NẠP</p><span>0đ </span>
-                </div>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <div class="border">
-                    <p>TỔNG TIỀN ĐÃ DONATE</p><span>0đ </span>
-                </div>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <div class="border">
-                    <p>SỐ GIỜ ĐÃ THUÊ</p><span>0 Giờ</span>
-                </div>
-            </div>
-        </div>
         <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
             <div class="row">
+                <h3>Đăng ký cung cấp dịch vụ</h3>
 
                 <div class="col-md-6 col-sm-12 col-xs-12 personalinfo">
-                    <h3>Đăng ký cung cấp dịch vụ</h3>
                     <form class="from-userinfo">
 
                         <div>
@@ -69,7 +52,6 @@
                 </div>
                 <div class="col-md-6 col-sm-12 col-xs-12 personalinfo">
 
-                    <h3>Đăng ký cung cấp dịch vụ</h3>
 
                     <div>
 
@@ -126,6 +108,7 @@
                                     <br>
                                     {{ service.name }}
                                 </div>
+                                <div class="fieldGroup name-player"><input type="text" name="title" placeholder="" maxlength="5000" autocomplete="false" value=""><span class="err-message">Thông tin này cần phải nhập</span></div><label for="title">Chi phí mỗi giờ thuê</label>
 
                             </div>
                         </form>
