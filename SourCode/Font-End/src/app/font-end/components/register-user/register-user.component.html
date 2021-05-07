@@ -1,0 +1,125 @@
+<div>
+    <div class="aside">
+        <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <h3>Đăng ký cung cấp dịch vụ</h3>
+
+                <div class="col-md-6 col-sm-12 col-xs-12 personalinfo">
+                    <form class="from-userinfo">
+
+                        <div>
+                            <div class="fieldGroup ">
+                                <p class="control-label">Họ và tên</p><input type="text" formControlName="name"
+                                    placeholder="" maxlength="5000" autocomplete="false">
+                            </div>
+
+                            <div class="fieldGroup ">
+                                <p class="control-label">Cân nặng</p><input type="text" name="weight"
+                                    formControlName="weight" placeholder="" maxlength="5000" autocomplete="false">
+                            </div>
+                            <div class="fieldGroup ">
+                                <p class="control-label">Chiều cao</p><input type="text" name="height"
+                                    formControlName="height" placeholder="" maxlength="5000" autocomplete="false">
+                            </div>
+                            <div class="fieldGroup ">
+                                <p class="control-label">Yêu cầu</p><input type="text" name="required" placeholder=""
+                                    formControlName="required" maxlength="5000" autocomplete="false">
+                            </div>
+                            <div class="fieldGroup ">
+                                <p class="control-label">Sở thích</p><input type="text" name="hobby" placeholder=""
+                                    formControlName="hobby" maxlength="5000" autocomplete="false">
+                            </div>
+                            <div class="fieldGroup ">
+                                <p class="control-label">Giá theo giờ</p><input type="text" name="price_per_hour"
+                                    placeholder="" formControlName="price_per_hour" maxlength="5000"
+                                    autocomplete="false">
+                            </div>
+                            <div class="fieldGroup ">
+                                <p class="control-label">Facebook</p><input type="text" name="face_book" placeholder=""
+                                    formControlName="face_book" maxlength="5000" autocomplete="false">
+                            </div>
+                            <div class="fieldGroup ">
+                                <p class="control-label">Mô tả</p><textarea name="description" id="" cols="30" rows="10"
+                                    formControlName="description" style="width:400px"></textarea>
+
+                            </div>
+
+
+
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12 personalinfo">
+
+
+                    <div>
+
+
+                        <form class="from-userinfo">
+
+
+                            <div class="fieldGroup ">
+                                <p class="control-label">Ngày sinh</p><input type="date" formControlName="date_of_birth"
+                                    name="date_of_birth" placeholder="" maxlength="5000" autocomplete="false">
+                            </div>
+
+                            <p class="control-label">Giọng</p><select formControlName="voice" name="voice">
+                                <option disabled="">--- Chọn vùng ---</option>
+                                <option value="Miền Bắc">Miền Bắc</option>
+                                <option value="Miền Trung">Miền Trung</option>
+                                <option value="Miền Nam">Miền Nam</option>
+                            </select>
+                            <div class="fieldGroup ">
+                                <p class="control-label">Quốc gia</p><input type="text" formControlName="country"
+                                    name="date_of_birth" placeholder="" maxlength="5000" autocomplete="false">
+                            </div>
+                            <div class="fieldGroup ">
+                                <p class="control-label">Thành phố</p><input type="text" formControlName="city"
+                                    name="date_of_birth" placeholder="" maxlength="5000" autocomplete="false">
+                            </div>
+
+                            <div class="fieldGroup ">
+                                <p class="control-label">Ảnh đại diện</p>
+                                <input type="file" formControlName="avatar" name="avatar" placeholder=""
+                                    maxlength="5000" autocomplete="false">
+                            </div>
+
+                            <div class="fieldGroup " style="margin-top: 23px;">
+                                <p class="control-label">Ảnh chi tiết</p>
+                                <input type="file" formControlName="image" name="image" placeholder="" maxlength="5000"
+                                    autocomplete="false" multiple>
+                            </div>
+                            <div class="fieldGroup " style="margin-top: 30px;">
+                                <p class="control-label">Giới tính</p>
+                                <div class="d-flex"><label class="gender--radio"><input formControlName="gender"
+                                            name="gender" type="radio" value="male">Nam<span></span></label><label
+                                        class="gender--radio"><input name="gender" type="radio"
+                                            value="female">Nữ<span></span></label></div>
+                            </div>
+
+
+                            <div class="fieldGroup " style="margin-top: 30px;">
+                                <p class="control-label">Dịch vụ</p>
+                                <div *ngFor="let service of showService" style="display: flex;">
+                                    <input style="width: 30px;" type="checkbox" name="service_id"
+                                     value="{{ service.id }}" formControlName="service_id" maxlength="10"
+                                        autocomplete="false">
+                                    <br>
+                                    {{ service.name }}
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <button style="width: 30%;margin-left: 100px; " type="submit" class="btn-update">Cập nhật</button>
+
+        </form>
+    </div>
+
+</div>
