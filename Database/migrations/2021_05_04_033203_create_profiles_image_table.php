@@ -16,7 +16,7 @@ class CreateProfilesImageTable extends Migration
         Schema::create('profiles_image', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('profile_id');
-            $table->string('image');
+            $table->string('name');
             $table->foreign('profile_id')->references('id')->on('profiles');
             $table->timestamps();
         });

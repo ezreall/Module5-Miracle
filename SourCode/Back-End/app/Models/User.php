@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
-use function Symfony\Component\Translation\t;
 
 class User extends Authenticatable  implements JWTSubject
 {
@@ -22,7 +21,6 @@ class User extends Authenticatable  implements JWTSubject
         'name',
         'email',
         'password',
-        'phone'
     ];
 
     /**
@@ -52,10 +50,4 @@ class User extends Authenticatable  implements JWTSubject
     {
         return [];
     }
-
-    public function provider(){
-        return $this->belongsTo(Provider::class,'user_id');
-    }
-
-
 }
