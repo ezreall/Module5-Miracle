@@ -1,0 +1,7 @@
+.fieldGroup input{
+border: solid 1px ;
+}
+.aside .example-custom-input, .aside input, .aside select{
+border: solid 1px ;
+
+}
