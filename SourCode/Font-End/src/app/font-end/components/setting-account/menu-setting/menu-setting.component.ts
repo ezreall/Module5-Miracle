@@ -13,6 +13,7 @@ export class MenuSettingComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   isclickAccount(){
     this.isDropdownSetting = true;
   }
