@@ -4,6 +4,8 @@ import { ShowlistComponent } from './components/showlist/showlist.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DetailComponent } from './components/detail/detail.component';
 import { DetailAccountComponent } from './components/detail-account/detail-account.component';
+import { RequestComponent } from './components/request/request.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [{
   path: '',
@@ -24,11 +26,13 @@ const routes: Routes = [{
     ShowlistComponent,
     DetailComponent,
     DetailAccountComponent,
+    RequestComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     RouterModule.forChild(routes),
+    ReactiveFormsModule
   ]
 })
 export class FontEndModule { }

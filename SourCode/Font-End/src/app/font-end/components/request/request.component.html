@@ -1,0 +1,87 @@
+
+
+<div class="modal-body">
+    <form [formGroup]="requestForm" (ngSubmit)="createRequest()">
+        <table>
+                <tr>
+                    <td> <label for="provider_id">Người cung cấp dịch vụ</label></td>
+                    <td>
+                        <input formControlName="provider_id" type="text" class="form-control" id="provider_id">
+                    </td>
+                    <td class="alert alert-danger"
+                        *ngIf="requestForm.controls.user_id?.errors?.required && requestForm.controls.user_id?.touched">
+                        this field is required !
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="time">Thời gian muốn thuê</label></td>
+                    <td>
+                        <select formControlName="time" class="form-control">
+                            <option *ngFor="let item of times" value="{{item}}">{{item}} giờ</option>
+                        </select>
+                    </td>
+                    <td class="alert alert-danger"
+                        *ngIf="requestForm.controls.time?.errors?.required && requestForm.controls.time?.touched">
+                        this field is required !
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="start_time">Thời gian bắt đầu</label></td>
+                    <td>
+                        <input formControlName="start_time" type="time" class="form-control" id="start_time">
+                    </td>
+                    <td class="alert alert-danger"
+                        *ngIf="requestForm.controls.start_time?.errors?.required && requestForm.controls.start_time?.touched">
+                        this field is required !
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="date">Ngày</label></td>
+                    <td>
+                        <input formControlName="date" type="date" class="form-control" id="date">
+                    </td>
+                    <td class="alert alert-danger"
+                        *ngIf="requestForm.controls.date?.errors?.required && requestForm.controls.date?.touched">
+                        this field is required !
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="address">Địa chỉ</label></td>
+                    <td>
+                        <input formControlName="address" type="text" class="form-control" id="address">
+                    </td>
+                    <td class="alert alert-danger"
+                        *ngIf="requestForm.controls.address?.errors?.required && requestForm.controls.address?.touched">
+                        this field is required !
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="money_amount">Tổng tiền</label></td>
+                    <td>
+                        <input formControlName="money_amount" type="number" class="form-control" id="money_amount">
+                    </td>
+                    <td class="alert alert-danger"
+                        *ngIf="requestForm.controls.money_amount?.errors?.required && requestForm.controls.money_amount?.touched">
+                        this field is required !
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="message">Tin nhắn</label></td>
+                    <td colspan="2"><textarea placeholder="Type a message ..." formControlName="message" maxlength="255"
+                        type="text" class="form-control" id="message"></textarea>
+                    <p class="err-message"></p>
+                </td>
+                    <td class="alert alert-danger"
+                        *ngIf="requestForm.controls.message?.errors?.required && requestForm.controls.message?.touched">
+                        this field is required !
+                    </td>
+                </tr>
+                <tr>
+                    <div class="modal-footer">
+                        <button style="margin-left: 250px;" [disabled]="!requestForm.valid" 
+                        type="submit" class="btn-fill btn btn-danger"><span>Thuê</span></button>
+                    </div>
+                </tr>
+        </table>
+    </form>
+  </div>

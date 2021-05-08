@@ -106,6 +106,7 @@
     </div>
     <div id="button-scroll-top" style="display: none;"><button><i class="fas fa-chevron-up"></i></button></div>
 </div>
+
 <div role="dialog" *ngIf="isRent">
     <div class="fade modal-backdrop in"></div>
     <div role="dialog" tabindex="-1" class="fade modal-donate in modal" style="display: block; padding-left: 0px;">
@@ -115,59 +116,7 @@
                             (click)="close()">×</span><span class="sr-only">Close</span></button>
                     <h4 class="modal-title"><span>Thuê player</span></h4>
                 </div>
-                <div class="modal-body">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Player:</td>
-                                <td>Ngọc Dung &lt;3</td>
-                            </tr>
-                            <tr>
-                                <td><span>Thời gian muốn thuê</span>:</td>
-                                <td><select name="timeRent" class="form-control">
-                                        <option value="1">1&nbsp;giờ</option>
-                                        <option value="2">2&nbsp;giờ</option>
-                                        <option value="3">3&nbsp;giờ</option>
-                                        <option value="4">4&nbsp;giờ</option>
-                                        <option value="5">5&nbsp;giờ</option>
-                                        <option value="6">6&nbsp;giờ</option>
-                                        <option value="7">7&nbsp;giờ</option>
-                                        <option value="8">8&nbsp;giờ</option>
-                                        <option value="9">9&nbsp;giờ</option>
-                                        <option value="10">10&nbsp;giờ</option>
-                                        <option value="11">11&nbsp;giờ</option>
-                                        <option value="12">12&nbsp;giờ</option>
-                                        <option value="13">13&nbsp;giờ</option>
-                                        <option value="14">14&nbsp;giờ</option>
-                                        <option value="15">15&nbsp;giờ</option>
-                                        <option value="16">16&nbsp;giờ</option>
-                                        <option value="17">17&nbsp;giờ</option>
-                                        <option value="18">18&nbsp;giờ</option>
-                                        <option value="19">19&nbsp;giờ</option>
-                                        <option value="20">20&nbsp;giờ</option>
-                                        <option value="21">21&nbsp;giờ</option>
-                                        <option value="22">22&nbsp;giờ</option>
-                                        <option value="23">23&nbsp;giờ</option>
-                                        <option value="24">24&nbsp;giờ</option>
-                                    </select></td>
-                            </tr>
-                            <tr>
-                                <td><span>Chi phí</span>:</td>
-                                <td><span class="price">69,000 đ</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>Số dư hiện tại</span>:</td>
-                                <td><span class="total-amount">0đ</span><span class="load-more-credit">+</span></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><textarea placeholder="Type a message ..." name="message"
-                                        maxlength="255" type="text" class="form-control"></textarea>
-                                    <p class="err-message"></p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <app-request></app-request>
                 <div class="modal-footer"><button type="button"
                         class="btn-fill btn btn-danger"><span>Thuê</span></button><button type="button"
                         class="btn btn-default"><span (click)="close()">Đóng</span></button></div>
