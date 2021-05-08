@@ -8,7 +8,7 @@ import { DetailPlayerComponent } from './components/detail-player/detail-player.
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from '../auth/auth.guard';
 import { ResgiterComponent } from './resgiter/resgiter.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
 
@@ -30,8 +30,10 @@ const routes: Routes = [
     FormsModule,
 
     HttpClientModule,
-
-    RouterModule.forChild(routes)]
+    ReactiveFormsModule,
+    RouterModule.forChild(routes)],
+  
+      
 
 
 })
