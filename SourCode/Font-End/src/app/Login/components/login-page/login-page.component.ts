@@ -21,6 +21,7 @@ export class LoginPageComponent implements OnInit {
   loginForm!: FormGroup;
   msg = '';
 
+  submitted = false;
 
   constructor(
     private formbd: FormBuilder,
@@ -30,7 +31,7 @@ export class LoginPageComponent implements OnInit {
   )
    { 
     this.loginForm = this.formbd.group({
-      email: ['',Validators.required],
+      email: ['',[Validators.required, Validators.email]],
       password: ['',Validators.required]})
       
    }
@@ -41,7 +42,9 @@ export class LoginPageComponent implements OnInit {
     this.register=true;
     this.login=false;
   }
+  get f() { return this.loginForm.controls; }
   checkLogin() {
+    this.submitted = true;
     console.log(this.loginForm?.value);
     let data = this.loginForm?.value;
     this.authServices.login(data).subscribe((res) => {
