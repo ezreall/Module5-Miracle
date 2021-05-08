@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Provider extends Model
 {
     use HasFactory;
-<<<<<<< HEAD
-=======
+
 
     protected $fillable = [
         'user_id',
@@ -37,7 +36,4 @@ class Provider extends Model
         return $this->hasMany(Request::class,'provider_id');
     }
 
-
-
->>>>>>> 6bddaa08f63127a70354dac607d9e66e72b3e675
 }

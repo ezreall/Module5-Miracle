@@ -15,11 +15,8 @@ class ProfileSeeder extends Seeder
     public function run()
     {
         $profile= new Profile();
-<<<<<<< HEAD
+
         $profile->user_id='1';
-=======
-        $profile->provider_id='1';
->>>>>>> 6bddaa08f63127a70354dac607d9e66e72b3e675
         $profile->name='huyen';
         $profile->date_of_birth='20';
         $profile->gender='nu';
@@ -36,11 +33,7 @@ class ProfileSeeder extends Seeder
         $profile->save();
 
         $profile= new Profile();
-<<<<<<< HEAD
         $profile->user_id='2';
-=======
-        $profile->provider_id='2';
->>>>>>> 6bddaa08f63127a70354dac607d9e66e72b3e675
         $profile->name='thao';
         $profile->date_of_birth='20';
         $profile->gender='nu';
@@ -57,11 +50,7 @@ class ProfileSeeder extends Seeder
         $profile->save();
 
         $profile = new Profile();
-<<<<<<< HEAD
         $profile->user_id='3';
-=======
-        $profile->provider_id='3';
->>>>>>> 6bddaa08f63127a70354dac607d9e66e72b3e675
         $profile->name = 'vu';
         $profile->date_of_birth = '20';
         $profile->gender = 'nu';
@@ -78,11 +67,7 @@ class ProfileSeeder extends Seeder
         $profile->save();
 
         $profile = new Profile();
-<<<<<<< HEAD
         $profile->user_id='4';
-=======
-        $profile->provider_id='4';
->>>>>>> 6bddaa08f63127a70354dac607d9e66e72b3e675
         $profile->name = 'phong';
         $profile->date_of_birth = '20';
         $profile->gender = 'nu';
@@ -99,11 +84,7 @@ class ProfileSeeder extends Seeder
         $profile->save();
 
         $profile = new Profile();
-<<<<<<< HEAD
         $profile->user_id='5';
-=======
-        $profile->provider_id='5';
->>>>>>> 6bddaa08f63127a70354dac607d9e66e72b3e675
         $profile->name = 'phuong';
         $profile->date_of_birth = '20';
         $profile->gender = 'nu';
@@ -120,11 +101,7 @@ class ProfileSeeder extends Seeder
         $profile->save();
 
         $profile = new Profile();
-<<<<<<< HEAD
         $profile->user_id='6';
-=======
-        $profile->provider_id='6';
->>>>>>> 6bddaa08f63127a70354dac607d9e66e72b3e675
         $profile->name = 'hey';
         $profile->date_of_birth = '20';
         $profile->gender = 'nu';
@@ -141,11 +118,7 @@ class ProfileSeeder extends Seeder
         $profile->save();
 
         $profile = new Profile();
-<<<<<<< HEAD
         $profile->user_id='7';
-=======
-        $profile->provider_id='7';
->>>>>>> 6bddaa08f63127a70354dac607d9e66e72b3e675
         $profile->name = 'hi';
         $profile->date_of_birth = '20';
         $profile->gender = 'nu';
@@ -162,11 +135,7 @@ class ProfileSeeder extends Seeder
         $profile->save();
 
         $profile = new Profile();
-<<<<<<< HEAD
         $profile->user_id='8';
-=======
-        $profile->provider_id='8';
->>>>>>> 6bddaa08f63127a70354dac607d9e66e72b3e675
         $profile->name = 'hmm';
         $profile->date_of_birth = '20';
         $profile->gender = 'nu';
@@ -183,11 +152,7 @@ class ProfileSeeder extends Seeder
         $profile->save();
 
         $profile = new Profile();
-<<<<<<< HEAD
         $profile->user_id='9';
-=======
-        $profile->provider_id='9';
->>>>>>> 6bddaa08f63127a70354dac607d9e66e72b3e675
         $profile->name = 'asdf';
         $profile->date_of_birth = '20';
         $profile->gender = 'nu';
@@ -204,11 +169,7 @@ class ProfileSeeder extends Seeder
         $profile->save();
 
         $profile = new Profile();
-<<<<<<< HEAD
         $profile->user_id='10';
-=======
-        $profile->provider_id='10';
->>>>>>> 6bddaa08f63127a70354dac607d9e66e72b3e675
         $profile->name = 'asdf';
         $profile->date_of_birth = '20';
         $profile->gender = 'nu';
