@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/Service/auth.service';
 
 @Component({
   selector: 'app-menu-login',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-login.component.css']
 })
 export class MenuLoginComponent implements OnInit {
-
-  constructor() { }
+  constructor(
+  
+    ) {
+     
+     }
 
   ngOnInit(): void {
   }
+ 
   
 }

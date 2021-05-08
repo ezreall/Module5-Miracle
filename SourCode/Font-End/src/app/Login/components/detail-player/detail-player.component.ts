@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShowListService } from 'src/app/Service/show-list.service';
 
 @Component({
   selector: 'app-detail-player',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailPlayerComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private listdetail:ShowListService,
+    
+  ) { }
   isRent :boolean=false;
-
+  id!:number;
+  detailplayer!:any;
+  
   ngOnInit(): void {
   }
   click() {
@@ -18,4 +24,8 @@ export class DetailPlayerComponent implements OnInit {
   close() {
     this.isRent = false;
   }
+
+
+
+
 }
