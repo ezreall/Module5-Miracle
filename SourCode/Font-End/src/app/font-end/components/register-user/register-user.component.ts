@@ -72,7 +72,7 @@ export class RegisterUserComponent implements OnInit {
     formData.append('avatar', this.imgFile, this.imgFile.name);
     for (let i = 0; i < this.urls.length; i++) {
 
-      formData.append('image', this.urls[i],this.imgFile)
+      formData.append('image[]', this.urls[i],this.imgFile)
 
     }
     formData.append('service_id', JSON.stringify(this.listValue));
@@ -89,7 +89,8 @@ export class RegisterUserComponent implements OnInit {
 
   onImageChange(e: any) {
     // console.log(e.target.result)
-
+    // let data = this.createForm?.value;
+    // console.log(data)
     const reader = new FileReader();
     if (e.target.files.length && e.target.files) {
       this.imgFile = e.target.files[0];
