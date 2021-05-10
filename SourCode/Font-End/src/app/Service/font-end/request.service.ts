@@ -24,13 +24,17 @@ export class RequestService {
       return this.http.post(`${this.api_Url}`+'/requests/create', data, this.autheService.getHeader());
     }
 
-    getMyRequest(id:number):Observable<any> {
-      return this.http.get(this.api_Url+"/requests/"+id+"/order",this.autheService.getHeader());
+    getMyRequest():Observable<any> {
+      return this.http.get(this.api_Url+"/requests",this.autheService.getHeader());
+    }
+
+    getMyOrder():Observable<any> {
+      return this.http.get(this.api_Url+"/requests/myorder",this.autheService.getHeader());
     }
     
     updateRequestStatus(id:number):Observable<any>
     {
-      return this.http.post(this.api_Url+"/requests/"+id+"/update",this.autheService.getHeader());
+      return this.http.post(this.api_Url+"/requests/update/"+id,this.autheService.getHeader());
     }
 
 

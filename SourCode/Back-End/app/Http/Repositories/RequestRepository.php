@@ -7,10 +7,16 @@ namespace App\Http\Repositories;
 use App\Models\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class RequestRepository
 {
     function getAll(){
         return Request::orderBy('id','DESC')->get();
+    }
+
+    function findById($id)
+    {
+        return DB::table('requests')->where('provider_id','=',$id)->get();
     }
 
     function getMyRequest($id): \Illuminate\Support\Collection
@@ -20,14 +26,13 @@ class RequestRepository
 
     function getMyOrder($id)
     {
-        return DB::table('requests')->where('provider_id','=',$id)->get();
+        return DB::table('requests')->where('provider_id', '=', $id)->get();
     }
 
     function getInstance()
     {
         return new Request();
     }
-
 
     function store($data)
     {
@@ -59,5 +64,5 @@ class RequestRepository
     {
         return Request::where('name','LIKE',"%$search%")->get();
     }
-
 }
+

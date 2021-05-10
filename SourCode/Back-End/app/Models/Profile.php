@@ -31,5 +31,4 @@ class Profile extends Model
     public function profileImages(){
         return $this->hasMany(Profile::class,'profile_id');
     }
-
 }

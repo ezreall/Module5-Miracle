@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Profile } from './profile';
 import { FormArray, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { RegisterServiceService } from 'src/app/Service/register-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -12,15 +13,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class RegisterUserComponent implements OnInit {
   createForm!: FormGroup;
-  showService: any;
+  showService: Array<any> = [];
+  listValue: Array<string> = [];
+  imgSrc: string = '';
+  imgFile: any;
+  urls: Array<string> = [];
+  // masterSelected!: boolean;
 
-
+  // @ViewChild('myCheckbox') myCheckbox: any;
 
 
 
   constructor(private registerService: RegisterServiceService,
-              private route: Router,
-              private formBuilder: FormBuilder,
+    private route: Router,
+    private formBuilder: FormBuilder,
+    private toast: ToastrService
 
   ) { }
 
@@ -46,28 +53,107 @@ export class RegisterUserComponent implements OnInit {
     this.showServices();
   }
 
-  onSubmit() {  
-    let data =this.createForm.value;
-    console.log(data)
-    this.registerService.registerUser(data).subscribe((res: any) => {
+  onSubmit() {
+    let formData = new FormData();
+    let data = this.createForm.value;
+    formData.append('name', data.name);
+    formData.append('weight', data.weight);
+    formData.append('height', data.height);
+    formData.append('required', data.required);
+    formData.append('hobby', data.hobby);
+    formData.append('description', data.description);
+    formData.append('date_of_birth', data.date_of_birth);
+    formData.append('face_book', data.face_book);
+    formData.append('country', data.country);
+    formData.append('voice', data.voice);
+    formData.append('price_per_hour', data.price_per_hour);
+    formData.append('city', data.city);
+    formData.append('gender', data.gender);
+    formData.append('avatar', this.imgFile, this.imgFile.name);
+    for (let i = 0; i < this.urls.length; i++) {
+
+      formData.append('image', this.urls[i],this.imgFile)
+
+    }
+    formData.append('service_id', JSON.stringify(this.listValue));
+
+    console.log(formData.get('service_id'));
+
+
+    this.registerService.registerUser(formData).subscribe((res: any) => {
+      // this.toast.success('Chúc mừng bạn đã đăng ký thành công')
 
       console.log(res)
     });
   }
 
+  onImageChange(e: any) {
+    // console.log(e.target.result)
 
-  showServices(){
-    this.registerService.getService().subscribe((res)=>{
+    const reader = new FileReader();
+    if (e.target.files.length && e.target.files) {
+      this.imgFile = e.target.files[0];
+
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (e: any) => {
+        this.imgSrc = e.target.result
+        // console.log(e.target.result)
+      }
+    }
+
+  }
+
+
+  onImageSelect(e: any) {
+    // console.log(e.target.files)
+
+    if (e.target.files) {
+      // console.log(e.target.files)
+      for (let i = 0; i < e.target.files.length; i++) {
+        // const reader = new FileReader();
+        this.imgFile = e.target.files[i];
+        this.urls.push(this.imgFile);
+        // reader.readAsDataURL(e.target.files[i]);
+        // reader.onload = (events: any) => {
+          // this.urls.push(events.target.result);
+          // console.log(this.urls);
+         
+        //   console.log(events.target.result)
+        //   console.log(this.urls);
+        // }
+
+
+      }
+
+    }
+  }
+
+
+  showServices() {
+    this.registerService.getService().subscribe((res) => {
       this.showService = res;
       // console.log(123);
-      console.log(this.showService);
+      // console.log(this.showService);
     })
   }
-  
-
- 
- 
 
 
-  
+
+
+  setValueCheckbox(e: any) {
+    // console.log(e.target.value);
+    let value = e.target.value
+    if (e.target.checked) {
+      this.listValue.push(value);
+    } else {
+      let index = this.listValue.indexOf(value);
+      // console.log('idx: ' + index);
+      this.listValue.splice(index, 1)
+    }
+    // console.log(this.listValue)
+  }
+
+
+
+
 }

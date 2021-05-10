@@ -22,6 +22,8 @@ export class LoginPageComponent implements OnInit {
   msg = '';
 
 
+  submitted = false;
+
   constructor(
     private formbd: FormBuilder,
     private router: Router,
@@ -30,7 +32,7 @@ export class LoginPageComponent implements OnInit {
   )
    { 
     this.loginForm = this.formbd.group({
-      email: ['',Validators.required],
+      email: ['',[Validators.required, Validators.email]],
       password: ['',Validators.required]})
       
    }
@@ -41,17 +43,17 @@ export class LoginPageComponent implements OnInit {
     this.register=true;
     this.login=false;
   }
+  get f() { return this.loginForm.controls; }
   checkLogin() {
+    this.submitted = true;
+    console.log(this.loginForm?.value);
     let data = this.loginForm?.value;
     this.authServices.login(data).subscribe((res) => {
       console.log(res);
       if (res.status === 'successfully') {
         sessionStorage.setItem('token', res.token);
         console.log(res.user.name)
-        sessionStorage.setItem('user', res.user.name);
-        console.log(res.user.id)
-        sessionStorage.setItem('id', res.user.id);
-        
+        sessionStorage.setItem('user', res.user.name);        
         this.router.navigate(['users']);
       } else {
     

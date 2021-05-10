@@ -10,6 +10,7 @@ import { ProviderDetailComponent } from './components/provider/provider-detail/p
 import { MyrequestComponent } from './components/myrequest/myrequest.component';
 
 
+
 const routes: Routes = [{
   path: '',
   component: ShowlistComponent,
@@ -22,8 +23,9 @@ const routes: Routes = [{
 },
 {
   path: 'myrequest',
-  component: MyrequestComponent,
+  component: MyrequestComponent
 },
+
 
 ]
 

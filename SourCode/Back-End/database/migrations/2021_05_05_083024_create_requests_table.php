@@ -20,7 +20,11 @@ class CreateRequestsTable extends Migration
             $table->unsignedBigInteger('status_id');
             $table->string('message');
             $table->string('address');
+<<<<<<< HEAD:SourCode/Back-End/database/migrations/2021_05_05_083024_create_requests_table.php
             $table->time('start_time');
+=======
+            $table->date('start_time');
+>>>>>>> thang.1:SourCode/Back-End/database/migrations/2021_05_04_033400_create_requests_table.php
             $table->integer('time');
             $table->date('date');
             $table->integer('money_amount');

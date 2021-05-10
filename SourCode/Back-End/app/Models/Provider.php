@@ -9,7 +9,6 @@ class Provider extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
         'user_id',
         'price_per_hour',
@@ -35,5 +34,4 @@ class Provider extends Model
     public function requests(){
         return $this->hasMany(Request::class,'provider_id');
     }
-
 }

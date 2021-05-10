@@ -18,6 +18,9 @@ export class AuthService {
     return this.http.post(this.api_url + '/logout','', this.getHeader());
   }
 
+  getUser():Observable<any>{
+    return this.http.get(this.api_url+'/auth',this.getHeader())
+  }
   getHeader() {
     let httpOptions = {
       headers: new HttpHeaders({

@@ -11,11 +11,9 @@ import { AuthService } from 'src/app/Service/auth.service';
 export class MenuComponent implements OnInit {
   userName = '';
   detail:Array<any>= [];
-
   constructor(
     private router:Router,
     private authService:AuthService,
-    
   ) { }
   isDropdownAccount: boolean=false; 
   ngOnInit(): void {
@@ -35,6 +33,4 @@ export class MenuComponent implements OnInit {
       })
     }
   }
-
-
 }

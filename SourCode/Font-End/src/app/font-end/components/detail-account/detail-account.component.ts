@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/Service/auth.service';
 
 @Component({
   selector: 'app-detail-account',
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-account.component.css']
 })
 export class DetailAccountComponent implements OnInit {
-
-  constructor() { }
+    account : any=[];
+  constructor(
+    private accountService:AuthService
+  ) { }
 
   ngOnInit(): void {
+    this.ShowList()
   }
+  ShowList() {
+    
+    this.accountService.getUser().subscribe(
+      (res)=>{
+        this.account=res;
+        
+        console.log(res)
+      })
+     
+  }
+
 
 }

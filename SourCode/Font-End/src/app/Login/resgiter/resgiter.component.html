@@ -41,7 +41,7 @@
     <body cz-shortcut-listen="true" style="background-color: rgb(233, 235, 238) !important;"><noscript>Bạn cần có cho phép Javascript hoạt động để chạy ứng dụng PlayerDuo.</noscript>
         <div id="root">
             <header class="menu__header" id="header-menu" style="position: fixed; width: 100%;">
-                <div class="navbar-header"><a class="logo" href="/"><img src="https://files.playerduo.com/production/static-files/logo.png">
+                <div class="navbar-header"><a class="logo" href="/"><img src="/assets/font-end/img/17210be3839135a5457b0799a2877167.png">
                         <div class="text-logo">
                             <h4>PLAYERDUO</h4>
                             <p>GAME COMMUNITY</p>
@@ -65,16 +65,52 @@
             <div class="wrapper">
                 <div class="container">
                     <div class="row login-page">
-                        <div class="col-md-7 hidden-sm hidden-xs image-login"><img src="/favicons/banner_login.jpg" class="" alt="PD"></div>
+                        <div class="col-md-7 hidden-sm hidden-xs image-login">
+                            <img src="/assets/font-end/img/Screen Shot 2021-05-10 at 8.23.45 AM.png" >
+                        </div>
                     
                         <div class="col-md-5  col-xs-12 form-content" >
                             <div class="content-main">
-                                <form>
-                                    <div class="fieldGroup "><input type="text"[(ngModel)]="user.name" name="userName" placeholder="Tên đăng nhập" maxlength="5000" autocomplete="false" value=""></div>
-                                    <div class="fieldGroup "><input type="text"[(ngModel)]="user.email" name="email" placeholder="Email" maxlength="5000" autocomplete="false" value=""></div>
-                                    <div class="fieldGroup "><input type="password" [(ngModel)]="user.password" name="password" placeholder="Mật khẩu" maxlength="5000" autocomplete="false" value=""></div>
-                                    <div class="fieldGroup "><input type="text" [(ngModel)]="user.phone" name="username" placeholder="Số Điện Thoại" maxlength="5000" autocomplete="false" value=""></div>
-                                    <button type="submit"(click)="onSubmit()" ><span>Tạo tài khoản</span></button>
+                                <form [formGroup]="createResgiter" (ngSubmit)="onSubmit()">
+                                    <div class="fieldGroup ">
+                                        <input type="text" formControlName="name"  placeholder="Tên đăng nhập" maxlength="5000" autocomplete="false" value=""
+                                        [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                                        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                            <div *ngIf="f.name.errors.required">First Name is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="fieldGroup ">
+                                        <input type="text" formControlName="email"  placeholder="Email" maxlength="5000" autocomplete="false" value="" 
+                                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                            <div *ngIf="f.email.errors.required">Email is required</div>
+                                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                        </div>
+                                    </div>
+                                    <div class="fieldGroup  ">
+                                        <input type="password" formControlName="password"  placeholder="Mật khẩu" maxlength="5000" autocomplete="false" value="" >
+                                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                            <div *ngIf="f.password.errors.required">Password is required</div>
+                                            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                                        </div>
+                                    </div>
+                                    <div class="fieldGroup ">
+                                        <input type="password" formControlName="confirmPassword" placeholder="Mật khẩu" maxlength="5000" autocomplete="false" value=""
+                                        [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+                                        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                                            <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                                            <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                                        </div>
+                                    </div>
+                                    <div class="fieldGroup ">
+                                        <input type="text" formControlName="phone"  placeholder="Số Điện Thoại" maxlength="5000" autocomplete="false" value=""
+                                        [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+                                        <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                                            <div *ngIf="f.phone.errors.required">Phone is required </div>
+                                            <div *ngIf="f.phone.errors.minlength">Phone must be at least 9 characters</div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" ><span>Tạo tài khoản</span></button>
                                 </form><button style="background-color: gray;"><span routerLink="/login">Đăng nhập</span></button>
                                 <!-- <p class="forgot_password"><a href="/login"><span>Quên mật khẩu?</span></a></p> -->
                             </div>

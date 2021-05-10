@@ -19,6 +19,7 @@ class RequestService
         return $this->requestRepo->getAll();
     }
 
+
     function getMyRequest($id): \Illuminate\Support\Collection
     {
         return $this->requestRepo->getMyRequest($id);
@@ -26,6 +27,7 @@ class RequestService
 
     function getMyOrder($id)
     {
+
         return $this->requestRepo->getMyOrder($id);
     }
 
@@ -40,7 +42,9 @@ class RequestService
     function update($data, $id)
     {
         $request = $this->requestRepo->findById($id);
+        dd($request);
         $request->status_id = $data['status_id'];
+
         $this->requestRepo->update($request);
     }
 

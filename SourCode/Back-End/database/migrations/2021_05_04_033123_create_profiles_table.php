@@ -15,7 +15,11 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
+<<<<<<< HEAD
             $table->unsignedBigInteger('user_id');
+=======
+            $table->unsignedBigInteger('provider_id');
+>>>>>>> thang.1
             $table->string('avatar')->default('1');
             $table->string('name');
             $table->date('date_of_birth');
