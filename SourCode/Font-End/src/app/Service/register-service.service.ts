@@ -17,6 +17,7 @@ export class RegisterServiceService {
   }
 
   registerUser(data: any): Observable<any> {    
+    // console.log(data);
     return this.http.post<any>(environment.url_api + '/providers/store', data, this.authService.getHeader());
   }
 

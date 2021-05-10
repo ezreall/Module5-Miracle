@@ -30,7 +30,7 @@
                                     formControlName="hobby" maxlength="5000" autocomplete="false">
                             </div>
                             <div class="fieldGroup ">
-                                <p class="control-label">Giá theo giờ</p><input type="text" name="price_per_hour"
+                                <p class="control-label">Giá theo giờ</p><input type="number" name="price_per_hour"
                                     placeholder="" formControlName="price_per_hour" maxlength="5000"
                                     autocomplete="false">
                             </div>
@@ -70,25 +70,102 @@
                                 <option value="Miền Trung">Miền Trung</option>
                                 <option value="Miền Nam">Miền Nam</option>
                             </select>
+                                                  
+                            <p class="control-label">Quốc gia</p><select name="country" formControlName="country">
+                                <option value="Vietnam">Vietnam</option>
+                                <option value="China">China</option>
+                                <option value="Hong Kong">Hong Kong</option>
+                                <option value="India">India</option>
+                                <option value="Indonesia">Indonesia</option>                           
+                                <option value="Japan">Japan</option>                        
+                                <option value="Laos">Laos</option>
+                                <option value="Malaysia">Malaysia</option>
+                                <option value="Myanmar">Myanmar</option>
+                                <option value="New Zealand">New Zealand</option>
+                                <option value="Korea">Korea</option>
+                                <option value="Philippines">Philippines</option>
+                                <option value="Singapore">Singapore</option>
+                                <option value="Thailand">Thailand</option>
+                                <option value="United States">United States</option>
+                            </select>
+                            <p class="control-label">Thành phố</p><select name="city" formControlName="city">
+                                <option value="An Giang">An Giang</option>
+                                <option value="Bà Rịa Vũng Tàu"> Bà Rịa Vũng Tàu</option>
+                                <option value="Bình Dương"> Bình Dương</option>
+                                <option value="Bình Phước"> Bình Phước</option>
+                                <option value="Bình Thuận"> Bình Thuận</option>
+                                <option value="Bình Định"> Bình Định</option>
+                                <option value="Bạc Liêu"> Bạc Liêu</option>
+                                <option value="Bắc Cạn"> Bắc Cạn</option>
+                                <option value="Bắc Giang"> Bắc Giang</option>
+                                <option value="Bắc Ninh"> Bắc Ninh</option>
+                                <option value="Bến Tre"> Bến Tre</option>
+                                <option value="Cao Bằng"> Cao Bằng</option>
+                                <option value="Cà Mau"> Cà Mau</option>
+                                <option value="Cần Thơ"> Cần Thơ</option>
+                                <option value="Đà Nẵng"> Đà Nẵng</option>
+                                <option value="Đăk Lăk"> Đăk Lăk</option>
+                                <option value="Điện Biên"> Điện Biên</option>
+                                <option value="Đồng Nai"> Đồng Nai</option>
+                                <option value="Đồng Tháp"> Đồng Tháp</option>
+                                <option value="Gia Lai"> Gia Lai</option>
+                                <option value="Hà Giang"> Hà Giang</option>
+                                <option value="Hà Nam"> Hà Nam</option>
+                                <option value="Hà Nội"> Hà Nội</option>
+                                <option value="Hà Tây"> Hà Tây</option>
+                                <option value="Hà Tĩnh"> Hà Tĩnh</option>
+                                <option value="Hà Đông"> Hà Đông</option>
+                                <option value="Hòa Bình"> Hòa Bình</option>
+                                <option value="Hưng Yên"> Hưng Yên</option>
+                                <option value="Hạ Long"> Hạ Long</option>
+                                <option value="Hải Dương"> Hải Dương</option>
+                                <option value="Hải Phòng"> Hải Phòng</option>
+                                <option value="Hồ Chí Minh"> Hồ Chí Minh</option>
+                                <option value="Khánh Hòa"> Khánh Hòa</option>
+                                <option value="Kiên Giang"> Kiên Giang</option>
+                                <option value="KonTum"> KonTum</option>
+                                <option value="Lai Châu"> Lai Châu</option>
+                                <option value="Long An"> Long An</option>
+                                <option value="Lào Cai"> Lào Cai</option>
+                                <option value="Lâm Đồng"> Lâm Đồng</option>
+                                <option value="Lạng Sơn"> Lạng Sơn</option>
+                                <option value="Nam Định"> Nam Định</option>
+                                <option value="Nghệ An"> Nghệ An</option>
+                                <option value="Ninh Bình"> Ninh Bình</option>
+                                <option value="Ninh Thuận"> Ninh Thuận</option>
+                                <option value="Phú Thọ"> Phú Thọ</option>
+                                <option value="Phú Yên"> Phú Yên</option>
+                                <option value="Quảng Bình"> Quảng Bình</option>
+                                <option value="Quảng Nam"> Quảng Nam</option>
+                                <option value="Quảng Ngãi"> Quảng Ngãi</option>
+                                <option value="Quảng Ninh"> Quảng Ninh</option>
+                                <option value="Quảng Trị"> Quảng Trị</option>
+                                <option value="Sóc Trăng"> Sóc Trăng</option>
+                                <option value="Sơn La"> Sơn La</option>
+                                <option value="Thanh Hóa"> Thanh Hóa</option>
+                                <option value="Thái Bình"> Thái Bình</option>
+                                <option value="Thái Nguyên"> Thái Nguyên</option>
+                                <option value="Thừa Thiên Huế"> Thừa Thiên Huế</option>
+                                <option value="Tiền Giang"> Tiền Giang</option>
+                                <option value="Trà Vinh"> Trà Vinh</option>
+                                <option value="Tuyên Quang"> Tuyên Quang</option>
+                                <option value="Tây Ninh"> Tây Ninh</option>
+                                <option value="Vĩnh Long"> Vĩnh Long</option>
+                                <option value="Vĩnh Phúc"> Vĩnh Phúc</option>
+                                <option value="Yên Bái"> Yên Bái</option>
+                                <option value="Khác">Khác</option>
+                            </select>
                             <div class="fieldGroup ">
-                                <p class="control-label">Quốc gia</p><input type="text" formControlName="country"
-                                    name="date_of_birth" placeholder="" maxlength="5000" autocomplete="false">
-                            </div>
-                            <div class="fieldGroup ">
-                                <p class="control-label">Thành phố</p><input type="text" formControlName="city"
-                                    name="date_of_birth" placeholder="" maxlength="5000" autocomplete="false">
-                            </div>
-
-                            <div class="fieldGroup ">
+                                <!-- <img [src]="imgSrc"  > -->
                                 <p class="control-label">Ảnh đại diện</p>
-                                <input type="file" formControlName="avatar" name="avatar" placeholder=""
-                                    maxlength="5000" autocomplete="false">
+                                <input type="file" (change)="onImageChange($event)" formControlName="avatar"
+                                    name="avatar" placeholder="" maxlength="5000" autocomplete="false">
                             </div>
 
                             <div class="fieldGroup " style="margin-top: 23px;">
                                 <p class="control-label">Ảnh chi tiết</p>
-                                <input type="file" formControlName="image" name="image" placeholder="" maxlength="5000"
-                                    autocomplete="false" multiple>
+                                <input type="file" (change)="onImageSelect($event)" formControlName="image" name="image"
+                                    placeholder="" maxlength="5000" autocomplete="false" multiple>
                             </div>
                             <div class="fieldGroup " style="margin-top: 30px;">
                                 <p class="control-label">Giới tính</p>
@@ -97,20 +174,21 @@
                                         class="gender--radio"><input name="gender" type="radio"
                                             value="female">Nữ<span></span></label></div>
                             </div>
-                            <!-- #myCheckbox -->
-                            <!-- (change)="GetStats($event)" -->
-                            <div class="fieldGroup " style="margin-top: 30px;">
-                                <p class="control-label">Dịch vụ</p>
-                                <div *ngFor="let service of showService" style="display: flex;">
-                                    <input style="width: 30px;" type="checkbox" name="service_id"
-                                    (change) = "setValueCheckbox($event)"  value="{{ service.id }}" formControlName="service_id" maxlength="10"
-                                        autocomplete="false">
-                                    <br>
-                                    {{ service.name }}
+                           
+                                
+                                <div style="margin-top: 30px;" >
+                                    <p class="control-label">Dịch vụ</p>
+                                    <div *ngFor="let service of showService">
+                                        <input style="width: 30px;" type="checkbox" name="service_id"
+                                            (change)="setValueCheckbox($event)" value="{{ service.id }}"
+                                            formControlName="service_id" maxlength="10" autocomplete="false" >
+                                        <br>
+                                        {{ service.service }}
+                                    </div>
+    
                                 </div>
-                                <div class="fieldGroup name-player"><input type="text" name="title" placeholder="" maxlength="5000" autocomplete="false" value=""><span class="err-message">Thông tin này cần phải nhập</span></div><label for="title">Chi phí mỗi giờ thuê</label>
-
-                            </div>
+                                
+                          
                         </form>
 
                     </div>
@@ -118,6 +196,11 @@
                 </div>
 
             </div>
+           
+                    
+                
+
+              
             <button style="width: 30%;margin-left: 100px; " type="submit" class="btn-update">Cập nhật</button>
 
         </form>

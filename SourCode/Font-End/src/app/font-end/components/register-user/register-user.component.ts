@@ -3,6 +3,7 @@ import { Profile } from './profile';
 import { FormArray, FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { RegisterServiceService } from 'src/app/Service/register-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -13,6 +14,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class RegisterUserComponent implements OnInit {
   createForm!: FormGroup;
   showService: Array<any> = [];
+  listValue: Array<string> = [];
+  imgSrc: string = '';
+  imgFile: any;
+  urls: Array<string> = [];
+  // masterSelected!: boolean;
 
   // @ViewChild('myCheckbox') myCheckbox: any;
 
@@ -21,6 +27,7 @@ export class RegisterUserComponent implements OnInit {
   constructor(private registerService: RegisterServiceService,
     private route: Router,
     private formBuilder: FormBuilder,
+    private toast: ToastrService
 
   ) { }
 
@@ -47,12 +54,78 @@ export class RegisterUserComponent implements OnInit {
   }
 
   onSubmit() {
+    let formData = new FormData();
     let data = this.createForm.value;
-    console.log(data)
-    this.registerService.registerUser(data).subscribe((res: any) => {
+    formData.append('name', data.name);
+    formData.append('weight', data.weight);
+    formData.append('height', data.height);
+    formData.append('required', data.required);
+    formData.append('hobby', data.hobby);
+    formData.append('description', data.description);
+    formData.append('date_of_birth', data.date_of_birth);
+    formData.append('face_book', data.face_book);
+    formData.append('country', data.country);
+    formData.append('voice', data.voice);
+    formData.append('price_per_hour', data.price_per_hour);
+    formData.append('city', data.city);
+    formData.append('gender', data.gender);
+    formData.append('avatar', this.imgFile, this.imgFile.name);
+    for (let i = 0; i < this.urls.length; i++) {
+
+      formData.append('image', this.urls[i],this.imgFile)
+
+    }
+    formData.append('service_id', JSON.stringify(this.listValue));
+
+    console.log(formData.get('service_id'));
+
+
+    this.registerService.registerUser(formData).subscribe((res: any) => {
+      // this.toast.success('Chúc mừng bạn đã đăng ký thành công')
 
       console.log(res)
     });
+  }
+
+  onImageChange(e: any) {
+    // console.log(e.target.result)
+
+    const reader = new FileReader();
+    if (e.target.files.length && e.target.files) {
+      this.imgFile = e.target.files[0];
+
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (e: any) => {
+        this.imgSrc = e.target.result
+        // console.log(e.target.result)
+      }
+    }
+
+  }
+
+
+  onImageSelect(e: any) {
+    // console.log(e.target.files)
+
+    if (e.target.files) {
+      // console.log(e.target.files)
+      for (let i = 0; i < e.target.files.length; i++) {
+        // const reader = new FileReader();
+        this.imgFile = e.target.files[i];
+        this.urls.push(this.imgFile);
+        // reader.readAsDataURL(e.target.files[i]);
+        // reader.onload = (events: any) => {
+          // this.urls.push(events.target.result);
+          // console.log(this.urls);
+         
+        //   console.log(events.target.result)
+        //   console.log(this.urls);
+        // }
+
+
+      }
+
+    }
   }
 
 
@@ -64,58 +137,23 @@ export class RegisterUserComponent implements OnInit {
     })
   }
 
+
+
+
   setValueCheckbox(e: any) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     let value = e.target.value
     if (e.target.checked) {
-      this.showService.push(value);
+      this.listValue.push(value);
     } else {
-      let index = this.showService.indexOf(value);
-      console.log('idx: ' + index);
-      this.showService.splice(index, 1)
+      let index = this.listValue.indexOf(value);
+      // console.log('idx: ' + index);
+      this.listValue.splice(index, 1)
     }
-    console.log(this.showService)
+    // console.log(this.listValue)
   }
 
 
 
 
-  // getServiceId(e:any,id:string){
-  //   if(e.target.checked){
-  //     console.log(id + 'Checked');
-  //       this.selectItem.push(id);
-  //   }else{
-  //     console.log(id + 'UNChecked');
-
-  //     this.selectItem = this.selectItem.filter(m=>m! = id);
-  //   }
-  //   console.log(this.selectItem);
-  // }
-
-
-
-
-  // onChange(service_id:any,isChecked:boolean){
-  //   const serviceFormArray = <FormArray>this.createForm.controls.service_id;
-  //   if(isChecked){
-  //     serviceFormArray.push(new FormControl(service_id));
-  //   }else{
-  //     let index = serviceFormArray.controls.findIndex(x => x.value == service_id);
-  //     serviceFormArray.removeAt(index);
-
-  //   }
-
-  // }
-
-  // this.user.isTCAccepted = form.controls['tc'].value;
-//   GetStats(event: Event) {
-//     // console.log(event.target.name, event.target.value, event.target.checked);
-//     console.log(event.target?.removeEventListener.name)
-// }
-
-  
- 
-
-
-  
 }
