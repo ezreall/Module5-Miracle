@@ -20,9 +20,10 @@ export class RequestComponent implements OnInit {
   requestForm!: FormGroup;
   status_id!: 1;
   profile: Provider = {};
-  id!: number;
-
-  total_test!: number;
+  id!: number; 
+  time!: number;
+  price!: number;
+  total_money: number = this.time* this.price;
 
   constructor(private fb: FormBuilder,
     private requestService: RequestService,
@@ -80,6 +81,7 @@ export class RequestComponent implements OnInit {
   }
 
   click() {
+    console.log(123)
     this.id = +this.routerActive.snapshot.paramMap.get("id")!;
     this.provider.getProvider(this.id).subscribe(
       (res) => {
@@ -102,7 +104,7 @@ export class RequestComponent implements OnInit {
       (form) => {
         let time = form.time;
         let price = this.profile.price_per_hour!;
-        this.total_test = time * price;
+        this.total_money = time * price;
       })
 
   }
