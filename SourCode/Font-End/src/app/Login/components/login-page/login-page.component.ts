@@ -42,7 +42,6 @@ export class LoginPageComponent implements OnInit {
     this.login=false;
   }
   checkLogin() {
-    console.log(this.loginForm?.value);
     let data = this.loginForm?.value;
     this.authServices.login(data).subscribe((res) => {
       console.log(res);
@@ -50,6 +49,8 @@ export class LoginPageComponent implements OnInit {
         sessionStorage.setItem('token', res.token);
         console.log(res.user.name)
         sessionStorage.setItem('user', res.user.name);
+        console.log(res.user.id)
+        sessionStorage.setItem('id', res.user.id);
         
         this.router.navigate(['users']);
       } else {

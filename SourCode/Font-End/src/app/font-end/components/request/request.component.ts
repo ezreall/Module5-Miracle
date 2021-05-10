@@ -81,8 +81,9 @@ export class RequestComponent implements OnInit {
   }
 
   click() {
-    console.log(123)
+    
     this.id = +this.routerActive.snapshot.paramMap.get("id")!;
+    console.log(this.id)
     this.provider.getProvider(this.id).subscribe(
       (res) => {
         this.profile = res;

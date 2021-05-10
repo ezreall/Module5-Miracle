@@ -45,7 +45,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
         Route::get('/{id}',[RequestController::class, 'getMyRequest']);
         Route::get('/{id}/order',[RequestController::class, 'getMyOrder']);
         Route::post('/{id}/update',[RequestController::class, 'updateStatus']);
-        Route::delete('/{id}/delete',[RequestController::class, 'delete']);
+//        Route::delete('/{id}/delete',[RequestController::class, 'delete']);
         Route::post('/search',[RequestController::class, 'search']);
     });
 

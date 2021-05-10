@@ -4,7 +4,8 @@ import { ToastrService } from 'ngx-toastr';
 import { ProviderService } from 'src/app/Service/font-end/provider.service';
 import { RequestService } from 'src/app/Service/font-end/request.service';
 import { ShowListService } from 'src/app/Service/show-list.service';
-import { Provider } from '../class/provider';
+import { Profile } from '../register-user/profile';
+
 
 
 @Component({
@@ -14,13 +15,13 @@ import { Provider } from '../class/provider';
 })
 export class DetailComponent implements OnInit {
   
-  profile : Provider = {};
+  profile :Profile={};
   id!:number;
   constructor(
     private routerActive: ActivatedRoute,
     private toast:ToastrService,
     private providerService:ProviderService,
-    private requestForm: RequestService
+    private requestForm: RequestService,
     ) { }
 
   ngOnInit(): void {

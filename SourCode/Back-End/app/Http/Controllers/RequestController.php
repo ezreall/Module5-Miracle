@@ -29,9 +29,10 @@ class RequestController
         return response()->json($request);
     }
 
-    function getMyOrder($id): \Illuminate\Http\JsonResponse
+    function getMyOrder(): \Illuminate\Http\JsonResponse
     {
-        $request = $this->requestSer->getMyOrder($id);
+        $user_id = auth()->user()['id'];
+        $request = $this->requestSer->getMyOrder($user_id);
         return response()->json($request);
     }
 
@@ -50,11 +51,11 @@ class RequestController
         }
     }
 
-    function updateStatus(Request $request, $id): \Illuminate\Http\JsonResponse
+    function updateStatus(Request $request): \Illuminate\Http\JsonResponse
     {
-//        dd($request->all(), $id);
         try {
-            $this->requestSer->update($request->all(), $id);
+            $user_id = auth()->user()['id'];
+            $this->requestSer->update($request->all(), $user_id);
         }catch (\Exception $e){
             return response()->json($e->getMessage());
         }
