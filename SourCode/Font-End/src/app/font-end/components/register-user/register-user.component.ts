@@ -72,7 +72,7 @@ export class RegisterUserComponent implements OnInit {
     formData.append('avatar', this.imgFile, this.imgFile.name);
     for (let i = 0; i < this.urls.length; i++) {
 
-      formData.append('image', this.urls[i],this.imgFile)
+      formData.append('image[]', this.urls[i],this.imgFile)
 
     }
     formData.append('service_id', JSON.stringify(this.listValue));

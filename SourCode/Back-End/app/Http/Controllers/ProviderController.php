@@ -49,18 +49,27 @@ class ProviderController extends Controller
             $path = $this->updateFile($request,'avatar','profile');
             $profile->avatar = $path;
             $profile->save();
-            $imageProfile = new ProfileImage();
-            $imageProfile->profile_id = $profile->id;
+
+//            dd($request->file('image'));
             if ($request->hasFile('image')) {
                 foreach ($request->file('image') as $image) {
+                    $imageProfile = new ProfileImage();
+                    $imageProfile->profile_id = $profile->id;
+//                    print_r($key);
+//                    dd($request->file('image'));
                     $data = $this->updateImage($image,'image');
+//                    dd($data);
+                    $imageProfile->image = $data;
+                    $imageProfile->save();
+//                return response()->json($key);
 
-                    $imageProfile->image[] = $data;
                 }
             }
+//            $path = $this->updateFile($request,'image','image');
+//            $imageProfile->image = $path;
 
 
-            $imageProfile->save();
+
             DB::commit();
             return response()->json($request->all());
 
@@ -70,11 +79,12 @@ class ProviderController extends Controller
 
         }
 
+
     }
 
     function updateImage($image, $nameFolder)
     {
-
+//            dd($image);
             return $image->store($nameFolder, 'public');
 
     }
