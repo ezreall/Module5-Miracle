@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ShowListService } from 'src/app/Service/show-list.service';
+import { environment } from 'src/environments/environment.prod';
 @Component({
   selector: 'app-showlist',
   templateUrl: './showlist.component.html',
@@ -9,7 +10,8 @@ import { ShowListService } from 'src/app/Service/show-list.service';
 })
 export class ShowlistComponent implements OnInit {
   showlists: any=[];
-
+  showlist: any=[];
+  image_path = environment.image_url;
   constructor(
     private showlistService: ShowListService,
     private router: Router,
@@ -17,7 +19,8 @@ export class ShowlistComponent implements OnInit {
   ) { }
   isDropdown: boolean = false;
   ngOnInit(): void {
-    this.ShowList()
+    this.ShowList();
+    this.one();
   }
   click() {
     this.isDropdown = true;
@@ -30,8 +33,18 @@ export class ShowlistComponent implements OnInit {
     this.showlistService.showlist().subscribe(
       (res)=>{
         this.showlists=res[0];
-        
-        console.log(this.showlists[0].name)
+       
+        console.log(this.showlists[0])
+      })
+     
+  }
+  one() {
+    
+    this.showlistService.showlist().subscribe(
+      (one)=>{
+        this.showlist=one[1];
+       
+        console.log(one[1])
       })
      
   }
