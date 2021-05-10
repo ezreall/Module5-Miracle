@@ -5,7 +5,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { DetailComponent } from './components/detail/detail.component';
 import { DetailAccountComponent } from './components/detail-account/detail-account.component';
 import { RequestComponent } from './components/request/request.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProviderDetailComponent } from './components/provider/provider-detail/provider-detail.component';
+
 
 const routes: Routes = [{
   path: '',
@@ -27,12 +29,15 @@ const routes: Routes = [{
     DetailComponent,
     DetailAccountComponent,
     RequestComponent,
+    ProviderDetailComponent
+
   ],
   imports: [
     CommonModule,
     RouterModule,
     RouterModule.forChild(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class FontEndModule { }

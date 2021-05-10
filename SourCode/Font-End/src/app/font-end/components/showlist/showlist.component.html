@@ -60,7 +60,8 @@
                                     </div>
                                 </div>
                                 <div class="player-information">
-                                    <h3 class="player-name"><a href="users/detail/{{showlist.id}}">{{showlist.name}}</a>
+                                    <h3 class="player-name"><a [routerLink]="['detail', showlist.id]" routerLinkActive="active">
+                                        {{showlist.name}}</a>
                                         <div class="player-status ready"></div>
                                     </h3>
                                     <p class="player-title">{{showlist.description}}</p>

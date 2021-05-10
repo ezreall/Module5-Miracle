@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -30,15 +31,19 @@ Route::get('profile/{id}',[ProfileController::class,'getById']);
 Route::group(['middleware' => 'jwt.auth'], function () {
     Route::get('auth', [UserController::class,'user']);
     Route::post('logout', [UserController::class,'logout']);
+
     Route::prefix('providers')->group(function () {
-        Route::get('/', [\App\Http\Controllers\ProviderController::class, 'getAll']);
-        Route::post('/store',[\App\Http\Controllers\ProviderController::class,'store']);
+        Route::get('/', [ProviderController::class, 'getAll']);
+        Route::post('/store',[ProviderController::class,'store']);
+        Route::get('/{id}',[ProviderController::class,'findById']);
+        Route::get('/{id}/getinfor',[ProviderController::class,'getProviderInfor']);
     });
 
     Route::prefix('requests')->group(function () {
         Route::get('list',[RequestController::class, 'index']);
         Route::post('create',[RequestController::class, 'store']);
-        Route::get('/{id}',[RequestController::class, 'findById']);
+        Route::get('/{id}',[RequestController::class, 'getMyRequest']);
+        Route::get('/{id}/order',[RequestController::class, 'getMyOrder']);
         Route::post('/{id}/update',[RequestController::class, 'updateStatus']);
         Route::delete('/{id}/delete',[RequestController::class, 'delete']);
         Route::post('/search',[RequestController::class, 'search']);

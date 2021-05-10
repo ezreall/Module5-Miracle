@@ -26,6 +26,27 @@ class ProviderController extends Controller
         return response()->json($service);
     }
 
+    function findById($id): \Illuminate\Http\JsonResponse
+    {
+        $provider = Provider::findOrFail($id);
+        return response()->json($provider);
+    }
+
+    function getProvider($id)
+    {
+        $provider = DB::table('providers')->where('id','=',$id);
+    }
+
+    function getProviderInfor($id)
+    {
+
+        $providerInfor = DB::table('users')->join('profiles','users.id','=','profiles.user_id')
+            ->join('providers','users.id','=','providers.user_id')
+            ->join('provider_statuses','providers.status_id','=','provider_statuses.id')
+            ->select('users.id','profiles.*','providers.price_per_hour')->where('users.id','=',$id)->get();
+        return response()->json($providerInfor);
+    }
+
 
 
     public function store(Request $request): \Illuminate\Http\JsonResponse

@@ -23,9 +23,15 @@ class RequestController
         return response()->json($requests, 201);
     }
 
-    function findById($id): \Illuminate\Http\JsonResponse
+    function getMyRequest($id): \Illuminate\Http\JsonResponse
     {
-        $request = $this->requestSer->findById($id);
+        $request = $this->requestSer->getMyRequest($id);
+        return response()->json($request);
+    }
+
+    function getMyOrder($id): \Illuminate\Http\JsonResponse
+    {
+        $request = $this->requestSer->getMyOrder($id);
         return response()->json($request);
     }
 
