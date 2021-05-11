@@ -35,7 +35,8 @@ Route::group(['middleware' => 'jwt.auth'], function () {
         Route::post('/store',[\App\Http\Controllers\ProviderController::class,'store']);
     });
     Route::prefix('services')->group(function () {
-        Route::get('/', [\App\Http\Controllers\ServiceController::class, 'getAll']);
+        Route::get('/', [\App\Http\Controllers\ServiceController::class, 'getAllService']);
+        Route::get('/myservice', [\App\Http\Controllers\ServiceController::class, 'getMyService']);
         Route::get('/{id}', [\App\Http\Controllers\ServiceController::class, 'findById']);
         Route::post('/store', [\App\Http\Controllers\ServiceController::class, 'store']);
         Route::post('/{id}/update',[\App\Http\Controllers\ServiceController::class,'update']);

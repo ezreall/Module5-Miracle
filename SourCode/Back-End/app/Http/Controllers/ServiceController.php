@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class ServiceController extends Controller
 {
 
-    public function getAll(){
+    public function getMyService(){
         $id = Auth::id();
 
         $data = DB::table('providers')->join('providers_services','id','=','provider_id')
@@ -20,6 +20,13 @@ class ServiceController extends Controller
                                             ->where('user_id','=',$id)->get();
 //        dd($data);
         return response()->json($data);
+    }
+
+    public function getAllService(){
+        $services = Service::skip(0)->take(7)->get();
+        $test = Service::skip(7)->take(2)->get();
+        $tests = Service::skip(9)->take(5)->get();
+        return response()->json([$services,$test,$tests]);
     }
 
 //    function getProviderInfor($id)
@@ -47,10 +54,10 @@ class ServiceController extends Controller
     public function update(Request $request,$id){
         $provider = $this->findById($id);
         $provider->user_id = Auth::id();
-        $provider->name = $request->name;
-        $services = json_decode($request->service_id);
+        $provider->price_per_hour = $request->price_per_hour;
+//        $services = json_decode($request->service_id);
         $provider->save();
-        $provider->services()->sync($services);
+//        $provider->services()->sync($services);
         return response()->json($request->all());
     }
 

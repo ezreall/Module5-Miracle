@@ -13,6 +13,9 @@ import { Provider } from './provider';
 export class RegisterServiceComponent implements OnInit {
   listValue: Array<string> = [];
   showService: Array<any> = [];
+  showServiceTwo:  any= [];
+  showServiceThree:  any= [];
+
   createForm!: FormGroup;
   // service: any;
   showProfile: Array<any> = [];
@@ -35,6 +38,9 @@ export class RegisterServiceComponent implements OnInit {
     });
 
     this.showServices();
+    this.showServicesTwo();
+    this.showServicesThree();
+    
   }
 
   onSubmit(){
@@ -57,7 +63,21 @@ export class RegisterServiceComponent implements OnInit {
   
   showServices() {
     this.registerService.getService().subscribe((res) => {
-      this.showService = res;
+      this.showService = res[0];
+      console.log(res);
+      // console.log(this.showService);
+    })
+  }
+  showServicesTwo() {
+    this.registerService.getService().subscribe((one) => {
+      this.showServiceTwo = one[1];
+      // console.log(this.showServiceTwo.service);
+      console.log(this.showServiceTwo[0]);
+    })
+  }
+  showServicesThree() {
+    this.registerService.getService().subscribe((res) => {
+      this.showServiceThree = res[2];
       console.log(res);
       // console.log(this.showService);
     })

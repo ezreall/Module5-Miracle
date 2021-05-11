@@ -1,47 +1,100 @@
-<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="aside">
         <h3>Đăng ký dịch vụ</h3>
-        
+
         <form class="playerinfo-form row" [formGroup]="createForm" (ngSubmit)="onSubmit()">
             <div class="col-md-12">
-                
-              
+
+
                 <div class="mt-3">
                     <div id="noanim-tab-example">
                         <ul defaultactive="" role="tablist" class="nav nav-tabs">
-                            <li role="presentation" class="active"><a id="noanim-tab-example-tab-tv" role="tab" aria-controls="noanim-tab-example-pane-tv" aria-selected="true" href="#">Dịch vụ</a></li>
+                            <li role="presentation" class="active"><a id="noanim-tab-example-tab-tv" role="tab"
+                                    aria-controls="noanim-tab-example-pane-tv" aria-selected="true" href="#">Dịch vụ</a>
+                            </li>
                         </ul>
-                        <div class="fieldGroup name-player" >
-                            <p class="control-label">Giá dịch vụ theo giờ</p><input type="text" name="nickName"   maxlength="5000" autocomplete="false" formControlName="price_per_hour">
+                        <div class="fieldGroup name-player">
+                            <p class="control-label">Giá dịch vụ theo giờ</p><input type="text" name="nickName"
+                                maxlength="5000" autocomplete="false" formControlName="price_per_hour">
                         </div>
-                     
+
 
                         <div class="list-player">
-                    
+
                             <div>
-        
+
                                 <div class="row flex-card">
                                     <div class="tab-content">
-                                        <div *ngFor="let item of showService" style="display: flex;">
-                                            <div>
-                                                
-                                            </div>
-                                            <input style="width: 30px;" type="checkbox" name="service_id"
-                                                (change)="setValueCheckbox($event)" value="{{ item.id }}"
-                                                formControlName="service_id" maxlength="10" autocomplete="false" >
-                                            <br> 
-                                            {{ item.service }} 
+                                        <div >
+                                           
+
                                         </div>
-                                       
+                                      
+                                    </div>
+
+                                </div>
+                                <div class="list-player">
+                    
+                                    <div>
+                                             <div>
+                                            <p>Các dịch vụ cung cấp</p>
+                                             </div>
+                                        <div class="row flex-card">
+                                            
+                                            <div class="service " *ngFor="let item of showService" style="display: flex;">
+                                                <div >
+                                                    <input style="width: 30px;margin: auto;" type="checkbox" name="service_id"
+                                                    class="box-level"   (change)="setValueCheckbox($event)" value="{{ item.id }}"
+                                                        formControlName="service_id" maxlength="10" autocomplete="false">
+                                                    <br>
+                                                    {{ item.service }}
+                                                </div>
+                                               
+                                            </div>
+                                           
+                                          
+                                        </div>
+                                        <div>
+                                            <p>Các dịch vụ miễn phí</p>
+                                             </div>
+                                        <div class="row flex-card">
+                                            <div class="service " *ngFor="let items of showServiceTwo" style="display: flex;">
+                                                <div >
+                                                    <input style="width: 30px;margin: auto;" type="checkbox" name="service_id"
+                                                    class="box-level"   (change)="setValueCheckbox($event)" value="{{ items.id }}"
+                                                        formControlName="service_id" maxlength="10" autocomplete="false">
+                                                    <br>
+                                                    {{ items.service }}
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p>Các dịch vụ mở rộng</p>
+                                             </div>
+                                        <div class="row flex-card">
+                                            <div class="service " *ngFor="let items of showServiceThree" style="display: flex;">
+                                                <div >
+                                                    <input style="width: 30px;margin: auto;" type="checkbox" name="service_id"
+                                                    class="box-level"   (change)="setValueCheckbox($event)" value="{{ items.id }}"
+                                                        formControlName="service_id" maxlength="10" autocomplete="false">
+                                                    <br>
+                                                    {{ items.service }}
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
                                     </div>
                                   
                                 </div>
                             </div>
-                          
+
+
                         </div>
                     </div>
                 </div>
-                <div class="d-flex"><button type="submit" class="btn-update" id="player-info-btn">Cập nhật</button></div>
+                <div class="d-flex"><button type="submit" class="btn-update" id="player-info-btn">Cập nhật</button>
+                </div>
             </div>
         </form>
     </div>
