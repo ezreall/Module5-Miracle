@@ -18,6 +18,13 @@ class CreateRequestsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('provider_id');
             $table->unsignedBigInteger('status_id');
+<<<<<<< HEAD:SourCode/Back-End/database/migrations/2021_05_05_083024_create_requests_table.php
+            $table->string('message');
+            $table->string('address');
+            $table->time('start_time');
+            $table->integer('time');
+=======
+>>>>>>> dev:Database/migrations/2021_05_11_074403_create_requests_table.php
             $table->date('date');
             $table->integer('time');
             $table->time('start_time');

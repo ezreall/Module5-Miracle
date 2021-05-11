@@ -37,6 +37,7 @@ export class ResgiterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     console.log(this.user)
   }
   newUser(): void {
@@ -61,11 +62,11 @@ export class ResgiterComponent implements OnInit {
     this.router.navigate(['login'])
   }
   onSubmit() {
- 
+    
     this.submitted = true;
     
     this.save()
-    
+    console.log(this.user)
   }
 
 }

@@ -9,15 +9,16 @@ import { Profile } from '../register-user/profile';
 
 
 
+
+
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
-  
-  profile :Profile={};
   image_path = environment.image_url;
+  profile :Profile={};
   id!:number;
   constructor(
     private routerActive: ActivatedRoute,

@@ -21,6 +21,7 @@ class ProviderController extends Controller
 
     }
 
+
     public function getAll(): \Illuminate\Http\JsonResponse
     {
         $profiles = Profile::all();
@@ -34,10 +35,10 @@ class ProviderController extends Controller
         return response()->json($provider);
     }
 
-    function getProvider($id)
-    {
-        $provider = DB::table('providers')->where('id','=',$id);
-    }
+//    function getProvider($id)
+//    {
+//        $provider = DB::table('providers')->where('id','=',$id);
+//    }
 
     function getProviderInfor($id)
     {
@@ -74,6 +75,7 @@ class ProviderController extends Controller
             $path = $this->updateFile($request,'avatar','profile');
             $profile->avatar = $path;
             $profile->save();
+
             if ($request->hasFile('image')) {
                 foreach ($request->file('image') as $image) {
                     $imageProfile = new ProfileImage();
@@ -97,9 +99,9 @@ class ProviderController extends Controller
 
     }
 
+
     function updateImage($image, $nameFolder)
     {
-//            dd($image);
             return $image->store($nameFolder, 'public');
 
     }

@@ -4,6 +4,7 @@ import { ShowlistComponent } from './components/showlist/showlist.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DetailComponent } from './components/detail/detail.component';
 import { DetailAccountComponent } from './components/detail-account/detail-account.component';
+
 import { RequestComponent } from './components/request/request.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProviderDetailComponent } from './components/provider/provider-detail/provider-detail.component';
@@ -18,8 +19,7 @@ const routes: Routes = [{
   path: 'account',
   component: DetailAccountComponent,
 
-},
-]
+}]
 
 
 @NgModule({
@@ -27,9 +27,11 @@ const routes: Routes = [{
     ShowlistComponent,
     DetailComponent,
     DetailAccountComponent,
-    RequestComponent,
     ProviderDetailComponent,
-  
+    RequestComponent
+    
+
+
   ],
   imports: [
     CommonModule,
