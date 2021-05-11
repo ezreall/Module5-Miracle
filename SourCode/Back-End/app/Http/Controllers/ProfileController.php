@@ -15,7 +15,7 @@ class ProfileController extends Controller
     public function getAll(){
 
         $profiles=Profile::skip(0)->take(12)->get();
-        $profile=Profile::skip(8)->take(12)->get();
+        $profile=Profile::skip(12)->take(20)->get();
         return response()->json([$profiles,$profile]);
     }
     function getById($id){
@@ -23,5 +23,11 @@ class ProfileController extends Controller
       return response()->json($profile);
 
     }
+
+//    public function search(){
+//
+//        $profile=Profile::w
+//
+//    }
 
 }

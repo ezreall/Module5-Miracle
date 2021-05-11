@@ -21,13 +21,12 @@ const routes: Routes = [{
 }, {
   path: 'account',
   component: DetailAccountComponent,
+
 },
 {
   path: 'myrequest',
   component: MyrequestComponent
 },
-
-
 
 ]
 
