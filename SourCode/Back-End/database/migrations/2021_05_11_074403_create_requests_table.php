@@ -17,14 +17,16 @@ class CreateRequestsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('provider_id');
-            $table->string('status');
-            $table->string('message');
-            $table->time('start_time');
-            $table->integer('time');
+            $table->unsignedBigInteger('status_id');
             $table->date('date');
+            $table->integer('time');
+            $table->time('start_time');
+            $table->string('address');
+            $table->string('message');
             $table->integer('money_amount');
             $table->foreign('provider_id')->references('id')->on('providers');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('status_id')->references('id')->on('request_statuses');
             $table->timestamps();
         });
     }

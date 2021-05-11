@@ -32,7 +32,7 @@ export class MyrequestComponent implements OnInit {
       this.requestService.getMyOrder().subscribe(
         (res)=>{
           this.myRequests = res;
-          console.log(this.myRequests[0])
+          console.log(this.myRequests)
         
         }
       )

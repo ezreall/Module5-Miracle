@@ -71,12 +71,6 @@ class ProviderController extends Controller
             $path = $this->updateFile($request,'avatar','profile');
             $profile->avatar = $path;
             $profile->save();
-
-<<<<<<< HEAD
-
-//            dd($request->file('image'));
-=======
->>>>>>> register_service
             if ($request->hasFile('image')) {
                 foreach ($request->file('image') as $image) {
                     $imageProfile = new ProfileImage();
@@ -88,10 +82,6 @@ class ProviderController extends Controller
                 }
             }
 
-
-
-
-
             DB::commit();
             return response()->json($request->all());
 
@@ -102,10 +92,6 @@ class ProviderController extends Controller
         }
 
 
-    }
-
-    function findById($id){
-        return Provider::findOrFail($id);
     }
 
     function updateImage($image, $nameFolder)

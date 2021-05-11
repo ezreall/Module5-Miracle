@@ -7,7 +7,6 @@ import { DetailAccountComponent } from './components/detail-account/detail-accou
 import { RequestComponent } from './components/request/request.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProviderDetailComponent } from './components/provider/provider-detail/provider-detail.component';
-import { MyrequestComponent } from './components/myrequest/myrequest.component';
 
 const routes: Routes = [{
   path: '',
@@ -20,11 +19,6 @@ const routes: Routes = [{
   component: DetailAccountComponent,
 
 },
-{
-  path: 'myrequest',
-  component: MyrequestComponent
-},
-
 ]
 
 
@@ -35,7 +29,6 @@ const routes: Routes = [{
     DetailAccountComponent,
     RequestComponent,
     ProviderDetailComponent,
-    MyrequestComponent,
   
   ],
   imports: [

@@ -16,15 +16,15 @@ class RequestsStatusesSeederTable extends Seeder
     public function run()
     {
         $status = new RequestStatus();
-        $status->name = "Processing";
+        $status->name = "Đang tiến hành";
         $status->save();
 
         $status = new RequestStatus();
-        $status->name = "Acceptance";
+        $status->name = "Chấp thuận";
         $status->save();
 
         $status = new RequestStatus();
-        $status->name = "Cancel";
+        $status->name = "Hủy bỏ";
         $status->save();
     }
 }

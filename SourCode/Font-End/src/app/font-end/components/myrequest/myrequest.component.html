@@ -1,5 +1,5 @@
 
-<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+<div >
   <div class="aside" >
     <div class="table-responsive" style="margin-top: 10%;">
       <h4>Danh sách các yêu cầu</h4>
@@ -8,10 +8,10 @@
           <thead>
             <tr>
               <th scope="col">STT</th>
-              <th scope="col">Total Money</th>
-              <th scope="col">Message</th>
-              <th scope="col">Status</th>
-              <th scope="col">Action</th>
+              <th scope="col">Tổng tiền</th>
+              <th scope="col">Tin nhắn </th>
+              <th scope="col"> Trạng thái </th>
+              <th scope="col">Hành động</th>
             </tr>
           </thead>
           <tbody>
@@ -21,8 +21,8 @@
               <td>{{item.message}}</td>
               <td>{{item.name}}</td>
               <td *ngIf="item.status_id==1">
-                <button class="btn-fill btn btn-primary" (click)="accept(item.id!)">Accept</button>| 
-                <button class="btn-fill btn btn-danger" (click)="reject(item.id!)">Reject</button></td>
+                <button class="btn-fill btn btn-primary" (click)="accept(item.id!)">Chấp thuận</button> | 
+                <button class="btn-fill btn btn-danger" (click)="reject(item.id!)">Hủy bỏ</button></td>
           </tbody>
         </table>
     </div>

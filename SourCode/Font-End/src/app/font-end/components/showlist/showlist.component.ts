@@ -39,6 +39,7 @@ export class ShowlistComponent implements OnInit {
     this.showlistService.showlist().subscribe(
       (res)=>{
         this.showlists=res[0];
+        console.log(this.showlists)
         
       })
      
