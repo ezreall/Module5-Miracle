@@ -63,7 +63,7 @@ export class ResgiterComponent implements OnInit {
   onSubmit() {
  
     this.submitted = true;
-  
+    
     this.save()
     
   }

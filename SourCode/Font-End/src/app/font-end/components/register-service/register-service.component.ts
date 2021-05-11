@@ -29,7 +29,6 @@ export class RegisterServiceComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.routeActive.snapshot.params['id']) ;
-    
     this.createForm = this.formBuilder.group({
       price_per_hour: [''],
       service_id: [''],
@@ -39,8 +38,6 @@ export class RegisterServiceComponent implements OnInit {
   }
 
   onSubmit(){
-    
-
     // console.log(this.updateForm.value)
     let formData = new FormData();
     let data = this.createForm.value;

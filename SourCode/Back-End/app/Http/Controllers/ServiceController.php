@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class ServiceController extends Controller
 {
 
-    public function getAll(){
+    public function getMyService(){
         $id = Auth::id();
 
         $data = DB::table('providers')->join('providers_services','id','=','provider_id')
@@ -20,6 +20,12 @@ class ServiceController extends Controller
                                             ->where('user_id','=',$id)->get();
 //        dd($data);
         return response()->json($data);
+    }
+
+    function getAllService()
+    {
+        $services = Service::all();
+        return response()->json($services);
     }
 
 //    function getProviderInfor($id)
