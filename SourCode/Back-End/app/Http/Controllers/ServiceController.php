@@ -28,7 +28,7 @@ class ServiceController extends Controller
         $tests = Service::skip(9)->take(5)->get();
         return response()->json([$services,$test,$tests]);
     }
-    
+
 
 //    function getAllService()
 //    {
