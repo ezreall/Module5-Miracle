@@ -6,6 +6,10 @@ import { RequestService } from 'src/app/Service/font-end/request.service';
 import { ShowListService } from 'src/app/Service/show-list.service';
 import { Profile } from '../register-user/profile';
 
+import { environment } from 'src/environments/environment.prod';
+
+
+
 
 
 @Component({
@@ -14,7 +18,7 @@ import { Profile } from '../register-user/profile';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
-  
+  image_path = environment.image_url;
   profile :Profile={};
   id!:number;
   constructor(

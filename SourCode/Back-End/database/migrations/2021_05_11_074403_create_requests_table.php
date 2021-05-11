@@ -15,16 +15,16 @@ class CreateRequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('provider_id');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('provider_id');
             $table->unsignedBigInteger('status_id');
-            $table->string('message');
-            $table->string('address');
-            $table->date('start_time');
-            $table->integer('time');
             $table->date('date');
+            $table->integer('time');
+            $table->time('start_time');
+            $table->string('address');
+            $table->string('message');
             $table->integer('money_amount');
-            $table->foreign('provider_id')->references('id')->on('profiles');
+            $table->foreign('provider_id')->references('id')->on('providers');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('status_id')->references('id')->on('request_statuses');
             $table->timestamps();

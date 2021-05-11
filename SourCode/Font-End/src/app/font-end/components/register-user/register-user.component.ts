@@ -82,7 +82,6 @@ export class RegisterUserComponent implements OnInit {
 
     this.registerService.registerUser(formData).subscribe((res: any) => {
       this.toast.success('Chúc mừng bạn đã đăng ký thành công')
-
       console.log(res)
     });
   }

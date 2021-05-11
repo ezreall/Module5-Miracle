@@ -56,6 +56,7 @@ export class RequestComponent implements OnInit {
       (res) => {
         this.profile = res[0];
         console.log(this.profile);
+  
         this.requestForm.patchValue({
           provider_id: this.profile.id,
           price_per_hour: this.profile.price_per_hour,
@@ -65,7 +66,6 @@ export class RequestComponent implements OnInit {
     )
 
   }
-
   createRequest() {
 
     let data = this.requestForm.value;

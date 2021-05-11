@@ -3,10 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
-class CreatUsersSeeder extends Seeder
+class UsersSeederTable extends Seeder
 {
     /**
      * Run the database seeds.
@@ -104,5 +103,6 @@ class CreatUsersSeeder extends Seeder
         $user->status_id =1;
         $user->role_id = 1;
         $user->save();
+
     }
 }

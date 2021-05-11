@@ -3,10 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Service;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
-class ServicesSeeder extends Seeder
+class ServicesSeederTable extends Seeder
 {
     /**
      * Run the database seeds.
@@ -66,6 +65,5 @@ class ServicesSeeder extends Seeder
         $service = new Service();
         $service->service = "Nói lời yêu";
         $service->save();
-
     }
 }

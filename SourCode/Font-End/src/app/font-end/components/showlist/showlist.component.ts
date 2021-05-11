@@ -48,6 +48,9 @@ export class ShowlistComponent implements OnInit {
       (res)=>{
         this.showlists=res[0];
         console.log(this.showlists)
+
+        
+
       })
   
   }

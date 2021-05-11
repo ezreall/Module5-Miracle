@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterUserComponent } from '../register-user/register-user.component';
 import { ServiceDetailComponent } from '../service-detail/service-detail.component';
 import { ServiceUpdateComponent } from '../service-update/service-update.component';
+import { MyrequestComponent } from '../myrequest/myrequest.component';
 
 
 const routes: Routes = [{
@@ -31,7 +32,11 @@ const routes: Routes = [{
 {
   path:'update/:id',
   component:ServiceUpdateComponent
-}
+},
+{
+  path: 'myrequest',
+  component: MyrequestComponent
+},
 
 
 
@@ -43,7 +48,8 @@ const routes: Routes = [{
     RegisterUserComponent,
     RegisterServiceComponent,
     ServiceDetailComponent,
-    ServiceUpdateComponent
+    ServiceUpdateComponent,
+    MyrequestComponent
   ],
   imports: [
     CommonModule,

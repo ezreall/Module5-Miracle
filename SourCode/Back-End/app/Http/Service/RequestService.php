@@ -39,12 +39,11 @@ class RequestService
     }
 
 
-    function update($data, $id)
+    function update($id,$data)
     {
         $request = $this->requestRepo->findById($id);
-        dd($request);
-        $request->status_id = $data['status_id'];
-
+        $request->status_id = $data[0];
+//        dd($data[0]);
         $this->requestRepo->update($request);
     }
 

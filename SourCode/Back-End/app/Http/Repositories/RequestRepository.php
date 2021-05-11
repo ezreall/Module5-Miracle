@@ -16,7 +16,7 @@ class RequestRepository
 
     function findById($id)
     {
-        return DB::table('requests')->where('provider_id','=',$id)->get();
+        return Request::findOrFail($id);
     }
 
     function getMyRequest($id): \Illuminate\Support\Collection
@@ -26,7 +26,9 @@ class RequestRepository
 
     function getMyOrder($id)
     {
-        return DB::table('requests')->where('provider_id', '=', $id)->get();
+        return DB::table('requests')->join('request_statuses','requests.status_id','=','request_statuses.id')
+            ->select('requests.*','request_statuses.name')
+            ->where('provider_id', '=', $id)->get();
     }
 
     function getInstance()
@@ -50,9 +52,10 @@ class RequestRepository
         ]);
     }
 
-    function update($request)
+    function update($data)
     {
-        $request->update();
+        $data->update();
+
     }
 
     function delete($request)

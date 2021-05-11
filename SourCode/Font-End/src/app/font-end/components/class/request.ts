@@ -6,6 +6,7 @@ export class Request {
     date?:Date;
     start_time?:any;
     status_id?:number;
+    name?:string;
     time?:number;
     message?:string;
     money_amount?:number

@@ -42,7 +42,6 @@ class ProviderController extends Controller
 
     function getProviderInfor($id)
     {
-
         $providerInfor = DB::table('users')->join('profiles','users.id','=','profiles.user_id')
             ->join('providers','users.id','=','providers.user_id')
             ->join('provider_statuses','providers.status_id','=','provider_statuses.id')
@@ -74,7 +73,6 @@ class ProviderController extends Controller
             $profile->avatar = $path;
             $profile->save();
 
-
             if ($request->hasFile('image')) {
                 foreach ($request->file('image') as $image) {
                     $imageProfile = new ProfileImage();
@@ -85,10 +83,6 @@ class ProviderController extends Controller
 
                 }
             }
-
-
-
-
 
             DB::commit();
             return response()->json($request->all());
@@ -101,7 +95,6 @@ class ProviderController extends Controller
 
 
     }
-
 
 
     function updateImage($image, $nameFolder)

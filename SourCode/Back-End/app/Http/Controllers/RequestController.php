@@ -58,16 +58,19 @@ class RequestController
         }
     }
 
-    function updateStatus(Request $request): \Illuminate\Http\JsonResponse
+    function updateStatus(Request $request,$id): \Illuminate\Http\JsonResponse
     {
+
         try {
-            $user_id = auth()->user()['id'];
-            $this->requestSer->update($request->all(), $user_id);
+//            $user_id = auth()->user()['id'];
+            $this->requestSer->update($id, $request);
         } catch (\Exception $e) {
             return response()->json($e->getMessage());
         }
         return response()->json([
-            'status' => 'success'
+            'status' => 'success',
+            'request_id'=>$id,
+//            'status_id'=>$request['status_id']
         ]);
     }
 

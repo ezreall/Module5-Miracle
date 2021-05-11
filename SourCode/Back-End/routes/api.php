@@ -40,7 +40,8 @@ Route::group(['middleware' => 'jwt.auth'], function () {
         Route::get('/{id}/getinfor',[ProviderController::class,'getProviderInfor']);
     });
     Route::prefix('services')->group(function () {
-        Route::get('/', [\App\Http\Controllers\ServiceController::class, 'getAll']);
+        Route::get('/', [\App\Http\Controllers\ServiceController::class, 'getAllService']);
+        Route::get('/myservice', [\App\Http\Controllers\ServiceController::class, 'getMyService']);
         Route::get('/{id}', [\App\Http\Controllers\ServiceController::class, 'findById']);
         Route::post('/store', [\App\Http\Controllers\ServiceController::class, 'store']);
         Route::post('/{id}/update',[\App\Http\Controllers\ServiceController::class,'update']);
@@ -51,7 +52,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
         Route::get('myorder',[RequestController::class, 'getMyOrder']);
         Route::post('create',[RequestController::class, 'store']);
         Route::get('',[RequestController::class, 'getMyRequest']);
-        Route::post('/update/{id}',[RequestController::class, 'updateStatus']);
+        Route::post('/{id}/update',[RequestController::class, 'updateStatus']);
 //        Route::delete('/{id}/delete',[RequestController::class, 'delete']);
         Route::post('/search',[RequestController::class, 'search']);
     });
