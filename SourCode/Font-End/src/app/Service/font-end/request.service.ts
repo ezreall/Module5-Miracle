@@ -32,9 +32,11 @@ export class RequestService {
       return this.http.get(this.api_Url+"/requests/myorder",this.autheService.getHeader());
     }
     
-    updateRequestStatus(id:number):Observable<any>
+    updateRequestStatus(id:number,status_id:number):Observable<any>
     {
-      return this.http.post(this.api_Url+"/requests/update/"+id,this.autheService.getHeader());
+      console.log(id)
+      console.log(status_id)
+      return this.http.post(this.api_Url+"/requests/"+id+"/update",status_id,this.autheService.getHeader());
     }
 
 

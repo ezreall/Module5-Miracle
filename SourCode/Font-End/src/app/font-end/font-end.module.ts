@@ -11,6 +11,7 @@ import { MyrequestComponent } from './components/myrequest/myrequest.component';
 
 
 
+
 const routes: Routes = [{
   path: '',
   component: ShowlistComponent,
@@ -27,6 +28,7 @@ const routes: Routes = [{
 },
 
 
+
 ]
 
 
@@ -37,8 +39,8 @@ const routes: Routes = [{
     DetailAccountComponent,
     RequestComponent,
     ProviderDetailComponent,
-    MyrequestComponent
-
+    MyrequestComponent,
+  
   ],
   imports: [
     CommonModule,

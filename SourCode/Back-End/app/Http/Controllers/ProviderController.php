@@ -42,7 +42,6 @@ class ProviderController extends Controller
 
     function getProviderInfor($id)
     {
-
         $providerInfor = DB::table('users')->join('profiles','users.id','=','profiles.user_id')
             ->join('providers','users.id','=','providers.user_id')
             ->join('provider_statuses','providers.status_id','=','provider_statuses.id')
