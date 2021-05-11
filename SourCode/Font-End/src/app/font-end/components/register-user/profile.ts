@@ -14,5 +14,5 @@ export class Profile {
     price_per_hour?:number;
     avatar?:string;
     image?:string;
-    service_id?:number
+    // service_id?:number
 }

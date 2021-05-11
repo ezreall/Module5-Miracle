@@ -29,11 +29,11 @@
                                 <p class="control-label">Sở thích</p><input type="text" name="hobby" placeholder=""
                                     formControlName="hobby" maxlength="5000" autocomplete="false">
                             </div>
-                            <div class="fieldGroup ">
+                            <!-- <div class="fieldGroup ">
                                 <p class="control-label">Giá theo giờ</p><input type="number" name="price_per_hour"
                                     placeholder="" formControlName="price_per_hour" maxlength="5000"
                                     autocomplete="false">
-                            </div>
+                            </div> -->
                             <div class="fieldGroup ">
                                 <p class="control-label">Facebook</p><input type="text" name="face_book" placeholder=""
                                     formControlName="face_book" maxlength="5000" autocomplete="false">
@@ -171,7 +171,7 @@
                                 <p class="control-label">Giới tính</p>
                                 <div class="d-flex"><label class="gender--radio"><input formControlName="gender"
                                             name="gender" type="radio" value="male">Nam<span></span></label><label
-                                        class="gender--radio"><input name="gender" type="radio"
+                                        class="gender--radio"><input name="gender" formControlName="gender" type="radio"
                                             value="female">Nữ<span></span></label></div>
                             </div>
                            
