@@ -18,7 +18,7 @@ class CreateProfilesTable extends Migration
             $table->unsignedBigInteger('provider_id');
             $table->string('avatar');
             $table->string('name');
-            $table->string('date_of_birth');
+            $table->date('date_of_birth');
             $table->string('gender');
             $table->string('city');
             $table->string('country');

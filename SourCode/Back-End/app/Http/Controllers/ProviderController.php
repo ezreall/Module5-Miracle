@@ -13,12 +13,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 
+
 class ProviderController extends Controller
 {
     public function __construct()
     {
 
     }
+
 
     public function getAll(): \Illuminate\Http\JsonResponse
     {
@@ -27,11 +29,27 @@ class ProviderController extends Controller
         return response()->json($profiles);
     }
 
+    function findById($id): \Illuminate\Http\JsonResponse
+    {
+        $provider = Provider::findOrFail($id);
+        return response()->json($provider);
+    }
 
+//    function getProvider($id)
+//    {
+//        $provider = DB::table('providers')->where('id','=',$id);
+//    }
 
+    function getProviderInfor($id)
+    {
+        $providerInfor = DB::table('users')->join('profiles','users.id','=','profiles.user_id')
+            ->join('providers','users.id','=','providers.user_id')
+            ->join('provider_statuses','providers.status_id','=','provider_statuses.id')
+            ->select('users.id','profiles.*','providers.price_per_hour')->where('users.id','=',$id)->get();
+        return response()->json($providerInfor);
+    }
     public function store(Request $request): \Illuminate\Http\JsonResponse
     {
-
 //        return response()->json($request->get('service_id'));
         DB::beginTransaction();
         try {
@@ -66,9 +84,6 @@ class ProviderController extends Controller
                 }
             }
 
-
-
-
             DB::commit();
             return response()->json($request->all());
 
@@ -81,25 +96,18 @@ class ProviderController extends Controller
 
     }
 
-    function findById($id){
-        return Provider::findOrFail($id);
-    }
 
     function updateImage($image, $nameFolder)
     {
-//            dd($image);
             return $image->store($nameFolder, 'public');
 
     }
-
-
 
         function updateFile($request, $key, $nameFolder)
         {
             return $request->file($key)->store($nameFolder, 'public');
 
         }
-
 
 
 }

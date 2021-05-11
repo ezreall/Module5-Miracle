@@ -19,9 +19,16 @@ class RequestService
         return $this->requestRepo->getAll();
     }
 
-    function findById($id)
+
+    function getMyRequest($id): \Illuminate\Support\Collection
     {
-        return $this->requestRepo->findById($id);
+        return $this->requestRepo->getMyRequest($id);
+    }
+
+    function getMyOrder($id)
+    {
+
+        return $this->requestRepo->getMyOrder($id);
     }
 
     function store($data,$user_id)
@@ -32,10 +39,11 @@ class RequestService
     }
 
 
-    function update($data, $id)
+    function update($id,$data)
     {
         $request = $this->requestRepo->findById($id);
-        $request->status_id = $data['status_id'];
+        $request->status_id = $data[0];
+//        dd($data[0]);
         $this->requestRepo->update($request);
     }
 

@@ -20,7 +20,8 @@
     <div id="root">
         <header class="menu__header" id="header-menu" style="position: fixed; width: 100%;">
             <div class="navbar-header">
-                <a class="logo"><img src="/assets/font-end/17210be3839135a5457b0799a2877167.png">
+
+                <a class="logo"><img src="/assets/font-end/img/17210be3839135a5457b0799a2877167.png">
                     <div class="text-logo">
                         <h4>MIRACLE</h4>
                         <p>FOR LOVERS</p>
@@ -40,28 +41,37 @@
             </div>
         </header>
         <div class="notifications-wrapper"></div>
-        <div></div>
+        <div></div>       
         <div class="wrapper">
             <div class="container">
+                
                 <div class="row login-page">
-                    <div class="col-md-7 hidden-sm hidden-xs image-login"><img src="/favicons/banner_login.jpg" class="" alt="PD"></div>
+                    <div class="col-md-7 hidden-sm hidden-xs image-login"><img src="/assets/font-end/img/Screen Shot 2021-05-10 at 8.23.45 AM.png" class="" alt="PD"></div>
                     <div class="col-md-5  col-xs-12 form-content" >
                         <div class="content-main">
                             <form [formGroup]="loginForm"  (ngSubmit) = "checkLogin()">
-                                <div *ngIf = "msg" class="danger text-danger">{{msg}}</div>
-
-                                <div class="fieldGroup ">
-                                    <input type="email" formControlName = "email" placeholder="Email đăng nhập " maxlength="5000" autocomplete="false" >
-                                    
+                                <!-- <div *ngIf = "msg" class="danger text-danger">{{msg}}</div> -->
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" formControlName = "email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
+                                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }" aria-describedby="validationTooltipUsernamePrepend">
+                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        <div *ngIf="f.email.errors.required">Email không được để trống</div>
+                                        <div *ngIf="f.email.errors.email">Email không đúng định dạng</div>
+                                    </div>
                                 </div>
-        
-                                <div class="fieldGroup ">
-                                    <input type="password" formControlName = "password" placeholder="Mật khẩu" maxlength="5000" autocomplete="false" ></div>
+                                  <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" formControlName = "password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                        <div *ngIf="f.password.errors.required">Mật khẩu không chính xác</div>
+                                    </div>
+                                </div>
+                              
                                 <button type="submit" ><span >Đăng nhập</span></button>
                                 <button style="background-color: gray;"><span  routerLink="/resgiter">Tạo tài khoản</span></button>
                             </form>
-        
-                            
                         </div>
                     </div>
                     
@@ -81,6 +91,7 @@
             <div class="fb_dialog_content"><iframe name="blank_f2d5fd7a60cefd4" width="60px" tabindex="-1" data-testid="bubble_iframe" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v2.11/plugins/customer_chat/bubble" class=" fb_customer_chat_icon" style="margin: 0px 12px; padding: 0px; position: fixed; z-index: 2147483644; bottom: 24px; top: auto; height: 60px; width: 60px; border-radius: 29px; box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px 0px; background: none; display: block; animation: 3s ease-out 0s 1 normal none running slideInFromBottomDelay; right: 12px;"></iframe><iframe name="unread_f2d5fd7a60cefd4" tabindex="-1" data-testid="unread_iframe" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v2.11/plugins/customer_chat/bubble" style="bottom: 68px; position: fixed; width: 20px; height: 24px; z-index: 2147483645; border-radius: 4pt; background: none; right: 22px;"></iframe></div>
         </div>
     </div>
+
 </body>
 
 </html>

@@ -5,6 +5,8 @@ namespace App\Http\Repositories;
 
 
 use App\Models\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class RequestRepository
 {
@@ -12,8 +14,21 @@ class RequestRepository
         return Request::orderBy('id','DESC')->get();
     }
 
-    function findById($id){
-        return Request::findOrFail($id);;
+    function findById($id)
+    {
+        return Request::findOrFail($id);
+    }
+
+    function getMyRequest($id): \Illuminate\Support\Collection
+    {
+        return DB::table('requests')->where('user_id','=',$id)->get();
+    }
+
+    function getMyOrder($id)
+    {
+        return DB::table('requests')->join('request_statuses','requests.status_id','=','request_statuses.id')
+            ->select('requests.*','request_statuses.name')
+            ->where('provider_id', '=', $id)->get();
     }
 
     function getInstance()
@@ -37,9 +52,10 @@ class RequestRepository
         ]);
     }
 
-    function update($request)
+    function update($data)
     {
-        $request->update();
+        $data->update();
+
     }
 
     function delete($request)
@@ -51,5 +67,5 @@ class RequestRepository
     {
         return Request::where('name','LIKE',"%$search%")->get();
     }
-
 }
+

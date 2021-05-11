@@ -171,9 +171,29 @@
                                 <p class="control-label">Giới tính</p>
                                 <div class="d-flex"><label class="gender--radio"><input formControlName="gender"
                                             name="gender" type="radio" value="male">Nam<span></span></label><label
+
                                         class="gender--radio"><input name="gender" formControlName="gender" type="radio"
                                             value="female">Nữ<span></span></label></div>
+
+
+                                </div>
+                             <div class="list-player">
+                                <div>
+                                    <div class="row flex-card">
+                                        <div class="player-information" *ngFor="let service of showService" style="display: flex;">
+                                                <input style="width: 30px;" type="checkbox" name="service_id"
+                                                value="{{ service.id }}" formControlName="service_id" maxlength="10"
+                                                   autocomplete="false">
+                                             <br>
+                                                :{{ service.service }}
+                                            </div>
+                                    </div>
+                                </div>
+                              
                             </div>
+
+
+                          
                            
                                 
                                 <!-- <div style="margin-top: 30px;" >
@@ -188,7 +208,7 @@
     
                                 </div> -->
                                 
-                          
+
                         </form>
 
                     </div>

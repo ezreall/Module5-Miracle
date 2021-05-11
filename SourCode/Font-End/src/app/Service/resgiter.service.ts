@@ -10,9 +10,9 @@ export class ResgiterService {
 
   constructor(private http: HttpClient) { }
 
-  register(user: Object): Observable<Object> {
+  register(data: Object): Observable<Object> {
 
-    return this.http.post(`${this.api_Url}`, user);
+    return this.http.post(`${this.api_Url}`, data);
 
   }
 }

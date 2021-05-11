@@ -6,6 +6,8 @@ import { ToastrService } from 'ngx-toastr';
 
 import { ResgiterService } from 'src/app/Service/resgiter.service';
 import { User } from 'src/app/User/user';
+import { MustMatch } from 'src/app/_helpers/must-match.validator';
+
 @Component({
   selector: 'app-resgiter',
   templateUrl: './resgiter.component.html',
@@ -14,6 +16,7 @@ import { User } from 'src/app/User/user';
 export class ResgiterComponent implements OnInit {
   user: User = new User();
   createResgiter!:FormGroup;
+  submitted = false;
   constructor(
     private UserService: ResgiterService,
     private router: Router,
@@ -22,23 +25,31 @@ export class ResgiterComponent implements OnInit {
 
 
   ) { 
-    // this.createResgiter = this.formbd.group({
-    //   name: ['', Validators.required],
-    //   image: ['', Validators.required],
-    //   country: ['', Validators.required]
-    // })
+    this.createResgiter = this.formbd.group({
+      name: ['', Validators.required],
+      email: ['',[Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.minLength(9)]]
+    },{
+      validator: MustMatch('password', 'confirmPassword')
+    })
   }
 
   ngOnInit(): void {
+
+    console.log(this.user)
   }
   newUser(): void {
     this.user = new User();
   }
-
   save() {
+    let data =this.createResgiter.value;
+    console.log(data)
     this.UserService
-      .register(this.user).subscribe((data: any) => {
-        if (data) {
+      .register(data).subscribe((res: any) => {
+        if(res) {
+          console.log(res)
           this.toastr.success("Đăng ký thành công")
           this.user = new User();
           this.gotoLogin();
@@ -46,13 +57,16 @@ export class ResgiterComponent implements OnInit {
       },
         (error: any) => this.toastr.error("Đăng ký thất bại, tài khoản đã tồn tại"));
   }
-
+  get f() { return this.createResgiter.controls; }
   gotoLogin() {
     this.router.navigate(['login'])
   }
   onSubmit() {
-   console.log(this.user)
-    this.save();
+    
+    this.submitted = true;
+    
+    this.save()
+    console.log(this.user)
   }
 
 }

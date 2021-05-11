@@ -82,14 +82,14 @@ export class RegisterUserComponent implements OnInit {
 
     this.registerService.registerUser(formData).subscribe((res: any) => {
       this.toast.success('Chúc mừng bạn đã đăng ký thành công')
-
       console.log(res)
     });
   }
 
   onImageChange(e: any) {
     // console.log(e.target.result)
-
+    // let data = this.createForm?.value;
+    // console.log(data)
     const reader = new FileReader();
     if (e.target.files.length && e.target.files) {
       this.imgFile = e.target.files[0];

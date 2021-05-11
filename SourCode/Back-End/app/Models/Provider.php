@@ -34,7 +34,4 @@ class Provider extends Model
     public function requests(){
         return $this->hasMany(Request::class,'provider_id');
     }
-
-
-
 }

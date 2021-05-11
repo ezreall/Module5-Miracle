@@ -7,7 +7,7 @@
         <div class="container">
             <div class="player-profile-left-wrap col-md-3">
                 <div class="avt avt-lg"><img
-                        src="https://playerduo.com/api/upload-service/images/9e549e68-8ca3-4baa-ad33-dabc287301f0__1dfb4b50-a75c-11eb-9674-a727edc307c1__player_avatar.jpg"
+                        src="{{image_path}}{{profile.avatar}}"
                         class="avt-img" alt="PD"></div>
                 <div class="rent-time-wrap">
                     <p class="ready">Đang sẵn sàng</p>
@@ -19,19 +19,22 @@
             </div>
             <div class="player-profile-right-wrap col-md-3 col-md-push-6">
                 <div class="right-player-profile">
-                    <p class="price-player-profile">69,000 đ/h</p>
+                    <p class="price-player-profile">{{profile.price_per_hour}} đ/h </p>
+
                     <div class="rateting-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                             class="fas fa-star"></i><i class="fas fa-star"></i><i
                             class="fas fa-star"></i>&nbsp;<span>181 <span>Đánh giá</span></span>
                     </div>
                     <div class="text-center">
-                        <button class="btn-my-style red" (click)="click()">Thuê</button>
+                       <app-request></app-request>
+
                     </div>
                 </div>
             </div>
             <div class="player-profile-main-wrap col-md-6 col-md-pull-3">
                 <div>
                     <div class="row">
+
                         <div class="center-item col-md-12"><span class="name-player-profile hidden-over-name">Ngọc Dung
                                 &lt;3</span></div>
                     </div>
@@ -79,6 +82,11 @@
                                 <div class="clearfix"></div>
                             </div>
                         </div>
+                        <p>{{profile.city}}</p>
+                        <p>{{profile.country}}</p>
+                        <p>{{profile.gender}}</p>
+                        <p>{{profile.hobby}}</p>
+                        <p>{{profile.required}}</p>
                         <p>✨Em chơi được All Game game gì cũng được Anh thích là được 😋</p>
                         <p></p>
                         <p>✨Em là gái Bắc nhưng nếu anh thích em có thể nói tiếng Sài Gòn Anh thích là được 😝</p>
@@ -105,73 +113,4 @@
         </div>
     </div>
     <div id="button-scroll-top" style="display: none;"><button><i class="fas fa-chevron-up"></i></button></div>
-</div>
-<div role="dialog" *ngIf="isRent">
-    <div class="fade modal-backdrop in"></div>
-    <div role="dialog" tabindex="-1" class="fade modal-donate in modal" style="display: block; padding-left: 0px;">
-        <div class="modal-dialog">
-            <div class="modal-content" role="document">
-                <div class="modal-header"><button type="button" class="close"><span aria-hidden="true"
-                            (click)="close()">×</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title"><span>Thuê player</span></h4>
-                </div>
-                <div class="modal-body">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Player:</td>
-                                <td>Ngọc Dung &lt;3</td>
-                            </tr>
-                            <tr>
-                                <td><span>Thời gian muốn thuê</span>:</td>
-                                <td><select name="timeRent" class="form-control">
-                                        <option value="1">1&nbsp;giờ</option>
-                                        <option value="2">2&nbsp;giờ</option>
-                                        <option value="3">3&nbsp;giờ</option>
-                                        <option value="4">4&nbsp;giờ</option>
-                                        <option value="5">5&nbsp;giờ</option>
-                                        <option value="6">6&nbsp;giờ</option>
-                                        <option value="7">7&nbsp;giờ</option>
-                                        <option value="8">8&nbsp;giờ</option>
-                                        <option value="9">9&nbsp;giờ</option>
-                                        <option value="10">10&nbsp;giờ</option>
-                                        <option value="11">11&nbsp;giờ</option>
-                                        <option value="12">12&nbsp;giờ</option>
-                                        <option value="13">13&nbsp;giờ</option>
-                                        <option value="14">14&nbsp;giờ</option>
-                                        <option value="15">15&nbsp;giờ</option>
-                                        <option value="16">16&nbsp;giờ</option>
-                                        <option value="17">17&nbsp;giờ</option>
-                                        <option value="18">18&nbsp;giờ</option>
-                                        <option value="19">19&nbsp;giờ</option>
-                                        <option value="20">20&nbsp;giờ</option>
-                                        <option value="21">21&nbsp;giờ</option>
-                                        <option value="22">22&nbsp;giờ</option>
-                                        <option value="23">23&nbsp;giờ</option>
-                                        <option value="24">24&nbsp;giờ</option>
-                                    </select></td>
-                            </tr>
-                            <tr>
-                                <td><span>Chi phí</span>:</td>
-                                <td><span class="price">69,000 đ</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>Số dư hiện tại</span>:</td>
-                                <td><span class="total-amount">0đ</span><span class="load-more-credit">+</span></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><textarea placeholder="Type a message ..." name="message"
-                                        maxlength="255" type="text" class="form-control"></textarea>
-                                    <p class="err-message"></p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer"><button type="button"
-                        class="btn-fill btn btn-danger"><span>Thuê</span></button><button type="button"
-                        class="btn btn-default"><span (click)="close()">Đóng</span></button></div>
-            </div>
-        </div>
-    </div>
 </div>
