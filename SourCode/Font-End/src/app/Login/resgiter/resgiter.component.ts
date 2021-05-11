@@ -37,12 +37,14 @@ export class ResgiterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.user)
   }
   newUser(): void {
     this.user = new User();
   }
   save() {
     let data =this.createResgiter.value;
+    console.log(data)
     this.UserService
       .register(data).subscribe((res: any) => {
         if(res) {

@@ -19,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     MenuLoginComponent,
   ],
   imports: [
+   
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -35,7 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    NgxPaginationModule
+    NgxPaginationModule,
+    
     
   ],
   providers: [],

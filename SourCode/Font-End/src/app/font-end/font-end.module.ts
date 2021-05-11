@@ -9,9 +9,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProviderDetailComponent } from './components/provider/provider-detail/provider-detail.component';
 import { MyrequestComponent } from './components/myrequest/myrequest.component';
 
-
-
-
 const routes: Routes = [{
   path: '',
   component: ShowlistComponent,
@@ -44,6 +41,8 @@ const routes: Routes = [{
   imports: [
     CommonModule,
     RouterModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     FormsModule

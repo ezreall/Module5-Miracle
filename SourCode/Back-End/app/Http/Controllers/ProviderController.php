@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
-//use Tymon\JWTAuth\Contracts\Providers\Storage;
 
 
 class ProviderController extends Controller
@@ -24,9 +23,9 @@ class ProviderController extends Controller
 
     public function getAll(): \Illuminate\Http\JsonResponse
     {
-        $service = Service::all();
+        $profiles = Profile::all();
 
-        return response()->json($service);
+        return response()->json($profiles);
     }
 
     function findById($id): \Illuminate\Http\JsonResponse
@@ -53,38 +52,42 @@ class ProviderController extends Controller
 //        return response()->json($request->get('service_id'));
         DB::beginTransaction();
         try {
-            $provider = new Provider();
-            $provider->user_id = Auth::id();
-            $provider->price_per_hour = $request->price_per_hour;
-            $services = json_decode($request->service_id);;
-            $provider->save();
-            $provider->services()->sync($services);
+//            $provider = new Provider();
+//            $provider->user_id = Auth::id();
+//            $provider->price_per_hour = $request->price_per_hour;
+////            $services = json_decode($request->service_id);
+//            $provider->save();
+//            $provider->services()->sync($services);
+            $eloquent = DB::table('providers')->orderBy('id','desc')->first();
+
+
             $profile = new Profile();
             $profile->fill($request->all());
-            $profile->provider_id =  $provider->id;
+
+                 $profile->provider_id = $eloquent->id;
+
+//             }
             $profile->date_join = Auth::user()->created_at;
             $path = $this->updateFile($request,'avatar','profile');
             $profile->avatar = $path;
             $profile->save();
 
+<<<<<<< HEAD
 
 //            dd($request->file('image'));
+=======
+>>>>>>> register_service
             if ($request->hasFile('image')) {
                 foreach ($request->file('image') as $image) {
                     $imageProfile = new ProfileImage();
                     $imageProfile->profile_id = $profile->id;
-//                    print_r($key);
-//                    dd($request->file('image'));
                     $data = $this->updateImage($image,'image');
-//                    dd($data);
                     $imageProfile->image = $data;
                     $imageProfile->save();
-//                return response()->json($key);
 
                 }
             }
-//            $path = $this->updateFile($request,'image','image');
-//            $imageProfile->image = $path;
+
 
 
 
@@ -99,6 +102,10 @@ class ProviderController extends Controller
         }
 
 
+    }
+
+    function findById($id){
+        return Provider::findOrFail($id);
     }
 
     function updateImage($image, $nameFolder)
