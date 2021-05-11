@@ -37,7 +37,6 @@
             <div class="list-player">
                 <div>
                     <section class="box vip-player">
-                        <h4 class="section-title">VIP PLAYER</h4>
 
                     </section>
                     <div class="row flex-card">
@@ -46,7 +45,7 @@
 
                             <div class="player-avatar"><img src="{{image_path}}{{showlist.avatar}}" class=""
                                     id="avt-img-reponsiver">
-                                <div class="player-price">68,000 đ/h</div>
+                                <div class="player-price">{{showlist.price_per_hour|number}} đ/h</div>
                                 <div class="hidden-information">
                                     <p><span><br></span>
                                     </p>

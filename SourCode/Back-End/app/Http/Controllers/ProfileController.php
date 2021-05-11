@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profile;
+use App\Models\Provider;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,8 +17,8 @@ class ProfileController extends Controller
 
     public function getAll(){
 
-        $profiles=Profile::skip(0)->take(12)->get();
-        $profile=Profile::skip(12)->take(20)->get();
+        $profiles=Profile::join('providers','profiles.provider_id','=','providers.id')->skip(0)->take(12)->get();
+        $profile=Profile::join('providers','profiles.provider_id','=','providers.id')->skip(12)->take(4)->get();
         return response()->json([$profiles,$profile]);
     }
     function getById($id){

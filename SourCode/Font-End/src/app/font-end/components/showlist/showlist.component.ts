@@ -74,6 +74,7 @@ export class ShowlistComponent implements OnInit {
     let city = e.target.value;
     let gender = e.target.value;
     let All=this.all.push (city,gender);
+    console.log(this.ShowList);
     if(All){
       let formData = new FormData();
         formData.append('city',city);
@@ -84,6 +85,7 @@ export class ShowlistComponent implements OnInit {
         console.log(res);
         this.showlists=res;
         // this.router.navigate(['/users'])
+       
       })
     }else{
       this.ShowList();

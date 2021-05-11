@@ -43,14 +43,14 @@ export class RegisterUserComponent implements OnInit {
       face_book: ['', [Validators.required]],
       voice: ['', [Validators.required]],
       country: ['', [Validators.required]],
-      price_per_hour: ['', [Validators.required]],
+      // price_per_hour: ['', [Validators.required]],
       city: ['', [Validators.required]],
       gender: ['', [Validators.required]],
       avatar: ['', [Validators.required]],
       image: ['', [Validators.required]],
-      service_id: ['', [Validators.required]],
+      // service_id: ['', [Validators.required]],
     });
-    this.showServices();
+    // this.showServices();
   }
 
   onSubmit() {
@@ -66,7 +66,7 @@ export class RegisterUserComponent implements OnInit {
     formData.append('face_book', data.face_book);
     formData.append('country', data.country);
     formData.append('voice', data.voice);
-    formData.append('price_per_hour', data.price_per_hour);
+    // formData.append('price_per_hour', data.price_per_hour);
     formData.append('city', data.city);
     formData.append('gender', data.gender);
     formData.append('avatar', this.imgFile, this.imgFile.name);
@@ -75,13 +75,13 @@ export class RegisterUserComponent implements OnInit {
       formData.append('image[]', this.urls[i],this.imgFile)
 
     }
-    formData.append('service_id', JSON.stringify(this.listValue));
+    // formData.append('service_id', JSON.stringify(this.listValue));
 
     console.log(formData.get('service_id'));
 
 
     this.registerService.registerUser(formData).subscribe((res: any) => {
-      // this.toast.success('Chúc mừng bạn đã đăng ký thành công')
+      this.toast.success('Chúc mừng bạn đã đăng ký thành công')
 
       console.log(res)
     });
@@ -127,31 +127,6 @@ export class RegisterUserComponent implements OnInit {
       }
 
     }
-  }
-
-
-  showServices() {
-    this.registerService.getService().subscribe((res) => {
-      this.showService = res;
-      // console.log(123);
-      // console.log(this.showService);
-    })
-  }
-
-
-
-
-  setValueCheckbox(e: any) {
-    // console.log(e.target.value);
-    let value = e.target.value
-    if (e.target.checked) {
-      this.listValue.push(value);
-    } else {
-      let index = this.listValue.indexOf(value);
-      // console.log('idx: ' + index);
-      this.listValue.splice(index, 1)
-    }
-    // console.log(this.listValue)
   }
 
 

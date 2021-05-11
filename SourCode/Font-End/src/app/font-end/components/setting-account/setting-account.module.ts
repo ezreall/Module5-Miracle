@@ -7,6 +7,8 @@ import { DetailAccountComponent } from '../detail-account/detail-account.compone
 import { RegisterServiceComponent } from '../register-service/register-service.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterUserComponent } from '../register-user/register-user.component';
+import { ServiceDetailComponent } from '../service-detail/service-detail.component';
+import { ServiceUpdateComponent } from '../service-update/service-update.component';
 
 
 const routes: Routes = [{
@@ -21,6 +23,14 @@ const routes: Routes = [{
 },{
   path:'register',
   component:RegisterUserComponent
+},
+{
+  path:'detail',
+  component:ServiceDetailComponent
+},
+{
+  path:'update/:id',
+  component:ServiceUpdateComponent
 }
 
 
@@ -30,7 +40,10 @@ const routes: Routes = [{
   declarations: [
     EditAccountComponent,
     MenuSettingComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    RegisterServiceComponent,
+    ServiceDetailComponent,
+    ServiceUpdateComponent
   ],
   imports: [
     CommonModule,

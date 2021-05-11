@@ -10,7 +10,6 @@ import { MyrequestComponent } from './components/myrequest/myrequest.component';
 import { RequestComponent } from './components/request/request.component';
 
 
-
 const routes: Routes = [{
   path: '',
   component: ShowlistComponent,
@@ -43,6 +42,8 @@ component:MyrequestComponent
   imports: [
     CommonModule,
     RouterModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     FormsModule
