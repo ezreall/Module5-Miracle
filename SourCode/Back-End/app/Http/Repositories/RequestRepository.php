@@ -28,7 +28,7 @@ class RequestRepository
     {
         return DB::table('requests')->join('request_statuses','requests.status_id','=','request_statuses.id')
             ->select('requests.*','request_statuses.name')
-            ->where('provider_id', '=', $id)->get();
+            ->where('user_id', '=', $id)->get();
     }
 
     function getInstance()

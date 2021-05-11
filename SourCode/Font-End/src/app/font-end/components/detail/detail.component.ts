@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ProviderService } from 'src/app/Service/font-end/provider.service';
 import { RequestService } from 'src/app/Service/font-end/request.service';
 import { ShowListService } from 'src/app/Service/show-list.service';
+import { environment } from 'src/environments/environment.prod';
 import { Profile } from '../register-user/profile';
 
 
@@ -16,6 +17,7 @@ import { Profile } from '../register-user/profile';
 export class DetailComponent implements OnInit {
   
   profile :Profile={};
+  image_path = environment.image_url;
   id!:number;
   constructor(
     private routerActive: ActivatedRoute,
@@ -33,7 +35,7 @@ export class DetailComponent implements OnInit {
     this.providerService.getProviderInfor(this.id).subscribe(
       (res)=> {
         this.profile=res[0];
-        // console.log(this.profile);
+        console.log(this.profile);
       },error=>console.log(error)
     )
 

@@ -41,10 +41,13 @@ class ProviderController extends Controller
 
     function getProviderInfor($id)
     {
-        $providerInfor = DB::table('users')->join('profiles','users.id','=','profiles.user_id')
+        $providerInfor = DB::table('users')
             ->join('providers','users.id','=','providers.user_id')
+            ->join('profiles','providers.id','=','profiles.provider_id')
             ->join('provider_statuses','providers.status_id','=','provider_statuses.id')
-            ->select('users.id','profiles.*','providers.price_per_hour')->where('users.id','=',$id)->get();
+            ->join('profiles_image','profiles.id','=','profiles_image.profile_id')
+            ->select('users.id','profiles.*','providers.price_per_hour')->where('providers.id','=',$id)->get();
+
         return response()->json($providerInfor);
     }
     public function store(Request $request): \Illuminate\Http\JsonResponse
