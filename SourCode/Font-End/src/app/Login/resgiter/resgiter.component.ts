@@ -37,12 +37,14 @@ export class ResgiterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+ 
   }
   newUser(): void {
     this.user = new User();
   }
   save() {
     let data =this.createResgiter.value;
+    console.log(data)
     this.UserService
       .register(data).subscribe((res: any) => {
         if(res) {
@@ -59,11 +61,11 @@ export class ResgiterComponent implements OnInit {
     this.router.navigate(['login'])
   }
   onSubmit() {
- 
+    
     this.submitted = true;
   
     this.save()
-    
+    console.log(this.user)
   }
 
 }

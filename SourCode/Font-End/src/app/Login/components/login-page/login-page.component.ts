@@ -21,6 +21,7 @@ export class LoginPageComponent implements OnInit {
   loginForm!: FormGroup;
   msg = '';
 
+
   submitted = false;
 
   constructor(
@@ -52,8 +53,7 @@ export class LoginPageComponent implements OnInit {
       if (res.status === 'successfully') {
         sessionStorage.setItem('token', res.token);
         console.log(res.user.name)
-        sessionStorage.setItem('user', res.user.name);
-        
+        sessionStorage.setItem('user', res.user.name);        
         this.router.navigate(['users']);
       } else {
     

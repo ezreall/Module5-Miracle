@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 //use Tymon\JWTAuth\Contracts\Providers\Storage;
 
+
 class ProviderController extends Controller
 {
     public function __construct()
@@ -28,11 +29,28 @@ class ProviderController extends Controller
         return response()->json($service);
     }
 
+    function findById($id): \Illuminate\Http\JsonResponse
+    {
+        $provider = Provider::findOrFail($id);
+        return response()->json($provider);
+    }
 
+    function getProvider($id)
+    {
+        $provider = DB::table('providers')->where('id','=',$id);
+    }
 
-    public function store(Request $request): \Illuminate\Http\JsonResponse
+    function getProviderInfor($id)
     {
 
+        $providerInfor = DB::table('users')->join('profiles','users.id','=','profiles.user_id')
+            ->join('providers','users.id','=','providers.user_id')
+            ->join('provider_statuses','providers.status_id','=','provider_statuses.id')
+            ->select('users.id','profiles.*','providers.price_per_hour')->where('users.id','=',$id)->get();
+        return response()->json($providerInfor);
+    }
+    public function store(Request $request): \Illuminate\Http\JsonResponse
+    {
 //        return response()->json($request->get('service_id'));
         DB::beginTransaction();
         try {
@@ -91,14 +109,11 @@ class ProviderController extends Controller
 
     }
 
-
-
         function updateFile($request, $key, $nameFolder)
         {
             return $request->file($key)->store($nameFolder, 'public');
 
         }
-
 
 
 }

@@ -14,7 +14,7 @@ export class ShowListService {
   showlist(): Observable<any>{
     return this.http.get(this.api_Url + 'profiles',);
   }
-  detailList(): Observable<any>{
-    return this.http.get(this.api_Url + 'profile/{id}',);
+  profileDetail(id:number): Observable<any>{
+    return this.http.get(this.api_Url + 'profile/'+id);
   }
 }

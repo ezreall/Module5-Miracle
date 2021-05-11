@@ -20,7 +20,7 @@ class CreateRequestsTable extends Migration
             $table->unsignedBigInteger('status_id');
             $table->string('message');
             $table->string('address');
-            $table->date('start_time');
+            $table->time('start_time');
             $table->integer('time');
             $table->date('date');
             $table->integer('money_amount');

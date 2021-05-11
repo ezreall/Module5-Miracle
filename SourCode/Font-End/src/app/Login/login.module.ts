@@ -8,7 +8,9 @@ import { DetailPlayerComponent } from './components/detail-player/detail-player.
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from '../auth/auth.guard';
 import { ResgiterComponent } from './resgiter/resgiter.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 const routes: Routes = [
 

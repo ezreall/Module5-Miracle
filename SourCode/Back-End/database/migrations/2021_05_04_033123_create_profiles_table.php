@@ -15,10 +15,14 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('user_id');
+
             $table->unsignedBigInteger('provider_id');
+
             $table->string('avatar')->default('1');
             $table->string('name');
-            $table->string('date_of_birth');
+            $table->date('date_of_birth');
             $table->string('gender');
             $table->string('city');
             $table->string('country');
@@ -30,7 +34,7 @@ class CreateProfilesTable extends Migration
             $table->string('face_book');
             $table->string('date_join');
             $table->string('voice');
-            $table->foreign('provider_id')->references('id')->on('providers');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
