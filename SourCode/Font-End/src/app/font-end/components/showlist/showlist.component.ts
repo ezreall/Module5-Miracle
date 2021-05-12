@@ -51,12 +51,23 @@ export class ShowlistComponent implements OnInit {
     window.location.reload();
   }
   ShowList() {
+// <<<<<<< HEAD
 
-    this.showlistService.showlist().subscribe(
-      (res) => {
-        this.showlists = res[0];
+//     this.showlistService.showlist().subscribe(
+//       (res) => {
+//         this.showlists = res[0];
+//         console.log(this.showlists)
+//       })
+// =======
+    
+    this.showlistService.getProfile().subscribe(
+      (res)=>{
+        this.showlists=res;
         console.log(this.showlists)
+        // console.log(this.showlists[0].name)
       })
+     
+// >>>>>>> miracle
   }
   Detail() {
     this.id = +this.routerActive.snapshot.paramMap.get("id")!;

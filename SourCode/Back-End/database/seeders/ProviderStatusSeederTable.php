@@ -16,15 +16,15 @@ class ProviderStatusSeederTable extends Seeder
     public function run()
     {
         $status = new ProviderStatus();
-        $status->name = "already";
+        $status->name = "Đang sẵn sàng";
         $status->save();
 
         $status = new ProviderStatus();
-        $status->name = "busy";
+        $status->name = "Đang bận";
         $status->save();
 
         $status = new ProviderStatus();
-        $status->name = "not already";
+        $status->name = "Không sẵn sàng";
         $status->save();
     }
 }

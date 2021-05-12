@@ -1,270 +1,235 @@
+<div id="root">
 
-    <div id="root">
-       
-        <div class="wrapper" style="top: 80px;">
-            <div class="container container2">
+    <div class="wrapper" style="top: 80px;">
+        <div class="container container2">
 
-                <div class="filter-player row">
-                    <div xl="12" class="col-lg-12 col-md-12 col-sm-12">
-                        <section id="search">
-                            <div class="player-select div-autoComplete-search"><label for="search-input"><i
-                                        class="fa fa-search" aria-hidden="true"></i><span
-                                        class="sr-only">Search Players</span></label><i
-                                    class="fa fa-bars setting-search-index" aria-hidden="true"></i><input
-                                    class="form-control input-lg" placeholder="Tên game" autocomplete="off"
-                                    spellcheck="false" autocorrect="off" tabindex="1" name="gameCategory" type="text"
-                                    value="">
-                                <div class="suggestion-game-hide"></div>
-                            </div>
-                        </section>
-                    </div>
-                    <div xl="12" class="col-lg-12 col-md-12 col-sm-12">
-                        <section class="search-destop">
-                            <div class="text-right col-md-3"></div>
-                            <div class="col-md-4">
-                                <div class="player-select div-autoComplete-search"><input class="form-control"
-                                                                                          name="gameCategory"
-                                                                                          placeholder="Tên game" type="text"
-                                                                                          autocomplete="off" value="">
-                                    <div class="suggestion-game-hide"></div>
-                                </div>
-                            </div>
-                            <div class="text-left col-md-3">
-                                <button class="btn btn-danger btn-filter"  (click)="click()"><span>Bộ lọc</span></button>
-                                <button class="btn btn-success btn-search"><span>Tìm kiếm</span>&nbsp;</button>
-                            </div>
-                        </section>
-                    </div>
+            <div class="filter-player row">
+                <div xl="12" class="col-lg-12 col-md-12 col-sm-12">
+                    <section id="search">
+                        <div class="player-select div-autoComplete-search"><label for="search-input"><i
+                                    class="fa fa-search" aria-hidden="true"></i><span class="sr-only">Search
+                                    Players</span></label><i class="fa fa-bars setting-search-index"
+                                aria-hidden="true"></i><input class="form-control input-lg" placeholder="Tên game"
+                                autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1" name="gameCategory"
+                                type="text" value="">
+                            <div class="suggestion-game-hide"></div>
+                        </div>
+                    </section>
                 </div>
-                <div class="list-player">
-                    
-                    <div>
-                        <section class="box vip-player">
-                            <h4 class="section-title">VIP PLAYER</h4>
-                           
-                        </section>
-                        <div class="row flex-card">
-                           
-                            <div class="player-information-card-wrap" *ngFor="let showlist of showlists">
-                        
-                                <div class="player-avatar"><img
-                                        src="{{image_path}}{{showlist.avatar}}"
-                                        class="" alt="PD" id="avt-img-reponsiver">
-                                    <div class="player-price">{{showlist.price_per_hour|number}} đ/h</div>
-                                    <div class="hidden-information">
-                                        <p><span><br></span>
-                                        </p>
-                                        <div class="rent"><a routerLink="detail/{{showlist.id}}"
-                                            rel="noopener noreferrer"> <span>Thuê ngay</span></a></div>
-                                    </div>
+                <div xl="12" class="col-lg-12 col-md-12 col-sm-12">
+                    <section class="search-destop">
+                        <div class="text-right col-md-3"></div>
+                        <div class="col-md-4">
+                            <div class="player-select div-autoComplete-search">
+                                <input class="form-control" (change)="search($event)" name="gameCategory"
+                                    placeholder="Tên game" type="text" autocomplete="off" value="">
+                            </div>
+                        </div>
+                        <div class="text-left col-md-3">
+                            <button class="btn btn-danger btn-filter" (click)="click()"><span>Bộ lọc</span></button>
+                            <button class="btn btn-success btn-search"><span>Tìm kiếm</span>&nbsp;</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="list-player">
+                <div>
+                    <section class="box vip-player">
+                        <h4 class="section-title">Những người mới tham gia </h4>
+                    </section>
+                    <div class="row flex-card">
+                        <div class="player-information-card-wrap" *ngFor="let showlist of showlists">
+
+                            <div class="player-avatar"><img src="{{image_path}}{{showlist.avatar}}" class=""
+                                    id="avt-img-reponsiver">
+                                <div class="player-price">{{showlist.price_per_hour|number}} đ/h</div>
+                                <div class="hidden-information">
+                                    <p><span><br></span>
+                                    </p>
+                                    <div class="rent"><a routerLink="detail/{{showlist.id}}"
+                                        rel="noopener noreferrer"> <span>Thuê ngay</span></a></div>
                                 </div>
-                                <div class="player-information">
+                            </div>
+                            <div class="player-information">
+                                
                                     <h3 class="player-name"><a routerLink="detail/{{showlist.id}}">{{showlist.name}}</a>
-                                        <div class="player-status ready"></div>
-                                    </h3>
-                                    <p class="player-title">{{showlist.description}}</p>
-                                    <p class="player-title">{{showlist.city}}</p>
-                                    <div class="category">
-                                        <div class="div--flex"><img
-                                                src="https://files.playerduo.com/production/static-files/game-category/other.png"
-                                                class="" alt="category logo"><h6></h6>
-                                        </div>
+                                    <div class="player-status ready"></div>
+                                </h3>
+                                <p class="player-title">{{showlist.description}}</p>
+                                <p class="player-title">{{showlist.city}}</p>
+                                <div class="category">
+                                    <div class="div--flex"><img
+                                            src="https://files.playerduo.com/production/static-files/game-category/other.png"
+                                            class="" alt="category logo">
+                                        <h6></h6>
                                     </div>
                                 </div>
                             </div>
-                          
                         </div>
                     </div>
-                  
                 </div>
+
+            </div>
+            <div class="list-player">
+
+                <div>
+                    <section class="box vip-player">
+                        <h4 class="section-title"> Những người được thuê nhiều nhất</h4>
+
+                    </section>
+                    <div class="row flex-card">
+
+                        <div class="player-information-card-wrap" *ngFor="let one of list">
+
+                            <div class="player-avatar"><img src="{{image_path}}{{one.avatar}}" class=""
+                                    id="avt-img-reponsiver">
+                                <div class="player-price">{{one.price_per_hour}</div>
+                                <div class="hidden-information">
+                                    <p><span><br></span>
+                                    </p>
+                                    <div class="rent"><a routerLink="detail/{{one.id}}"
+                                        rel="noopener noreferrer"> <span>Thuê ngay</span></a></div>
+                                </div>
+                            </div>
+                            <div class="player-information">
+                                <h3 class="player-name"><a href="players/detail/{{showlists.id}}">{{one.name}}</a>
+                                    <div class="player-status ready"></div>
+                                </h3>
+                                <p class="player-title">{{one.description}}</p>
+                                <p class="player-title">{{one.city}}</p>
+                                <div class="category">
+                                    <div class="div--flex"><img
+                                            src="https://files.playerduo.com/production/static-files/game-category/other.png"
+                                            class="" alt="category logo">
+                                            
+                                            <div *ngFor="let item of service"> 
+                                                <h6>{{item.service}}</h6>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
-        <div id="button-scroll-top" style="display: none;">
-            <button><i class="fas fa-chevron-up"></i></button>
+    </div>
+    <div id="button-scroll-top" style="display: none;">
+        <button><i class="fas fa-chevron-up"></i></button>
+    </div>
+</div>
+
+<div id="fb-root" class=" fb_reset">
+    <div style="position: absolute; top: -10000px; width: 0px; height: 0px;">
+        <div></div>
+    </div>
+    <div class="fb-customerchat fb_invisible_flow fb_iframe_widget" page_id="162900254502180" ref="/players"
+        minimized="true" fb-xfbml-state="rendered"
+        fb-iframe-plugin-query="app_id=123727788250732&amp;container_width=0&amp;local_state=%7B%22v%22%3A0%2C%22path%22%3A2%2C%22chatState%22%3A1%2C%22visibility%22%3A%22hidden%22%2C%22showUpgradePrompt%22%3A%22not_shown%22%7D&amp;locale=vi_VN&amp;minimized=true&amp;page_id=162900254502180&amp;ref=%2Fplayers&amp;request_time=1619624420278&amp;sdk=joey">
+        <span style="vertical-align: bottom; width: 1000px; height: 0px;"><iframe name="f283334f14176ec" width="1000px"
+                height="1000px" data-testid="dialog_iframe" title="" frameborder="0" allowtransparency="true"
+                allowfullscreen="true" scrolling="no" allow="encrypted-media"
+                src="https://www.facebook.com/v2.11/plugins/customerchat.php?app_id=123727788250732&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df282c433fcdfa04%26domain%3Dplayerduo.com%26origin%3Dhttps%253A%252F%252Fplayerduo.com%252Ff1339c05f781ff4%26relation%3Dparent.parent&amp;container_width=0&amp;local_state=%7B%22v%22%3A0%2C%22path%22%3A2%2C%22chatState%22%3A1%2C%22visibility%22%3A%22hidden%22%2C%22showUpgradePrompt%22%3A%22not_shown%22%7D&amp;locale=vi_VN&amp;minimized=true&amp;page_id=162900254502180&amp;ref=%2Fplayers&amp;request_time=1619624420278&amp;sdk=joey"
+                style="padding: 0px; position: fixed; z-index: 2147483646; border-radius: 16px; top: auto; width: 399px; background: none; bottom: 85px; max-height: 0px; right: 4px; margin-right: 12px; min-height: 0px;"
+                class="fb_customer_chat_bounce_out_v2 anchor_right"></iframe></span>
+    </div>
+    <div class="fb_dialog  fb_dialog_advanced" style="overflow: visible; z-index: 2147483644;">
+        <div class="fb_dialog_content">
+            <iframe name="blank_f283334f14176ec" width="60px" tabindex="-1" data-testid="bubble_iframe" frameborder="0"
+                allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media"
+                src="https://www.facebook.com/v2.11/plugins/customer_chat/bubble" class=" fb_customer_chat_icon"
+                style="margin: 0px 12px; padding: 0px; position: fixed; z-index: 2147483644; bottom: 24px; top: auto; height: 60px; width: 60px; border-radius: 29px; box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px 0px; background: none; display: block; animation: 3s ease-out 0s 1 normal none running slideInFromBottomDelay; right: 12px;"></iframe>
+            <iframe name="unread_f283334f14176ec" tabindex="-1" data-testid="unread_iframe" frameborder="0"
+                allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media"
+                src="https://www.facebook.com/v2.11/plugins/customer_chat/bubble"
+                style="bottom: 68px; position: fixed; width: 20px; height: 24px; z-index: 2147483645; border-radius: 4pt; background: none; right: 22px;"></iframe>
         </div>
     </div>
-  
-    <div id="fb-root" class=" fb_reset">
-        <div style="position: absolute; top: -10000px; width: 0px; height: 0px;">
-            <div></div>
-        </div>
-        <div class="fb-customerchat fb_invisible_flow fb_iframe_widget" page_id="162900254502180" ref="/players"
-             minimized="true" fb-xfbml-state="rendered"
-             fb-iframe-plugin-query="app_id=123727788250732&amp;container_width=0&amp;local_state=%7B%22v%22%3A0%2C%22path%22%3A2%2C%22chatState%22%3A1%2C%22visibility%22%3A%22hidden%22%2C%22showUpgradePrompt%22%3A%22not_shown%22%7D&amp;locale=vi_VN&amp;minimized=true&amp;page_id=162900254502180&amp;ref=%2Fplayers&amp;request_time=1619624420278&amp;sdk=joey">
-            <span style="vertical-align: bottom; width: 1000px; height: 0px;"><iframe name="f283334f14176ec" width="1000px"
-                                                                                      height="1000px"
-                                                                                      data-testid="dialog_iframe" title=""
-                                                                                      frameborder="0"
-                                                                                      allowtransparency="true"
-                                                                                      allowfullscreen="true" scrolling="no"
-                                                                                      allow="encrypted-media"
-                                                                                      src="https://www.facebook.com/v2.11/plugins/customerchat.php?app_id=123727788250732&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df282c433fcdfa04%26domain%3Dplayerduo.com%26origin%3Dhttps%253A%252F%252Fplayerduo.com%252Ff1339c05f781ff4%26relation%3Dparent.parent&amp;container_width=0&amp;local_state=%7B%22v%22%3A0%2C%22path%22%3A2%2C%22chatState%22%3A1%2C%22visibility%22%3A%22hidden%22%2C%22showUpgradePrompt%22%3A%22not_shown%22%7D&amp;locale=vi_VN&amp;minimized=true&amp;page_id=162900254502180&amp;ref=%2Fplayers&amp;request_time=1619624420278&amp;sdk=joey"
-                                                                                      style="padding: 0px; position: fixed; z-index: 2147483646; border-radius: 16px; top: auto; width: 399px; background: none; bottom: 85px; max-height: 0px; right: 4px; margin-right: 12px; min-height: 0px;"
-                                                                                      class="fb_customer_chat_bounce_out_v2 anchor_right"></iframe></span>
-        </div>
-        <div class="fb_dialog  fb_dialog_advanced" style="overflow: visible; z-index: 2147483644;">
-            <div class="fb_dialog_content">
-                <iframe name="blank_f283334f14176ec" width="60px" tabindex="-1" data-testid="bubble_iframe" frameborder="0"
-                        allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media"
-                        src="https://www.facebook.com/v2.11/plugins/customer_chat/bubble" class=" fb_customer_chat_icon"
-                        style="margin: 0px 12px; padding: 0px; position: fixed; z-index: 2147483644; bottom: 24px; top: auto; height: 60px; width: 60px; border-radius: 29px; box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px 0px; background: none; display: block; animation: 3s ease-out 0s 1 normal none running slideInFromBottomDelay; right: 12px;"></iframe>
-                <iframe name="unread_f283334f14176ec" tabindex="-1" data-testid="unread_iframe" frameborder="0"
-                        allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media"
-                        src="https://www.facebook.com/v2.11/plugins/customer_chat/bubble"
-                        style="bottom: 68px; position: fixed; width: 20px; height: 24px; z-index: 2147483645; border-radius: 4pt; background: none; right: 22px;"></iframe>
-            </div>
-        </div>
-    </div>
-    <div *ngIf="isDropdown" >
-        <div class="fade modal-backdrop in"></div>
-        <div tabindex="-1" class="fade search-index-modal in modal"
-             style="display: block; padding-left: 0px;">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close"><span aria-hidden="true" (click)="close()">×</span><span
-                                class="sr-only">Close</span></button>
-                        <h4 class="modal-title"><span>Tôi muốn tìm player với điều kiện</span></h4></div>
-                    <div class="content modal-body">
-                        <table class="table">
-                            <tbody>
+</div>
+<div *ngIf="isDropdown">
+    <div class="fade modal-backdrop in"></div>
+    <div tabindex="-1" class="fade search-index-modal in modal" style="display: block; padding-left: 0px;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"><span aria-hidden="true" (click)="close()">×</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title"><span>Tôi muốn tìm player với điều kiện</span></h4>
+                </div>
+                <div class="content modal-body">
+                    <table class="table">
+                        <tbody>
                             <tr>
                                 <td class="text-left"><span>Giới tính là</span></td>
                                 <td class="text-right">
-                                    <div data-toggle="buttons" class="btn-group"><label type="button"
-                                                                                        class="btn btn-default"><span><i
-                                                    class="fa fa-mars" aria-hidden="true"></i>&nbsp;<span>Nam</span></span></label><label
-                                            type="button" class="btn btn-default"><span><i class="fa fa-user-secret"
-                                                                                           aria-hidden="true"></i>&nbsp;<span>Nữ</span></span></label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div data-toggle="buttons" class="btn-group"><label type="button"
-                                                                                        class="btn btn-default active"><span><i
-                                                    class="fa fa-times" aria-hidden="true"></i></span></label></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-left"><span>Hiện đang là</span></td>
-                                <td class="text-right">
-                                    <div data-toggle="buttons" class="btn-group"><label type="button"
-                                                                                        class="btn btn-default"><span><i
-                                                    class="fa fa-user-circle"
-                                                    aria-hidden="true"></i> new</span></label><label type="button"
-                                                                                                     class="btn btn-default"><span><i
-                                                    class="fa fa-user-secret"
-                                                    aria-hidden="true"></i> hot</span></label><label type="button"
-                                                                                                     class="btn btn-default"><span><i
-                                                    class="fa fa-user-md" aria-hidden="true"></i> vip</span></label></div>
-                                </td>
-                                <td>
-                                    <div data-toggle="buttons" class="btn-group"><label type="button"
-                                                                                        class="btn btn-default active"><span><i
-                                                    class="fa fa-times" aria-hidden="true"></i></span></label></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-left"><span>Trạng thái là</span></td>
-                                <td class="text-right">
-                                    <div data-toggle="buttons" class="btn-group"><label type="button"
-                                                                                        class="btn btn-default"><input
-                                                name="status" type="radio" autocomplete="off" value="ready"><span><i
-                                                    class="fa fa-spinner"
-                                                    aria-hidden="true"></i>&nbsp;<span><span>Sẵn sàng</span></span></span></label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div data-toggle="buttons" class="btn-group"><label type="button"
-                                                                                        class="btn btn-default active"><span><i
-                                                    class="fa fa-times" aria-hidden="true"></i></span></label></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-left"><span>Đang online</span></td>
-                                <td class="text-right">
-                                    <div data-toggle="buttons" class="btn-group"><label type="button"
-                                                                                        class="btn btn-default"><span><i
-                                                    class="fas fa-globe-africa"></i>&nbsp; Online</span></label></div>
-                                </td>
-                                <td>
-                                    <div data-toggle="buttons" class="btn-group"><label type="button"
-                                                                                        class="btn btn-default active"><span><i
-                                                    class="fa fa-times" aria-hidden="true"></i></span></label></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-left"><span>Khoảng giá thuê</span></td>
-                                <td class="text-right">
-                                    <div id="skipstep" class="noUi-target noUi-ltr noUi-horizontal">
-                                        <div class="noUi-base">
-                                            <div class="noUi-connects">
-                                                <div class="noUi-connect"
-                                                     style="transform: translate(0%, 0px) scale(1, 1);"></div>
+                                    <div _ngcontent-cow-c64=""  class="d-flex ">
+                                        <label _ngcontent-cow-c64="" style="border-radius: 6px;"
+                                            class="gender--radio">
+                                            <div class=" btn-outline-danger">
+                                                <input (change)="search($event)" _ngcontent-cow-c64="" name="gender" style="margin-left: 5px;"
+                                                type="radio" value="male"><i class="fa fa-mars" ></i>Nam<span
+                                                _ngcontent-cow-c64=""></span>
+
                                             </div>
-                                            <div class="noUi-origin" style="transform: translate(-100%, 0px); z-index: 5;">
-                                                <div class="noUi-handle noUi-handle-lower" data-handle="0" tabindex="0"
-                                                     role="slider" aria-orientation="horizontal" aria-valuemin="5000.0"
-                                                     aria-valuemax="5000000.0" aria-valuenow="5000.0"
-                                                     aria-valuetext="5000.00"></div>
+
+                                            </label>
+                                            <label _ngcontent-cow-c64=""
+                                            class="gender--radio" style="border-radius:5px; margin-left: 10px;">
+                                            <div class=" btn-outline-danger" style="border-radius:2px;">
+                                                <input _ngcontent-cow-c64="" name="gender"
+                                                type="radio" value="female" (change)="search($event)"> <i class="fa fa-user-secret" ></i>Nữ<span
+                                                _ngcontent-cow-c64=""></span>
                                             </div>
-                                            <div class="noUi-origin" style="transform: translate(0%, 0px); z-index: 4;">
-                                                <div class="noUi-handle noUi-handle-upper" data-handle="1" tabindex="0"
-                                                     role="slider" aria-orientation="horizontal" aria-valuemin="5000.0"
-                                                     aria-valuemax="5000000.0" aria-valuenow="5000000.0"
-                                                     aria-valuetext="5000000.00"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mt-10 row">
-                                        <div class="text-left col-xs-4"><span class="example-val" id="skip-value-lower">5,000</span>
-                                        </div>
-                                        <div class="text-center col-xs-4"><span class="example-val"
-                                                                                id="skip-value-lower"><span>đến</span></span>
-                                        </div>
-                                        <div class="col-xs-4"><span class="example-val"
-                                                                    id="skip-value-upper">5,000,000</span></div>
+                                            </label></div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="text-left"><span>Giới Tinh</span></td>
+                                <td class="text-right">
+                                    <div class="mb-4"></div>
+                                    <div class="player-select div-autoComplete-search">
+                                        <input class="filter-modal" name="citySelect" type="text" value="" (change)="search($event)">
+                                        <div class="suggestion-game-hide"></div>
                                     </div>
                                 </td>
-                                <td></td>
+
                             </tr>
+
                             <tr>
                                 <td class="text-left"><span>Sống tại</span></td>
                                 <td class="text-right">
                                     <div class="mb-4"></div>
-                                    <div class="player-select div-autoComplete-search"><input class="filter-modal"
-                                                                                              name="citySelect" type="text"
-                                                                                              value="">
+                                    <div class="player-select div-autoComplete-search">
+                                        <input class="filter-modal" name="citySelect" type="text" value="" (change)="search($event)">
                                         <div class="suggestion-game-hide"></div>
                                     </div>
                                 </td>
-                                <td>
-                                    <div data-toggle="buttons" class="btn-group"><label type="button"
-                                                                                        class="btn btn-default active"><span><i
-                                                    class="fa fa-times" aria-hidden="true"></i></span></label></div>
-                                </td>
+
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td class="text-left"><span>Tên</span>/Url player:</td>
                                 <td class="text-right">
-                                    <div class="player-select div-autoComplete-search"><input class="filter-modal"
-                                                                                              name="nickName" type="text"
-                                                                                              autocomplete="off"
-                                                                                              maxlength="32" value=""></div>
+                                    <div class="player-select div-autoComplete-search">
+                                        <input class="filter-modal" name="nickName" type="text" autocomplete="off"
+                                            maxlength="32" value="">
+                                    </div>
+
                                 </td>
-                                <td>
-                                    <div data-toggle="buttons" class="btn-group"><label type="button"
-                                                                                        class="btn btn-default active"><span><i
-                                                    class="fa fa-times" aria-hidden="true"></i></span></label></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="text-center modal-footer">
-                        <button class="btn btn-danger"><span>Bộ lọc</span></button>
-                    </div>
+
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center modal-footer">
+                    <button class="btn btn-danger" (click)="close()" ><span>Bộ lọc</span></button>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<script>
 
+</script>
