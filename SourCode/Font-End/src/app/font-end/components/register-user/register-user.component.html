@@ -11,23 +11,38 @@
                             <div class="fieldGroup ">
                                 <p class="control-label">Họ và tên</p><input type="text" formControlName="name"
                                     placeholder="" maxlength="5000" autocomplete="false">
+                                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                        <div *ngIf="f.name.errors.required">Cần Nhập Họ và Tên</div>
+                                    </div>
                             </div>
 
                             <div class="fieldGroup ">
                                 <p class="control-label">Cân nặng</p><input type="text" name="weight"
                                     formControlName="weight" placeholder="" maxlength="5000" autocomplete="false">
+                                    <div *ngIf="submitted && f.weight.errors" class="invalid-feedback">
+                                        <div *ngIf="f.weight.errors.required">Cần Nhập Cân Nặng</div>
+                                    </div>
                             </div>
                             <div class="fieldGroup ">
                                 <p class="control-label">Chiều cao</p><input type="text" name="height"
                                     formControlName="height" placeholder="" maxlength="5000" autocomplete="false">
+                                    <div *ngIf="submitted && f.height.errors" class="invalid-feedback">
+                                        <div *ngIf="f.height.errors.required">Cần Nhập Chiều Cao</div>
+                                    </div>
                             </div>
                             <div class="fieldGroup ">
                                 <p class="control-label">Yêu cầu</p><input type="text" name="required" placeholder=""
                                     formControlName="required" maxlength="5000" autocomplete="false">
+                                    <div *ngIf="submitted && f.required.errors" class="invalid-feedback">
+                                        <div *ngIf="f.required.errors.required">Bạn Thiếu Yêu Cầu </div>
+                                    </div>
                             </div>
                             <div class="fieldGroup ">
                                 <p class="control-label">Sở thích</p><input type="text" name="hobby" placeholder=""
                                     formControlName="hobby" maxlength="5000" autocomplete="false">
+                                    <div *ngIf="submitted && f.hobby.errors" class="invalid-feedback">
+                                        <div *ngIf="f.hobby.errors.required">Bạn Thiếu Sở Thích </div>
+                                    </div>
                             </div>
                             <!-- <div class="fieldGroup ">
                                 <p class="control-label">Giá theo giờ</p><input type="number" name="price_per_hour"
@@ -37,11 +52,16 @@
                             <div class="fieldGroup ">
                                 <p class="control-label">Facebook</p><input type="text" name="face_book" placeholder=""
                                     formControlName="face_book" maxlength="5000" autocomplete="false">
+                                    <div *ngIf="submitted && f.face_book.errors" class="invalid-feedback">
+                                        <div *ngIf="f.face_book.errors.required">Còn Thiếu Link Facebook</div>
+                                    </div>
                             </div>
                             <div class="fieldGroup ">
                                 <p class="control-label">Mô tả</p><textarea name="description" id="" cols="30" rows="10"
                                     formControlName="description" style="width:400px"></textarea>
-
+                                    <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                                        <div *ngIf="f.description.errors.required">Bạn Thiếu Mô Tả Về Bản Thân</div>
+                                    </div>
                             </div>
 
 
@@ -66,15 +86,24 @@
                             <div class="fieldGroup ">
                                 <p class="control-label">Ngày sinh</p><input type="date" formControlName="date_of_birth"
                                     name="date_of_birth" placeholder="" maxlength="5000" autocomplete="false">
+                                    <div *ngIf="submitted && f.date_of_birth.errors" class="invalid-feedback">
+                                        <div *ngIf="f.date_of_birth.errors.required">Bạn Cần Đăng Ký Năm Sinh</div>
+                                    </div>
                             </div>
+                            <div class="fieldGroup ">
 
-                            <p class="control-label">Giọng</p><select formControlName="voice" name="voice">
+                            <p class="control-label">Giọng</p>
+                            <select formControlName="voice" name="voice">
                                 <option disabled="">--- Chọn vùng ---</option>
                                 <option value="Miền Bắc">Miền Bắc</option>
                                 <option value="Miền Trung">Miền Trung</option>
                                 <option value="Miền Nam">Miền Nam</option>
                             </select>
-                                                  
+                            <div *ngIf="submitted && f.voice.errors" class="invalid-feedback">
+                                <div *ngIf="f.voice.errors.required">Bạn Thiếu Mô Tả Giọng Nói </div>
+                            </div>
+                        </div>            
+                        <div class="fieldGroup ">
                             <p class="control-label">Quốc gia</p><select name="country" formControlName="country">
                                 <option value="Vietnam">Vietnam</option>
                                 <option value="China">China</option>
@@ -91,7 +120,15 @@
                                 <option value="Singapore">Singapore</option>
                                 <option value="Thailand">Thailand</option>
                                 <option value="United States">United States</option>
+                                <div *ngIf="submitted && f.voice.errors" class="invalid-feedback">
+                                    <div *ngIf="f.voice.errors.required">Bạn Thiếu Mô Tả Giọng Nói </div>
+                                </div>
                             </select>
+                            <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                                <div *ngIf="f.country.errors.required">Cần Chọn Quốc Gia </div>
+                            </div>
+                        </div>  
+                        <div class="fieldGroup ">
                             <p class="control-label">Thành phố</p><select name="city" formControlName="city">
                                 <option value="An Giang">An Giang</option>
                                 <option value="Bà Rịa Vũng Tàu"> Bà Rịa Vũng Tàu</option>
@@ -159,17 +196,28 @@
                                 <option value="Yên Bái"> Yên Bái</option>
                                 <option value="Khác">Khác</option>
                             </select>
+                            <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                                <div *ngIf="f.city.errors.required">Cần Chọn Thành Phố</div>
+                            </div>
+                        
+                        </div>
                             <div class="fieldGroup ">
                                 <!-- <img [src]="imgSrc"  > -->
                                 <p class="control-label">Ảnh đại diện</p>
                                 <input type="file" (change)="onImageChange($event)" formControlName="avatar"
                                     name="avatar" placeholder="" maxlength="5000" autocomplete="false">
+                                    <div *ngIf="submitted && f.avatar.errors" class="invalid-feedback">
+                                        <div *ngIf="f.avatar.errors.required">Thiếu Ảnh Đại Diện</div>
+                                    </div>
                             </div>
 
                             <div class="fieldGroup " style="margin-top: 23px;">
                                 <p class="control-label">Ảnh chi tiết</p>
                                 <input type="file" (change)="onImageSelect($event)" formControlName="image" name="image"
                                     placeholder="" maxlength="5000" autocomplete="false" multiple>
+                                    <div *ngIf="submitted && f.image.errors" class="invalid-feedback">
+                                        <div *ngIf="f.image.errors.required">Thiếu Ảnh Mô Tả Bản Thân</div>
+                                    </div>
                             </div>
                             <div class="fieldGroup " style="margin-top: 30px;">
                                 <p class="control-label">Giới tính</p>
@@ -178,7 +226,9 @@
 
                                         class="gender--radio"><input name="gender" formControlName="gender" type="radio"
                                             value="female">Nữ<span></span></label></div>
-
+                                            <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                                                <div *ngIf="f.gender.errors.required">Cần Chọn Giới Tính</div>
+                                            </div>
 
                                 </div>
                              <div class="list-player">

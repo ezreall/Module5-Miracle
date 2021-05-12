@@ -36,7 +36,7 @@ export class DetailComponent implements OnInit {
     this.providerService.getProviderInfor(this.id).subscribe(
       (res)=> {
         this.profile=res[0];
-        console.log(this.profile);
+        
       },error=>console.log(error)
     )
 

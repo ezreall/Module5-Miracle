@@ -5,3 +5,8 @@ border: solid 1px ;
 border: solid 1px ;
 
 }
+.aside select{
+    margin-bottom:7px;
+}.invalid-feedback{
+    color: rgb(240, 86, 74);
+}
