@@ -37,47 +37,34 @@
             <div class="list-player">
                 <div>
                     <section class="box vip-player">
+                        <h4 class="section-title">Những người mới tham gia </h4>
 
                     </section>
                     <div class="row flex-card">
 
-                        <div class="player-information-card-wrap" *ngFor="let showlist of showlists">
+                        <div class="player-information-card-wrap" *ngFor="let list of showlists">
 
-                            <div class="player-avatar"><img src="{{image_path}}{{showlist.avatar}}" class=""
+                            <div class="player-avatar"><img src="{{image_path}}{{list.avatar}}" class=""
                                     id="avt-img-reponsiver">
-                                <div class="player-price">{{showlist.price_per_hour|number}} đ/h</div>
+                                <div class="player-price">{{list.price_per_hour|number}} đ/h</div>
                                 <div class="hidden-information">
                                     <p><span><br></span>
                                     </p>
-                                    <div class="rent"><a routerLink="/users/detail/{{showlist.id}}"
+                                    <div class="rent"><a routerLink="/users/detail/{{list.id}}"
                                             rel="noopener noreferrer"> <span>Thuê ngay</span></a></div>
                                 </div>
-<!-- <<<<<<< HEAD -->
                             </div>
                             <div class="player-information">
-                                <h3 class="player-name"><a routerLink="/users/detail/{{showlist.id}}">{{showlist.name}}</a>
+                                <h3 class="player-name"><a routerLink="/users/detail/{{list.id}}">{{list.name}}</a>
                                     <div class="player-status ready"></div>
                                 </h3>
-                                <p class="player-title">{{showlist.description}}</p>
-                                <p class="player-title">{{showlist.city}}</p>
+                                <p class="player-title">{{list.description}}</p>
+                                <p class="player-title">{{list.city}}</p>
                                 <div class="category">
                                     <div class="div--flex"><img
                                             src="https://files.playerduo.com/production/static-files/game-category/other.png"
                                             class="" alt="category logo">
                                         <h6></h6>
-<!-- =======
-                                <div class="player-information">
-                                    <h3 class="player-name"><a href="users/detail/{{showlist.provider_id}}">{{showlist.name}}</a>
-                                        <div class="player-status ready"></div>
-                                    </h3>
-                                    <p class="player-title">{{showlist.description}}</p>
-                                    <p class="player-title">{{showlist.city}}</p>
-                                    <div class="category">
-                                        <div class="div--flex"><img
-                                                src="https://files.playerduo.com/production/static-files/game-category/other.png"
-                                                class="" alt="category logo"><h6></h6>
-                                        </div>
->>>>>>> dev -->
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +77,7 @@
 
                 <div>
                     <section class="box vip-player">
-                        <h4 class="section-title"> PLAYER</h4>
+                        <h4 class="section-title"> Những người được thuê nhiều nhất</h4>
 
                     </section>
                     <div class="row flex-card">

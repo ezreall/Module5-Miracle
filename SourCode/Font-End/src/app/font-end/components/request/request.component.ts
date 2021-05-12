@@ -23,7 +23,7 @@ export class RequestComponent implements OnInit {
   id!: number; 
   time!: number;
   price!: number;
-  total_money: number = this.time* this.price;
+  money_amount: number = this.time* this.price;
 
   constructor(private fb: FormBuilder,
     private requestService: RequestService,
@@ -105,7 +105,7 @@ export class RequestComponent implements OnInit {
       (form) => {
         let time = form.time;
         let price = this.profile.price_per_hour!;
-        this.total_money = time * price;
+        this.money_amount = time * price;
       })
 
   }

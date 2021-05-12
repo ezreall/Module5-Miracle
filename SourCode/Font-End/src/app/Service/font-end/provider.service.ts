@@ -20,6 +20,7 @@ export class ProviderService {
 
     getProviderInfor(id:number):Observable<any>
     {
+    
       return this.http.get(this.api_Url+"/providers/"+ id +"/"+"getinfor");
     }
 

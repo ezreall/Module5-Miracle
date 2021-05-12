@@ -12,7 +12,9 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class ShowListComponent implements OnInit {
   showlists: any=[];
+  list:any=[];
   all:Array<string>=[];
+  service:any=[];
   image_path = environment.image_url;
   constructor(
     private showlistService: ShowListService,
@@ -23,10 +25,9 @@ export class ShowListComponent implements OnInit {
   isDropdown: boolean = false;
 
   ngOnInit(): void {
-      
     this.ShowList();
+    this.showService();
     
-
   }
   click() {
     this.isDropdown = true;
@@ -39,10 +40,20 @@ export class ShowListComponent implements OnInit {
     this.showlistService.showlist().subscribe(
       (res)=>{
         this.showlists=res[0];
-        
-        console.log(this.showlists[0].name)
+        console.log(this.showlists)
+        // console.log(this.showlists[0].name)
       })
      
+  }
+
+  RentTime() {
+    this.showlistService.rentTime().subscribe(
+      (res)=> {
+        this.list= res[0];
+        console.log(this.list)
+
+      }
+    )
   }
   search(e:any){
     let city = e.target.value;
@@ -65,5 +76,14 @@ export class ShowListComponent implements OnInit {
       this.ShowList();
     }
    
+  }
+  showService(){
+    
+    this.showlistService.showService().subscribe(
+      (res)=>{
+        this.service=res;
+        console.log(this.service);
+      }
+    )
   }
 }

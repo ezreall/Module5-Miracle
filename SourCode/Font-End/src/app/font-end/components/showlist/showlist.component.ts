@@ -44,15 +44,13 @@ export class ShowlistComponent implements OnInit {
   }
   ShowList() {
     
-    this.showlistService.showlist().subscribe(
+    this.showlistService.getProfile().subscribe(
       (res)=>{
-        this.showlists=res[0];
+        this.showlists=res;
         console.log(this.showlists)
-
-        
-
+        // console.log(this.showlists[0].name)
       })
-  
+     
   }
   
   Detail() {
