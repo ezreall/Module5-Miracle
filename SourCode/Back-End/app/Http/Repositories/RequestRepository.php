@@ -26,11 +26,16 @@ class RequestRepository
 
     function getMyOrder($id)
     {
-        return DB::table('users')
-            ->join('requests','users.id','=','requests.user_id')
+        $pro_id =DB::table('users')
+            ->join('providers','users.id','=','providers.user_id')
+            ->select('providers.id')
+            ->where('users.id','=',$id)
+            ->get();
+        $key=$pro_id[0]->id;
+        return DB::table('requests')
             ->join('request_statuses','requests.status_id','=','request_statuses.id')
             ->select('requests.*','request_statuses.name')
-            ->where('users.id', '=', $id)->get();
+            ->where('requests.provider_id', '=', $key)->get();
     }
 
     function getInstance()
