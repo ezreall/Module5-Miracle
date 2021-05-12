@@ -44,7 +44,7 @@ export class RegisterUserComponent implements OnInit {
       face_book: ['', [Validators.required]],
       voice: ['', [Validators.required]],
       country: ['', [Validators.required]],
-      // price_per_hour: ['', [Validators.required]],
+      age: ['', [Validators.required]],
       city: ['', [Validators.required]],
       gender: ['', [Validators.required]],
       avatar: ['', [Validators.required]],
@@ -67,7 +67,7 @@ export class RegisterUserComponent implements OnInit {
     formData.append('face_book', data.face_book);
     formData.append('country', data.country);
     formData.append('voice', data.voice);
-    // formData.append('price_per_hour', data.price_per_hour);
+    formData.append('age', data.age);
     formData.append('city', data.city);
     formData.append('gender', data.gender);
     formData.append('avatar', this.imgFile, this.imgFile.name);

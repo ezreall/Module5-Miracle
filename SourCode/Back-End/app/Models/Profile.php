@@ -22,6 +22,7 @@ class Profile extends Model
         'required',
         'face_book',
         'voice',
+        'age',
     ];
 
     public function provider(){
