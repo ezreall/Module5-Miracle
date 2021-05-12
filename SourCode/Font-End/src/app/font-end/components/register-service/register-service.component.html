@@ -24,8 +24,10 @@
                                 <div>
                                     <div><label for="achievements">Thành tích <button type="button"><i class="fas fa-plus-circle"></i></button></label></div> -->
 <!-- ======= -->
-                        <div class="fieldGroup name-player" >
-                            <p class="control-label">Giá dịch vụ theo giờ</p><input type="text" name="nickName"   maxlength="5000" autocomplete="false" formControlName="price_per_hour">
+                        <div class="fieldGroup name-player" style="margin-top: 10px;" >
+                            
+                            
+                            <p  class="control-label">Giá dịch vụ theo giờ</p><input type="text" name="nickName"   maxlength="5000" autocomplete="false" formControlName="price_per_hour">
                         </div>
                      
 
@@ -40,7 +42,7 @@
                                                 
                                             </div>
                                             <input style="width: 30px;" type="checkbox" name="service_id"
-                                                (change)="setValueCheckbox($event)" value="{{ item.id }}"
+                                            class="regular-checkbox big-checkbox" (change)="setValueCheckbox($event)" value="{{ item.id }}"
                                                 formControlName="service_id" maxlength="10" autocomplete="false" >
                                             <br> 
                                             {{ item.service }} 

@@ -73,41 +73,41 @@
                             <div class="content-main">
                                 <form [formGroup]="createResgiter" (ngSubmit)="onSubmit()">
                                     <div class="fieldGroup ">
-                                        <input type="text" formControlName="name"  placeholder="Tên đăng nhập" maxlength="5000" autocomplete="false" value=""
+                                        <input type="text" formControlName="name"  placeholder="Họ Và Tên" maxlength="5000" autocomplete="false" value=""
                                         [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
                                         <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-                                            <div *ngIf="f.name.errors.required">First Name is required</div>
+                                            <div *ngIf="f.name.errors.required">Cần Đăng Ký Họ Và Tên</div>
                                         </div>
                                     </div>
                                     <div class="fieldGroup ">
                                         <input type="text" formControlName="email"  placeholder="Email" maxlength="5000" autocomplete="false" value="" 
                                         [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
                                         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                                            <div *ngIf="f.email.errors.required">Email is required</div>
-                                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                            <div *ngIf="f.email.errors.required">Cần Đăng Ký Email</div>
+                                            <div *ngIf="f.email.errors.email">Email Chưa Đúng Định Dạng</div>
                                         </div>
                                     </div>
                                     <div class="fieldGroup  ">
                                         <input type="password" formControlName="password"  placeholder="Mật khẩu" maxlength="5000" autocomplete="false" value="" >
                                         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                                            <div *ngIf="f.password.errors.required">Password is required</div>
-                                            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                                            <div *ngIf="f.password.errors.required">Cần Mật Khẩu </div>
+                                            <div *ngIf="f.password.errors.minlength">Mật Khẩu Có Ít Nhấu 6 Ký Tự</div>
                                         </div>
                                     </div>
                                     <div class="fieldGroup ">
-                                        <input type="password" formControlName="confirmPassword" placeholder="Mật khẩu" maxlength="5000" autocomplete="false" value=""
+                                        <input type="password" formControlName="confirmPassword" placeholder="Nhập Lại Mật khẩu" maxlength="5000" autocomplete="false" value=""
                                         [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
                                         <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-                                            <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
-                                            <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                                            <div *ngIf="f.confirmPassword.errors.required">Xác Nhận Mật Khẩu </div>
+                                            <div *ngIf="f.confirmPassword.errors.mustMatch">Mậu Khẩu Phải Giống Nhau</div>
                                         </div>
                                     </div>
                                     <div class="fieldGroup ">
                                         <input type="text" formControlName="phone"  placeholder="Số Điện Thoại" maxlength="5000" autocomplete="false" value=""
                                         [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
                                         <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
-                                            <div *ngIf="f.phone.errors.required">Phone is required </div>
-                                            <div *ngIf="f.phone.errors.minlength">Phone must be at least 9 characters</div>
+                                            <div *ngIf="f.phone.errors.required">Bạn Thiếu Số Điện Thoại </div>
+                                            <div *ngIf="f.phone.errors.minlength">Số Điện Thoại Phải Có It Nhất 9 Ký Tự</div>
                                         </div>
                                     </div>
                                     <button type="submit" ><span>Tạo tài khoản</span></button>

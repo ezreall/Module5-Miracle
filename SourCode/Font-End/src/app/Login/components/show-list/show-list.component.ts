@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ShowListService } from 'src/app/Service/show-list.service';
-
+import { environment } from 'src/environments/environment.prod';
 @Component({
   selector: 'app-show-list',
   templateUrl: './show-list.component.html',
@@ -10,6 +10,7 @@ import { ShowListService } from 'src/app/Service/show-list.service';
 })
 export class ShowListComponent implements OnInit {
   showlists: any=[];
+  image_path = environment.image_url;
   constructor(
     private showlistService: ShowListService,
     

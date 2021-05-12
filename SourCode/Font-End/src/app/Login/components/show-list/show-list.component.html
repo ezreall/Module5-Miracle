@@ -48,14 +48,14 @@
                             <div class="player-information-card-wrap" *ngFor="let showlist of showlists">
                         
                                 <div class="player-avatar"><img
-                                        src=""
+                                        src="{{image_path}}{{showlist.avatar}}"
                                         class="" alt="PD" id="avt-img-reponsiver">
-                                    <div class="player-price">68,000 đ/h</div>
+                                    <div class="player-price">{{showlist.price_per_hour|number}} đ/h</div>
                                     <div class="hidden-information">
                                         <p><span><br></span>
                                         </p>
-                                        <div class="rent"><a href="https://playerduo.com/punthuy" target="_blank"
-                                                             rel="noopener noreferrer"> <span>Thuê ngay</span></a></div>
+                                        <div class="rent"><a routerLink="detail/{{showlist.id}}"
+                                            rel="noopener noreferrer"> <span>Thuê ngay</span></a></div>
                                     </div>
                                 </div>
                                 <div class="player-information">
