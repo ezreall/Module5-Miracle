@@ -29,6 +29,8 @@ Route::post('search',[ProfileController::class,'search']);
 
 Route::get('profiles',[ProfileController::class,'getAll']);
 Route::get('profile/{id}',[ProfileController::class,'getById']);
+Route::get('providers/{id}/getinfor',[ProviderController::class,'getProviderInfor']);
+
 
 Route::group(['middleware' => 'jwt.auth'], function () {
     Route::get('auth', [UserController::class,'user']);
@@ -37,7 +39,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
         Route::get('/', [ProviderController::class, 'getAll']);
         Route::post('/store',[ProviderController::class,'store']);
         Route::get('/{id}',[ProviderController::class,'findById']);
-        Route::get('/{id}/getinfor',[ProviderController::class,'getProviderInfor']);
+
     });
     Route::prefix('services')->group(function () {
         Route::get('/', [\App\Http\Controllers\ServiceController::class, 'getAllService']);

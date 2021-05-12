@@ -17,6 +17,7 @@ export class RegisterUserComponent implements OnInit {
   listValue: Array<string> = [];
   imgSrc: string = '';
   imgFile: any;
+  imgFiles: any;
   urls: Array<string> = [];
   // masterSelected!: boolean;
 
@@ -111,8 +112,8 @@ export class RegisterUserComponent implements OnInit {
       // console.log(e.target.files)
       for (let i = 0; i < e.target.files.length; i++) {
         // const reader = new FileReader();
-        this.imgFile = e.target.files[i];
-        this.urls.push(this.imgFile);
+        this.imgFiles = e.target.files[i];
+        this.urls.push(this.imgFiles);
         // reader.readAsDataURL(e.target.files[i]);
         // reader.onload = (events: any) => {
           // this.urls.push(events.target.result);
