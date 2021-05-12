@@ -19,6 +19,8 @@ export class RegisterUserComponent implements OnInit {
   imgFile: any;
   imgFiles: any;
   urls: Array<string> = [];
+  submitted = false;
+
   // masterSelected!: boolean;
 
   // @ViewChild('myCheckbox') myCheckbox: any;
@@ -53,8 +55,10 @@ export class RegisterUserComponent implements OnInit {
     });
     // this.showServices();
   }
+  get f() { return this.createForm.controls; }
 
   onSubmit() {
+    this.submitted = true;
     let formData = new FormData();
     let data = this.createForm.value;
     formData.append('name', data.name);
@@ -73,7 +77,7 @@ export class RegisterUserComponent implements OnInit {
     formData.append('avatar', this.imgFile, this.imgFile.name);
     for (let i = 0; i < this.urls.length; i++) {
 
-      formData.append('image[]', this.urls[i],this.imgFile)
+      formData.append('image[]', this.urls[i])
 
     }
     // formData.append('service_id', JSON.stringify(this.listValue));

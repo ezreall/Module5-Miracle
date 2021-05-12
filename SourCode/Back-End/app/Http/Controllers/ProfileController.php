@@ -17,8 +17,8 @@ class ProfileController extends Controller
 
     public function getAll(){
 
-        $profiles=Profile::join('providers','profiles.provider_id','=','providers.id')->skip(0)->take(12)->get();
-        $profile=Profile::join('providers','profiles.provider_id','=','providers.id')->skip(12)->take(4)->get();
+        $profiles=Profile::join('providers','profiles.provider_id','=','providers.id')->orderBy('provider_id', 'DESC')->skip(0)->take(12)->get();
+        $profile=Profile::join('providers','profiles.provider_id','=','providers.id')->orderBy('provider_id', 'DESC')->skip(12)->take(4)->get();
         return response()->json([$profiles,$profile]);
     }
     function getById($id){

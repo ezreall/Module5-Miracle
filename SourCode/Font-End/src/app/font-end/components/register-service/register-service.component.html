@@ -13,7 +13,7 @@
                                     aria-controls="noanim-tab-example-pane-tv" aria-selected="true" href="#">Dịch vụ</a>
                             </li>
                         </ul>
-                        <div class="fieldGroup name-player">
+                        <div class="fieldGroup name-player" style="margin-top: 10px;">
                             <p class="control-label">Giá dịch vụ theo giờ</p><input type="text" name="nickName"
                                 maxlength="5000" autocomplete="false" formControlName="price_per_hour">
                         </div>
@@ -44,7 +44,7 @@
                                             <div class="service " *ngFor="let item of showService" style="display: flex;">
                                                 <div >
                                                     <input style="width: 30px;margin: auto;" type="checkbox" name="service_id"
-                                                    class="box-level"   (change)="setValueCheckbox($event)" value="{{ item.id }}"
+                                                    class="regular-checkbox big-checkbox"  (change)="setValueCheckbox($event)" value="{{ item.id }}"
                                                         formControlName="service_id" maxlength="10" autocomplete="false">
                                                     <br>
                                                     {{ item.service }}
@@ -61,7 +61,7 @@
                                             <div class="service " *ngFor="let items of showServiceTwo" style="display: flex;">
                                                 <div >
                                                     <input style="width: 30px;margin: auto;" type="checkbox" name="service_id"
-                                                    class="box-level"   (change)="setValueCheckbox($event)" value="{{ items.id }}"
+                                                    class="regular-checkbox big-checkbox"  (change)="setValueCheckbox($event)" value="{{ items.id }}"
                                                         formControlName="service_id" maxlength="10" autocomplete="false">
                                                     <br>
                                                     {{ items.service }}
@@ -76,7 +76,7 @@
                                             <div class="service " *ngFor="let items of showServiceThree" style="display: flex;">
                                                 <div >
                                                     <input style="width: 30px;margin: auto;" type="checkbox" name="service_id"
-                                                    class="box-level"   (change)="setValueCheckbox($event)" value="{{ items.id }}"
+                                                    class="regular-checkbox big-checkbox"  (change)="setValueCheckbox($event)" value="{{ items.id }}"
                                                         formControlName="service_id" maxlength="10" autocomplete="false">
                                                     <br>
                                                     {{ items.service }}
