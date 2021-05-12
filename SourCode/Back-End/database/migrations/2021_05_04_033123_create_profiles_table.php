@@ -16,11 +16,10 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('provider_id');
-            $table->string('avatar')->default('1');
-            $table->string('age');
-            $table->string('avatar');
+            $table->string('avatar')->nullable();
             $table->string('name');
             $table->date('date_of_birth');
+            $table->string('age')->nullable();
             $table->string('gender');
             $table->string('city');
             $table->string('country');

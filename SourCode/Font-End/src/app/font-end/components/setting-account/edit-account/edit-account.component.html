@@ -1,50 +1,73 @@
+<div>
+    <div class="aside">
 
-        <div >
-            <div class="aside">
-               
-                <form action="">
+        <form action="">
 
-             
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12 personalinfo">
-                        <h3>Thông tin cá nhân</h3>
-                        <div class="d-flex img-avatar"><img src=""  class="" alt="avatar" sizes="sm">
-                            <div class="cropimg-avatar"><button type="button"><span> Thay Đổi<p>JPG, GIF or PNG, &lt;5 MB. </p></span></button></div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 personalinfo">
+                    <h3>Thông tin cá nhân</h3>
+                    
+
+                    <form class="from-userinfo" [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+                        <div class="d-flex img-avatar"><img class="test" [src]="imgSrc"  sizes="sm">
+                            <div class="cropimg-avatar"><input type="file" (change)="onImageChange($event)"
+                                    formControlName="avatar" name="avatar" placeholder="" maxlength="5000"
+                                    autocomplete="false"></div>
                         </div>
-                        <form class="from-userinfo">
-                            <div class="fieldGroup ">
-                                <p class="control-label">Họ và tên</p><input type="text" name="name" placeholder="" maxlength="5000" autocomplete="false" >
-                            </div>
-                            <div class="fieldGroup ">
-                                <p class="control-label">Biệt danh</p><input type="text" name="nickName" placeholder="" maxlength="5000" autocomplete="false" >
-                            </div>
-                            <div class="fieldGroup ">
-                                <p class="control-label">Số điện thoại</p><input type="text" name="nickName" placeholder="" maxlength="5000" autocomplete="false" >
-                            </div>
-                            <div class="fieldGroup ">
-                                <p class="control-label">Ngày sinh</p><input type="date" formControlName="date_of_birth"
-                                    name="date_of_birth" placeholder="" maxlength="5000" autocomplete="false">
-                            </div>
+                        
+                        <div class="fieldGroup ">
+                            <p class="control-label">Họ và tên</p><input type="text" name="name" formControlName="name"
+                                placeholder="" maxlength="5000" autocomplete="false">
+                                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                    <div *ngIf="f.name.errors.required">Cần Nhập Họ và Tên</div>
+                                </div>
+                        </div>
+                        <div class="fieldGroup ">
+                            <p class="control-label">Biệt danh</p><input type="text" name="nickName"
+                                formControlName="nick_name" placeholder="" maxlength="5000" autocomplete="false">
+                                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                    <div *ngIf="f.name.errors.required">Cần Nhập  Tên</div>
+                                </div>
+                        </div>
+                        <div class="fieldGroup ">
+                            <p class="control-label">Số điện thoại</p><input type="number" name="phone"
+                                formControlName="phone" placeholder="" maxlength="5000" autocomplete="false">
+                                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                    <div *ngIf="f.name.errors.required">Cần Nhập Số Điện Thoại</div>
+                                </div>
+                        </div>
+                        <div class="fieldGroup ">
+                            <p class="control-label">Ngày sinh</p><input type="date" formControlName="date_of_birth"
+                                name="date_of_birth" placeholder="" maxlength="5000" autocomplete="false">
+                                
+                        </div>
 
-                            <p class="control-label">Giới tính</p>
-                            <div class="d-flex"><label class="gender--radio"><input name="gender" type="radio" value="male">Nam<span></span></label><label class="gender--radio"><input name="gender" type="radio" value="female">Nữ<span></span></label></div>
-                            <div class="fieldGroup ">
-                                <!-- <img [src]="imgSrc"  > -->
-                                <p class="control-label">Ảnh đại diện</p>
-                                <input type="file" (change)="onImageChange($event)" formControlName="avatar"
-                                    name="avatar" placeholder="" maxlength="5000" autocomplete="false">
-                            </div>
-                           
-                        </form>
-                    </div>
-                    <!-- <div class="col-md-6 col-sm-12 col-xs-12 personalinfo">
+                        <p class="control-label">Giới tính</p>
+                        <div class="d-flex"><label class="gender--radio"><input formControlName="gender" name="gender"
+                                    type="radio" value="male">Nam<span></span></label><label
+                                class="gender--radio"><input name="gender" formControlName="gender" type="radio"
+                                    value="female">Nữ<span></span></label></div>
+                        <div class="fieldGroup ">
+                            <!-- <img [src]="imgSrc"  > -->
+                            <!-- <img [src]="imgSrc">
+                            <p class="control-label">Ảnh đại diện</p>
+                            <input type="file" (change)="onImageChange($event)" formControlName="avatar" name="avatar"
+                                placeholder="" maxlength="5000" autocomplete="false"> -->
+                               
+                        </div>
+                        <button type="submit"  class="btn-update">Cập nhật</button>
+
+                    </form>
+                </div>
+                <!-- <div class="col-md-6 col-sm-12 col-xs-12 personalinfo">
                         <form class="from-userinfo">
                        
                         <hr>
                     </form>
                     </div> -->
-                </div>
-                <button type="submit" class="btn-update">Cập nhật</button>
-            </form>
             </div>
-        </div>
+        </form>
+    </div>
+</div>
+

@@ -51,7 +51,12 @@ export class RegisterServiceComponent implements OnInit {
     formData.append('service_id', JSON.stringify(this.listValue));
     this.registerService.registerService(formData).subscribe((res)=>{
       data = res;
-            this.toast.success('Chúc mừng bạn đã đăng ký thành công')
+      if(res.messenger == 'error'){
+        this.toast.warning('Bạn không thể đăng ký.Dịch vụ đã đăng ký thành công');
+      }else{
+        this.toast.success('Chúc mừng bạn đã đăng ký thành công')
+
+      }
 
       console.log(res);
     });

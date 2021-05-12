@@ -40,38 +40,58 @@ class ProviderController extends Controller
 //        $provider = DB::table('providers')->where('id','=',$id);
 //    }
 
+//    public function getInforService(){
+//        $id = Auth::id();
+//        $serviceInfo = DB::table('providers')->join('providers_services','id','=','provider.id')
+//                                                    ->join('services','service.id','=','service.id')
+//                                                    ->select('providers.id','providers.price_per_hour','services.service')->where('user.id','=',$id);
+//
+//        dd($serviceInfo);
+//        return response()->json($serviceInfo);
+//
+//    }
+
     function getProviderInfor($id)
     {
-        $providerInfor = DB::table('users')->join('profiles','users.id','=','profiles.user_id')
+        $providerInfor = DB::table('users')
             ->join('providers','users.id','=','providers.user_id')
+            ->join('profiles','providers.id','=','profiles.provider_id')
             ->join('provider_statuses','providers.status_id','=','provider_statuses.id')
-            ->select('users.id','profiles.*','providers.price_per_hour','providers.id')->where('users.id','=',$id)->get();
+            ->select('users.id','profiles.*','providers.price_per_hour','providers.id')->where('providers.id','=',$id)->get();
+
         return response()->json($providerInfor);
     }
     public function store(Request $request): \Illuminate\Http\JsonResponse
     {
-//        return response()->json($request->get('service_id'));
+
+        $eloquent = DB::table('providers')->orderBy('id','desc')->first();
+
+//        $id = Auth::id();
+//            $checkIdProvider = Provider::where('user_id',$checkId)->exists() ;
+            $checkIdProfile = Profile::where('provider_id',$eloquent->id)->exists();
+            if ($checkIdProfile){
+                return response()->json([
+                    'status'=>'error'
+                ]);
+            }
         DB::beginTransaction();
         try {
-//            $provider = new Provider();
-//            $provider->user_id = Auth::id();
-//            $provider->price_per_hour = $request->price_per_hour;
-////            $services = json_decode($request->service_id);
-//            $provider->save();
-//            $provider->services()->sync($services);
-            $eloquent = DB::table('providers')->orderBy('id','desc')->first();
-
 
             $profile = new Profile();
             $profile->fill($request->all());
+            $profile->provider_id = $eloquent->id;
 
-                 $profile->provider_id = $eloquent->id;
+//            if ($profile->provider_id == $checkIdProfile){
+//                    return response()->json('oke');
+//                }
 
-//             }
             $profile->date_join = Auth::user()->created_at;
-            $path = $this->updateFile($request,'avatar','profile');
-            $profile->avatar = $path;
-            $profile->save();
+            if ($request->hasFile('avatar')){
+                $paths = $this->updateFile($request,'avatar','profile');
+                $profile->avatar = $paths;
+                $profile->save();
+            }
+
 
             if ($request->hasFile('image')) {
                 foreach ($request->file('image') as $image) {
@@ -85,7 +105,9 @@ class ProviderController extends Controller
             }
 
             DB::commit();
-            return response()->json($request->all());
+            return response()->json([
+                'status'=>'success'
+            ]);
 
         }catch (\Exception $e){
             DB::rollBack();

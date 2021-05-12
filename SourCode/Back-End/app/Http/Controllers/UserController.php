@@ -73,7 +73,7 @@ class UserController extends Controller
         return response(JWTAuth::getToken(), Response::HTTP_OK);
     }
 
-    public function updateUser(Request $request){
+    public function updateUserInfor(Request $request){
         $id = Auth::id();
         $user = $this->findUserId($id);
         $user->name = $request->name;
@@ -81,7 +81,7 @@ class UserController extends Controller
         $user->gender = $request->gender;
         $user->date_of_birth = $request->date_of_birth;
         $user->phone = $request->phone;
-        $path = $this->updateFile($request,'avatar','profile');
+        $path = $this->updateFile($request,'avatar','user');
         $user->avatar = $path;
         $user->save();
         return response()->json($request->all());

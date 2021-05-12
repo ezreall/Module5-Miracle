@@ -33,6 +33,7 @@ Route::get('profile/{id}',[ProfileController::class,'getById']);
 Route::group(['middleware' => 'jwt.auth'], function () {
     Route::get('auth', [UserController::class,'user']);
     Route::post('logout', [UserController::class,'logout']);
+    Route::post('update', [UserController::class,'updateUserInfor']);
     Route::prefix('providers')->group(function () {
         Route::get('/', [ProviderController::class, 'getAll']);
         Route::post('/store',[ProviderController::class,'store']);

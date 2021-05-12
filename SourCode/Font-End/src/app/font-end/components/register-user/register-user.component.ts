@@ -17,6 +17,7 @@ export class RegisterUserComponent implements OnInit {
   listValue: Array<string> = [];
   imgSrc: string = '';
   imgFile: any;
+  imgFiles: any;
   urls: Array<string> = [];
   // masterSelected!: boolean;
 
@@ -72,7 +73,7 @@ export class RegisterUserComponent implements OnInit {
     formData.append('avatar', this.imgFile, this.imgFile.name);
     for (let i = 0; i < this.urls.length; i++) {
 
-      formData.append('image[]', this.urls[i],this.imgFile)
+      formData.append('image[]', this.urls[i])
 
     }
     // formData.append('service_id', JSON.stringify(this.listValue));
@@ -81,7 +82,13 @@ export class RegisterUserComponent implements OnInit {
 
 
     this.registerService.registerUser(formData).subscribe((res: any) => {
-      this.toast.success('Chúc mừng bạn đã đăng ký thành công')
+      
+      if(res.status == 'error'){
+        this.toast.warning('Bạn không thể đăng ký.Dịch vụ đã đăng ký ');
+      }else{
+        this.toast.success('Chúc mừng bạn đã đăng ký thành công')
+
+      }
       console.log(res)
     });
   }
@@ -111,8 +118,8 @@ export class RegisterUserComponent implements OnInit {
       // console.log(e.target.files)
       for (let i = 0; i < e.target.files.length; i++) {
         // const reader = new FileReader();
-        this.imgFile = e.target.files[i];
-        this.urls.push(this.imgFile);
+        this.imgFiles = e.target.files[i];
+        this.urls.push(this.imgFiles);
         // reader.readAsDataURL(e.target.files[i]);
         // reader.onload = (events: any) => {
           // this.urls.push(events.target.result);

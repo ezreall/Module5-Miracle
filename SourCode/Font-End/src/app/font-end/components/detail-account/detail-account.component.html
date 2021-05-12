@@ -6,19 +6,20 @@
                     <div class="user__action--introduce ">
                         <div class="user__action--intro">
                             <div class="user__action--avatar">
-                                <div class="user--avatar"><img src="https://playerduo.com/api/upload-service/images/118aab27-ab21-4e27-bf57-dd92784628b4__65d140c0-c458-11ea-b386-575fea6f28e2__page_avatar.jpg" class="" alt="avatar" sizes="md">
+                                <div class="user--avatar"><img src="{{image_path}}{{account.avatar}}" class="" alt="avatar" sizes="md">
                                     <div class="hover-change-image"><span><i class="fas fa-camera" aria-hidden="true"></i></span></div>
                                 </div>
                             </div>
                             <div class="user__action--content hidden-over-name">
                                 <h5><a><strong>{{ account.name}}</strong></a></h5>
-                                <h6>(ez)</h6>
+                                <h6>({{ account.nick_name}})</h6>
                             </div>
                             <div class="user__action--mb">
                                 <div class="user__action--media"></div>
                                 <div class="user__action--info">
-                                    <p><span>Năm sinh</span>: 19/10/1999</p>
-                                    <p><span>Sống tại</span>: Hà Nội</p>
+                                    <p><span>Năm sinh</span>: {{ account.date_of_birth }}</p>
+                                    <p><span>Giới Tính</span>: {{ account.gender }}</p>
+                                    <p><span>Số Điện Thoại</span>: {{ account.phone }}</p>
                                 </div>
                             </div>
                         </div> 
@@ -44,17 +45,17 @@
                         <div class="group-search"><span class="search input-group"><input placeholder="Tìm kiếm bài viết" name="name" type="text" class="form-control" value=""><span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span></span>
                         </div>
                     </div>
-                    <div class="publish-post-wrap">
+                    <!-- <div class="publish-post-wrap">
                         <div class="header">
                             <div class="articles-editor-wrap">
                                 <div class="avt avt-sm"><img src="https://playerduo.com/api/upload-service/images/118aab27-ab21-4e27-bf57-dd92784628b4__65d140c0-c458-11ea-b386-575fea6f28e2__page_avatar.jpg" class="avt-img" alt="PD"></div><textarea class="inter-text" name="content"
                                     placeholder="Hãy viết gì đó vào đây..." style="height: 34px;"></textarea>
                             </div>
                         </div>
-                    </div>
-                    <div class="text-center message-error-group">
+                    </div> -->
+                    <!-- <div class="text-center message-error-group">
                         <h5>Không tìm thấy bài viết nào</h5>
-                    </div>
+                    </div> -->
                 </div>
                 
             </div>
