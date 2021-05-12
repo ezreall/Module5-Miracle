@@ -22,7 +22,7 @@ class UserController extends Controller
 //        $user->role_id = 3;
         $user->password = bcrypt($params['password']);
         $user->save();
-//        MailController::sendSignupEmail($user->name,$user->email);
+        MailController::sendSignupEmail($user->name,$user->email);
 
         return response()->json($user, Response::HTTP_OK);
     }
@@ -71,5 +71,32 @@ class UserController extends Controller
     public function refresh()
     {
         return response(JWTAuth::getToken(), Response::HTTP_OK);
+    }
+
+    public function updateUserInfor(Request $request){
+        $id = Auth::id();
+        $user = $this->findUserId($id);
+        $user->name = $request->name;
+        $user->nick_name = $request->nick_name;
+        $user->gender = $request->gender;
+        $user->date_of_birth = $request->date_of_birth;
+        $user->phone = $request->phone;
+        $path = $this->updateFile($request,'avatar','user');
+        $user->avatar = $path;
+        $user->save();
+        return response()->json($request->all());
+
+    }
+
+
+    public function findUserId($id){
+        return User::findOrFail($id);
+    }
+
+
+    function updateFile($request, $key, $nameFolder)
+    {
+        return $request->file($key)->store($nameFolder, 'public');
+
     }
 }

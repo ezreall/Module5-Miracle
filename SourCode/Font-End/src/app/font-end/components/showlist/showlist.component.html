@@ -1,4 +1,6 @@
+
 <div id="root">
+
 
     <div class="wrapper" style="top: 80px;">
         <div class="container container2">
@@ -9,8 +11,9 @@
                         <div class="player-select div-autoComplete-search"><label for="search-input"><i
                                     class="fa fa-search" aria-hidden="true"></i><span class="sr-only">Search
                                     Players</span></label><i class="fa fa-bars setting-search-index"
-                                aria-hidden="true"></i><input class="form-control input-lg" placeholder="Tên game"
-                                autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1" name="gameCategory"
+                                aria-hidden="true"></i>
+                                <input class="form-control input-lg" placeholder="Tên game"
+                                formControlName="name" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1" name="gameCategory"
                                 type="text" value="">
                             <div class="suggestion-game-hide"></div>
                         </div>
@@ -21,14 +24,14 @@
                         <div class="text-right col-md-3"></div>
                         <div class="col-md-4">
                             <div class="player-select div-autoComplete-search">
-                                <input class="form-control" (change)="search($event)" name="gameCategory"
-                                    placeholder="Tên game" type="text" autocomplete="off" value="">
+                                <input class="form-control" (change)="searchName($event)" name="gameCategory"
+                                  placeholder="Tên game" type="text" autocomplete="off" value="">
                            
                             </div>
                         </div>
                         <div class="text-left col-md-3">
                             <button class="btn btn-danger btn-filter" (click)="click()"><span>Bộ lọc</span></button>
-                            <button class="btn btn-success btn-search"><span>Tìm kiếm</span>&nbsp;</button>
+                            <button class="btn btn-success btn-search" ><span>Tìm kiếm</span>&nbsp;</button>
                         </div>
                     </section>
                 </div>
@@ -37,7 +40,8 @@
             <div class="list-player">
                 <div>
                     <section class="box vip-player">
-                        <h4 class="section-title">Những người mới tham gia </h4>
+                        <h4 class="section-title"> Người Mới Đăng Ký</h4>
+                        <button class="refresh-btn" (click)="reload()"><i class="fas fa-sync" aria-hidden="true" style="margin-right: 5px;"></i><span>Làm mới</span></button>
 
                     </section>
                     <div class="row flex-card">
@@ -149,6 +153,7 @@
     </div>
 </div>
 <div *ngIf="isDropdown">
+    <form  [formGroup]="Search"  (ngSubmit)="search()">
     <div class="fade modal-backdrop in"></div>
     <div tabindex="-1" class="fade search-index-modal in modal" style="display: block; padding-left: 0px;">
         <div class="modal-dialog">
@@ -168,7 +173,7 @@
                                         <label _ngcontent-cow-c64="" style="border-radius: 6px;"
                                             class="gender--radio">
                                             <div class=" btn-outline-danger">
-                                                <input (change)="search($event)" _ngcontent-cow-c64="" name="gender" style="margin-left: 5px;"
+                                                <input (change)="Array($event)" formControlName="gender" _ngcontent-cow-c64="" name="gender" style="margin-left: 5px;"
                                                 type="radio" value="male"><i class="fa fa-mars" ></i>Nam<span
                                                 _ngcontent-cow-c64=""></span>
 
@@ -178,15 +183,15 @@
                                             <label _ngcontent-cow-c64=""
                                             class="gender--radio" style="border-radius:5px; margin-left: 10px;">
                                             <div class=" btn-outline-danger" style="border-radius:2px;">
-                                                <input _ngcontent-cow-c64="" name="gender"
-                                                type="radio" value="female" (change)="search($event)"> <i class="fa fa-user-secret" ></i>Nữ<span
+                                                <input _ngcontent-cow-c64=""formControlName="gender" name="gender"
+                                                type="radio" value="female" (change)="Array($event)"> <i class="fa fa-user-secret" ></i>Nữ<span
                                                 _ngcontent-cow-c64=""></span>
                                             </div>
                                             </label></div>
                                 </td>
 
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td class="text-left"><span>Giới Tinh</span></td>
                                 <td class="text-right">
                                     <div class="mb-4"></div>
@@ -196,14 +201,14 @@
                                     </div>
                                 </td>
 
-                            </tr>
+                            </tr> -->
 
                             <tr>
                                 <td class="text-left"><span>Sống tại</span></td>
                                 <td class="text-right">
                                     <div class="mb-4"></div>
                                     <div class="player-select div-autoComplete-search">
-                                        <input class="filter-modal" name="citySelect" type="text" value="" (change)="search($event)">
+                                        <input class="filter-modal" name="citySelect" formControlName="city"  type="text" value="" (change)="Array($event)">
                                         <div class="suggestion-game-hide"></div>
                                     </div>
                                 </td>
@@ -224,11 +229,15 @@
                     </table>
                 </div>
                 <div class="text-center modal-footer">
-                    <button class="btn btn-danger" (click)="close()" ><span>Bộ lọc</span></button>
+                    <button class="btn btn-danger" type='submit'  (click)="search()"><span>Bộ lọc</span></button>
                 </div>
             </div>
+            
         </div>
+
+        
     </div>
+</form>
 </div>
 <script>
 

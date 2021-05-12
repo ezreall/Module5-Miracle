@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/Service/auth.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-detail-account',
@@ -8,6 +9,7 @@ import { AuthService } from 'src/app/Service/auth.service';
 })
 export class DetailAccountComponent implements OnInit {
     account : any=[];
+    image_path = environment.image_url;
   constructor(
     private accountService:AuthService
   ) { }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RegisterServiceService } from 'src/app/Service/register-service.service';
 import { Provider } from './Provider';
@@ -17,13 +17,16 @@ export class ServiceUpdateComponent implements OnInit {
   showService:Array<string> = [];
   provider:Provider={};
 
+
   constructor(private routerAcitve:ActivatedRoute,
               private formBuilder:FormBuilder,
               private registerService: RegisterServiceService,
-              private toats: ToastrService
+              private toats: ToastrService,
+              private route:Router
     ) { }
 
   ngOnInit(): void {
+
     this.id = +this.routerAcitve.snapshot.paramMap.get("id")!;
     console.log(this.id);
 
@@ -41,12 +44,17 @@ export class ServiceUpdateComponent implements OnInit {
     formdata.append('price_per_hour',data.price_per_hour);
     // formdata.append('service_id', JSON.stringify(this.listValue));
     this.registerService.updateService(formdata,this.id).subscribe((res)=>{
+      console.log(res)
+      this.route.navigate(['users/setting/detail']);
+      
+      
       this.toats.success('Bạn đã cập nhập giá dịch vụ thành công');
       console.log(res);
     });
 
 
   }
+
 
   // showServices() {
   //   this.registerService.getService().subscribe((res) => {

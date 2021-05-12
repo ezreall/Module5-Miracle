@@ -26,6 +26,7 @@ Route::post('signup', [UserController::class,'register']);
 Route::post('login', [UserController::class,'login']);
 
 Route::post('search',[ProfileController::class,'search']);
+Route::post('searchName',[ProfileController::class,'searchName']);
 
 Route::get('profiles',[ProfileController::class,'getAll']);
 Route::get('demo',[ProfileController::class,'demo']);
@@ -37,6 +38,7 @@ Route::get('requests/sort',[RequestController::class,'sortRequest']);
 Route::group(['middleware' => 'jwt.auth'], function () {
     Route::get('auth', [UserController::class,'user']);
     Route::post('logout', [UserController::class,'logout']);
+    Route::post('update', [UserController::class,'updateUserInfor']);
 
     Route::prefix('providers')->group(function () {
         Route::get('/', [ProviderController::class, 'getAll']);

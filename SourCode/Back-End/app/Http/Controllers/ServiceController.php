@@ -14,7 +14,7 @@ class ServiceController extends Controller
     public function getMyService(){
         $id = Auth::id();
 
-        $data = DB::table('providers')->join('providers_services','id','=','provider_id')
+        $data = DB::table('providers')->join('providers_services','providers.id','=','provider_id')
                                             ->join('services','service_id','=','services.id')
                                             ->select('providers.id','providers.price_per_hour','providers.user_id','services.service')
                                             ->where('user_id','=',$id)->get();
@@ -28,7 +28,7 @@ class ServiceController extends Controller
         $tests = Service::skip(9)->take(5)->get();
         return response()->json([$services,$test,$tests]);
     }
-    
+
 
 //    function getAllService()
 //    {
@@ -48,6 +48,16 @@ class ServiceController extends Controller
 //    }
 
     public function store(Request $request){
+        $checkId = Auth::id();
+        $data = Provider::where('user_id',$checkId)->exists();
+//        dd($data);
+        if ($data){
+            return response()->json([
+                'messenger'=>'error'
+            ]);
+        }
+
+
         $provider = new Provider();
         $provider->user_id = Auth::id();
         $provider->price_per_hour = $request->price_per_hour;

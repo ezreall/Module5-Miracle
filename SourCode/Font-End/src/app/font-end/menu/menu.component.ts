@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Service/auth.service';
+import { environment } from 'src/environments/environment.prod';
 
 
 @Component({
@@ -10,7 +11,8 @@ import { AuthService } from 'src/app/Service/auth.service';
 })
 export class MenuComponent implements OnInit {
   userName = '';
-  detail:Array<any>= [];
+  detail:any= {};
+  image_path = environment.image_url;
   constructor(
     private router:Router,
     private authService:AuthService,
@@ -18,6 +20,7 @@ export class MenuComponent implements OnInit {
   isDropdownAccount: boolean=false; 
   ngOnInit(): void {
     this.userName = sessionStorage.getItem('user')!;
+    this.pageUser();
   }
   clickAccount(){
     this.isDropdownAccount=true;
@@ -32,5 +35,15 @@ export class MenuComponent implements OnInit {
         }
       })
     }
+  }
+  pageUser() {
+    
+    this.authService.getUser().subscribe(
+      (res)=>{
+        this.detail=res;
+        
+        console.log(res)
+      })
+     
   }
 }

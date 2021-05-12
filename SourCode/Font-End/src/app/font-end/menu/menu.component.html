@@ -59,14 +59,14 @@
                     
                     <li class="item-icon item-avatar dropdown open" (click)="isDropdownAccount =!isDropdownAccount">
                         <a id="header-nav-dropdown" role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                            <img src="https://playerduo.com/api/upload-service/images/118aab27-ab21-4e27-bf57-dd92784628b4__65d140c0-c458-11ea-b386-575fea6f28e2__page_avatar.jpg" class="avt-img" alt="PD"></a>
+                            <img src="{{image_path}}{{detail.avatar}}" class="avt-img" alt="PD"></a>
                         <ul *ngIf="isDropdownAccount" role="menu" class="dropdown-menu" aria-labelledby="header-nav-dropdown">
                             <li role="presentation" class="page-user">
                                 <a routerLink="account">
-                                    <img src="https://playerduo.com/api/upload-service/images/118aab27-ab21-4e27-bf57-dd92784628b4__65d140c0-c458-11ea-b386-575fea6f28e2__page_avatar.jpg" class="avt-img" alt="PD">
+                                    <img src="{{image_path}}{{detail.avatar}}" class="avt-img" alt="PD">
                                     <div class="text-logo">
-                                        <h5>Thắng</h5>
-                                        <p>ID : <span>huythang1019@gmail.com</span></p>
+                                        <h5>{{ detail.name }}</h5>
+                                        <p>ID : <span>{{ detail.email }}</span></p>
                                         <p class="label-user-page"><span>Xem trang cá nhân của bạn</span></p>
                                     </div>
                                 </a>

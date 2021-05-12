@@ -42,4 +42,8 @@ export class RegisterServiceService {
     return this.http.post<any>(environment.url_api + 'providers/store', data, this.authService.getHeader());
   }
 
+  updateProfileUser(data:any):Observable<any>{
+    return this.http.post<any>(environment.url_api + 'update',data,this.authService.getHeader());
+  }
+
 }
