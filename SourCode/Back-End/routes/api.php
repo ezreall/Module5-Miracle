@@ -26,6 +26,7 @@ Route::post('signup', [UserController::class,'register']);
 Route::post('login', [UserController::class,'login']);
 
 Route::post('search',[ProfileController::class,'search']);
+Route::post('searchName',[ProfileController::class,'searchName']);
 
 Route::get('profiles',[ProfileController::class,'getAll']);
 Route::get('profile/{id}',[ProfileController::class,'getById']);

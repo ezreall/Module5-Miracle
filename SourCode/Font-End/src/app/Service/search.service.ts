@@ -14,6 +14,11 @@ export class SearchService {
     private http:HttpClient
   ) { }
 
-  search(All:any): Observable<any> {
-    return this.http.post<any>(this.api_Url + '/search',All);}
+  search(data:any): Observable<any> {
+    return this.http.post<any>(this.api_Url + '/search',data)
+  }
+  searchName(name:any):Observable<any>{
+    return this.http.post<any>(this.api_Url + '/searchName',name)
+
+  }
 }
