@@ -14,7 +14,7 @@ export class EditAccountComponent implements OnInit {
   imgSrc: string = '';
   imgFile: any;
   updateForm!:FormGroup;
-  users:User = {};
+  users:User={};
   isDropdown: boolean = false;
   submitted = false;
 
