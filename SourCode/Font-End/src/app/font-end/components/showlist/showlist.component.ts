@@ -43,7 +43,6 @@ export class ShowlistComponent implements OnInit {
     this.isDropdown = false;
   }
   ShowList() {
-    
     this.showlistService.getProfile().subscribe(
       (res)=>{
         this.showlists=res;

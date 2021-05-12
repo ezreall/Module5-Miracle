@@ -25,12 +25,12 @@ class RequestController
         return response()->json($requests, 201);
     }
 
-    function getMyRequest(): \Illuminate\Http\JsonResponse
+    /*function getMyRequest(): \Illuminate\Http\JsonResponse
     {
         $user_id = auth()->user()['id'];
         $request = $this->requestSer->getMyRequest($user_id);
         return response()->json($request);
-    }
+    }*/
 
     function getMyOrder(): \Illuminate\Http\JsonResponse
     {

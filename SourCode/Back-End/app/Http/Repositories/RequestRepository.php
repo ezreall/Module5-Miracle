@@ -19,16 +19,18 @@ class RequestRepository
         return Request::findOrFail($id);
     }
 
-    function getMyRequest($id): \Illuminate\Support\Collection
-    {
-        return DB::table('requests')->where('user_id','=',$id)->get();
-    }
+//    function getMyRequest($id): \Illuminate\Support\Collection
+//    {
+//        return DB::table('requests')->where('user_id','=',$id)->get();
+//    }
 
     function getMyOrder($id)
     {
-        return DB::table('requests')->join('request_statuses','requests.status_id','=','request_statuses.id')
+        return DB::table('users')
+            ->join('requests','users.id','=','requests.user_id')
+            ->join('request_statuses','requests.status_id','=','request_statuses.id')
             ->select('requests.*','request_statuses.name')
-            ->where('user_id', '=', $id)->get();
+            ->where('users.id', '=', $id)->get();
     }
 
     function getInstance()

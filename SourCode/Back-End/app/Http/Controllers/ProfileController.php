@@ -39,7 +39,7 @@ class ProfileController extends Controller
         $id = auth()->id();
         $list = DB::table('providers')
             ->join('profiles','providers.id','=','profiles.provider_id')
-            ->select('providers.price_per_hour','profiles.*')->where('providers.user_id','<>',2)->get();
+            ->select('providers.price_per_hour','profiles.*')->where('providers.user_id','<>',$id)->get();
         return response()->json($list);
     }
 

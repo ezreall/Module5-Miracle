@@ -21,6 +21,7 @@ export class ShowListService {
   }
 
   getProfile():Observable<any> {
+    console.log(7888)
     return this.http.get(this.api_Url+"list",this.authService.getHeader());
   }
 
