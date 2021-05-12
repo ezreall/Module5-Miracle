@@ -15,7 +15,7 @@ export class ServiceDetailComponent implements OnInit {
   }
 
   getServiceInfo(){
-    this.registerService.getService().subscribe((res)=>{
+    this.registerService.getMyService().subscribe((res)=>{
       this.showService = res;
       console.log(res);
     });

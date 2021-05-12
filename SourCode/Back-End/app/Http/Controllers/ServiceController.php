@@ -22,11 +22,19 @@ class ServiceController extends Controller
         return response()->json($data);
     }
 
-    function getAllService()
-    {
-        $services = Service::all();
-        return response()->json($services);
+    public function getAllService(){
+        $services = Service::skip(0)->take(7)->get();
+        $test = Service::skip(7)->take(2)->get();
+        $tests = Service::skip(9)->take(5)->get();
+        return response()->json([$services,$test,$tests]);
     }
+    
+
+//    function getAllService()
+//    {
+//        $services = Service::all();
+//        return response()->json($services);
+//    }
 
 //    function getProviderInfor($id)
 //    {
@@ -53,10 +61,10 @@ class ServiceController extends Controller
     public function update(Request $request,$id){
         $provider = $this->findById($id);
         $provider->user_id = Auth::id();
-        $provider->name = $request->name;
-        $services = json_decode($request->service_id);
+        $provider->price_per_hour = $request->price_per_hour;
+//        $services = json_decode($request->service_id);
         $provider->save();
-        $provider->services()->sync($services);
+//        $provider->services()->sync($services);
         return response()->json($request->all());
     }
 

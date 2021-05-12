@@ -35,7 +35,7 @@
                 <div>
                     <div class="row">
 
-                        <div class="center-item col-md-12"><span class="name-player-profile hidden-over-name">Ngọc Dung
+                        <div class="center-item col-md-12"><span class="name-player-profile hidden-over-name">{{profile.name}}
                                 &lt;3</span></div>
                     </div>
                     <div class="nav-player-profile row">
@@ -54,55 +54,25 @@
                         <p>Anh thích là được............ <strong>All Game</strong></p>
                         <div class="album-of-player">
                             <div>
-                                <a href="https://playerduo.com/api/upload-service/images/9e549e68-8ca3-4baa-ad33-dabc287301f0__b10ed3f0-8f40-11eb-a003-df7961345dfa__player_album.jpg"
+                                <a href=""
                                     style="display: block;"><img
-                                        src="https://playerduo.com/api/upload-service/thumbs/medium/9e549e68-8ca3-4baa-ad33-dabc287301f0__b10ed3f0-8f40-11eb-a003-df7961345dfa__player_album.jpg"
+                                        src="{{image_path}}{{profile.avatar}}"
                                         class=""
-                                        alt="https://playerduo.com/api/upload-service/thumbs/medium/9e549e68-8ca3-4baa-ad33-dabc287301f0__b10ed3f0-8f40-11eb-a003-df7961345dfa__player_album.jpg"></a>
-                                <a href="https://playerduo.com/api/upload-service/images/9e549e68-8ca3-4baa-ad33-dabc287301f0__97d1bed0-760d-11eb-b0fd-1d8153398506__player_album.jpg"
-                                    style="display: block;"><img
-                                        src="https://playerduo.com/api/upload-service/thumbs/medium/9e549e68-8ca3-4baa-ad33-dabc287301f0__97d1bed0-760d-11eb-b0fd-1d8153398506__player_album.jpg"
-                                        class=""
-                                        alt="https://playerduo.com/api/upload-service/thumbs/medium/9e549e68-8ca3-4baa-ad33-dabc287301f0__97d1bed0-760d-11eb-b0fd-1d8153398506__player_album.jpg"></a>
-                                <a href="https://playerduo.com/api/upload-service/images/9e549e68-8ca3-4baa-ad33-dabc287301f0__91009900-760d-11eb-b33d-fdadf423b3d4__player_album.jpg"
-                                    style="display: block;"><img
-                                        src="https://playerduo.com/api/upload-service/thumbs/medium/9e549e68-8ca3-4baa-ad33-dabc287301f0__91009900-760d-11eb-b33d-fdadf423b3d4__player_album.jpg"
-                                        class=""
-                                        alt="https://playerduo.com/api/upload-service/thumbs/medium/9e549e68-8ca3-4baa-ad33-dabc287301f0__91009900-760d-11eb-b33d-fdadf423b3d4__player_album.jpg"></a>
-                                <a href="https://playerduo.com/api/upload-service/images/9e549e68-8ca3-4baa-ad33-dabc287301f0__896ce680-760d-11eb-9886-a967fa33695f__player_album.jpg"
-                                    style="display: block;"><img
-                                        src="https://playerduo.com/api/upload-service/thumbs/medium/9e549e68-8ca3-4baa-ad33-dabc287301f0__896ce680-760d-11eb-9886-a967fa33695f__player_album.jpg"
-                                        class=""
-                                        alt="https://playerduo.com/api/upload-service/thumbs/medium/9e549e68-8ca3-4baa-ad33-dabc287301f0__896ce680-760d-11eb-9886-a967fa33695f__player_album.jpg"></a>
-                                <a href="https://playerduo.com/api/upload-service/images/9e549e68-8ca3-4baa-ad33-dabc287301f0__b5e7b650-726f-11eb-a936-4beaef1c6a38__player_album.jpg"
-                                    style="display: block;"><img
-                                        src="https://playerduo.com/api/upload-service/thumbs/medium/9e549e68-8ca3-4baa-ad33-dabc287301f0__b5e7b650-726f-11eb-a936-4beaef1c6a38__player_album.jpg"
-                                        class=""
-                                        alt="https://playerduo.com/api/upload-service/thumbs/medium/9e549e68-8ca3-4baa-ad33-dabc287301f0__b5e7b650-726f-11eb-a936-4beaef1c6a38__player_album.jpg"></a>
+                                        alt=""></a>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
-                        <p>{{profile.city}}</p>
-                        <p>{{profile.country}}</p>
-                        <p>{{profile.gender}}</p>
-                        <p>{{profile.hobby}}</p>
-                        <p>{{profile.required}}</p>
-                        <p>✨Em chơi được All Game game gì cũng được Anh thích là được 😋</p>
+                        <p>✨Hiện tại đang sống ở {{profile.city}} 😋</p>
                         <p></p>
-                        <p>✨Em là gái Bắc nhưng nếu anh thích em có thể nói tiếng Sài Gòn Anh thích là được 😝</p>
+                        <p>✨Đến từ {{profile.country}} 😝</p>
                         <p></p>
-                        <p>✨Nói chuyện tâm sự thoải mái 😍 Call Video X10 vì em không có nhu cầu </p>
+                        <p>✨ 😍 </p>
                         <p></p>
-                        <p>✨Chuyên Rừng nhưng em có thể đi all lane chỉ cần Anh thích là được !!!</p>
+                        <p>✨Sở thích của mình là {{profile.hobby}}</p>
                         <p></p>
-                        <p>✨Vui tính, lầy lội hay chửi bậy user đừng chửi e nhớ 🤪</p>
+                        <p>✨Mình có một yêu cầu nho nhỏ đó là phải {{profile.required}} 🤪</p>
                         <p></p>
-                        <p>✨Trả lời nhanh nên đừng huỷ tội bé nếu không thấy em rep call ngay 0373488332 hoặc ib FB</p>
-                        <p></p>
-                        <p>✨Hứa ngoan nèeee anh thích là được</p>
-                        <p></p>
-                        <p>✨Rent 1 lần chắc chắn k quên bé đâu ư ư 🤣 ánh sẽ thích suốt đờiiii</p>
-                        <p>✨ Không tiếp mấy thành phần trẻ trâu bệnh hoạn kinh tởm nhé </p>
+                    
                         <p>Link FB: <a target="_blank"
                                 href="https://www.facebook.com/profile.php?id=100031104101308">https://www.facebook.com/profile.php?id=100031104101308</a>
                         </p>

@@ -21,6 +21,7 @@ class CreateProfilesTable extends Migration
             $table->string('avatar');
             $table->string('name');
             $table->date('date_of_birth');
+            $table->string('age')->nullable();
             $table->string('gender');
             $table->string('city');
             $table->string('country');
