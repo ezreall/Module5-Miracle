@@ -64,60 +64,14 @@
                                 </h3>
                                 <p class="player-title">{{list.description}}</p>
                                 <p class="player-title">{{list.city}}</p>
-                                <div class="category">
-                                    <div class="div--flex"><img
-                                            src="https://files.playerduo.com/production/static-files/game-category/other.png"
-                                            class="" alt="category logo">
-                                        <h6></h6>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
 
             </div>
-            <div class="list-player">
-
-                <div>
-                    <section class="box vip-player">
-                        <h4 class="section-title"> Những người được thuê nhiều nhất</h4>
-
-                    </section>
-                    <div class="row flex-card">
-
-                        <div class="player-information-card-wrap" *ngFor="let one of showlist">
-
-                            <div class="player-avatar"><img src="{{image_path}}{{one.avatar}}" class=""
-                                    id="avt-img-reponsiver">
-                                <div class="player-price">{{showlist.price_per_hour|number}} đ/h</div>
-                                <div class="hidden-information">
-                                    <p><span><br></span>
-                                    </p>
-                                    <div class="rent"><a routerLink="/users/detail/{{showlist.id}}"
-                                        rel="noopener noreferrer"> <span>Thuê ngay</span></a></div>
-                                </div>
-                            </div>
-                            <div class="player-information">
-                                <h3 class="player-name"><a routerLink="/users/detail/{{showlist.id}}">{{one.name}}</a>
-                                    <div class="player-status ready"></div>
-                                </h3>
-                                <p class="player-title">{{one.description}}</p>
-                                <p class="player-title">{{one.city}}</p>
-                                <div class="category">
-                                    <div class="div--flex"><img
-                                            src="https://files.playerduo.com/production/static-files/game-category/other.png"
-                                            class="" alt="category logo">
-                                        <h6></h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
+            
         </div>
     </div>
     <div id="button-scroll-top" style="display: none;">

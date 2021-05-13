@@ -38,7 +38,7 @@ export class DetailComponent implements OnInit {
       (res)=> {
         console.log(res)
         this.profile=res[0];
-        
+        console.log(res)
       },error=>console.log(error)
     )
 

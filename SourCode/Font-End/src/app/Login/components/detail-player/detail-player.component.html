@@ -13,7 +13,7 @@
                     <p class="ready">Đang sẵn sàng</p>
                 </div>
 
-                <div class="member-since"><span>Ngày tham gia:</span><span><span>30/8/2019</span></span>
+                <div class="member-since"><span>Ngày Sinh:</span><span><span>{{profile.date_of_birth}}</span></span>
                 </div>
 
             </div>
@@ -21,10 +21,7 @@
                 <div class="right-player-profile">
                     <p class="price-player-profile">{{profile.price_per_hour}} đ/h </p>
 
-                    <div class="rateting-style"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i>&nbsp;<span>181 <span>Đánh giá</span></span>
-                    </div>
+                  
                     <div class="text-center" >
                         <a  routerLink="/login"> <button class="btn-my-style red">Thuê</button></a>
                   
@@ -40,10 +37,7 @@
                     </div>
                     <div class="nav-player-profile row">
 
-                        <div class="col-md-3 col-xs-6">
-                            <div class="item-nav-name"><span>Đã được thuê</span></div>
-                            <div class="item-nav-value">1909&nbsp;<span>giờ</span></div>
-                        </div>
+                       
 
                     </div>
                     <hr>
@@ -51,7 +45,6 @@
                         <div class="col-md-12"><span>Thông tin</span></div>
                     </div>
                     <div class="content-player-profile">
-                        <p>Anh thích là được............ <strong>All Game</strong></p>
                         <div class="album-of-player">
                             <div>
                                 <a href=""
@@ -74,7 +67,7 @@
                         <p></p>
                     
                         <p>Link FB: <a target="_blank"
-                                href="https://www.facebook.com/profile.php?id=100031104101308">https://www.facebook.com/profile.php?id=100031104101308</a>
+                                href="{{ profile.face_book }}">{{ profile.face_book }}</a>
                         </p>
                         <p></p>
                     </div>
