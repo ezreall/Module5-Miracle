@@ -59,7 +59,7 @@
                     
                     <li class="item-icon item-avatar dropdown open" (click)="isDropdownAccount =!isDropdownAccount">
                         <a id="header-nav-dropdown" role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                            <img src="{{image_path}}{{detail.avatar}}" class="avt-img" alt="PD"></a>
+                            <img src="{{image_path}}{{detail.avatar}}" style="height: 40px;" class="avt-img" alt="PD"></a>
                         <ul *ngIf="isDropdownAccount" role="menu" class="dropdown-menu" aria-labelledby="header-nav-dropdown">
                             <li role="presentation" class="page-user">
                                 <a routerLink="account">
