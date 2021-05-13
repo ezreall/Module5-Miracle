@@ -56,11 +56,12 @@ export class ShowlistComponent implements OnInit {
       (res)=>{
         this.showlists=res;
         console.log(this.showlists)
-        // console.log(this.showlists[0].name)
+        
       })
      
-// >>>>>>> miracle
+
   }
+  
   Detail() {
     this.id = +this.routerActive.snapshot.paramMap.get("id")!;
     console.log(this.id)

@@ -23,16 +23,14 @@ class ProfileController extends Controller
         return response()->json([$profiles, $profile]);
     }
 
-//    function getById($id)
-//    {
-//        $profile = Profile::findOrFail($id);
-//        return response()->json($profile);
-//        $profiles=Profile::join('providers','profiles.provider_id','=','providers.id')
-//            ->orderBy('provider_id', 'DESC')->skip(0)->take(12)->get();
-//        $profile=Profile::join('providers','profiles.provider_id','=','providers.id')
-//            ->orderBy('provider_id', 'DESC')->skip(12)->take(4)->get();
-//        return response()->json([$profiles,$profile]);
-//    }
+    function getList() {
+        $id = auth()->id();
+        $list = DB::table('providers')
+            ->join('profiles','providers.id','=','profiles.provider_id')
+            ->select('providers.price_per_hour','profiles.*')->where('providers.user_id','<>',$id)->get();
+        return response()->json($list);
+    }
+
 
     function  demo(){
         $profiles=Provider::
@@ -44,13 +42,7 @@ class ProfileController extends Controller
 
     }
 
-    function getList() {
-        $id = auth()->id();
-        $list = DB::table('providers')
-            ->join('profiles','providers.id','=','profiles.provider_id')
-            ->select('providers.price_per_hour','profiles.*')->where('providers.user_id','<>',$id)->get();
-        return response()->json($list);
-    }
+
 
     function getById($id){
          $profile=Profile::findOrFail($id);

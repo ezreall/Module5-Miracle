@@ -33,8 +33,10 @@ export class DetailComponent implements OnInit {
   
   getDetail() {
     this.id = +this.routerActive.snapshot.paramMap.get("id")!;
+    console.log(this.id)
     this.providerService.getProviderInfor(this.id).subscribe(
       (res)=> {
+        console.log(res)
         this.profile=res[0];
         
       },error=>console.log(error)
